@@ -108,7 +108,7 @@ Then \framebox{$\displaystyle y =\frac{1}{\mu (x)} \int \mu (x)f(x)\;dx$.}   $\l
 
 \begin{figure}[h]
     \centering
-\begin{tikzpicture}[scale=1.5,declare function={f(\x,\y)=(2/(\x))*\y+\x;}]
+\begin{tikzpicture}[scale=1.5, declare function={f(\x,\y)=(2/(\x))*\y+\x;}]
 \def\xmax{4} \def\xmin{0}
 \def\ymax{4} \def\ymin{-1}
 \def\nx{15}
@@ -116,15 +116,17 @@ Then \framebox{$\displaystyle y =\frac{1}{\mu (x)} \int \mu (x)f(x)\;dx$.}   $\l
 
 \pgfmathsetmacro{\hx}{(\xmax-\xmin)/\nx}
 \pgfmathsetmacro{\hy}{(\ymax-\ymin)/\ny}
-\foreach \i in {0,...,\nx}
+
+% Fix 1: Start i at 1 to avoid x=0 in the slope field
+\foreach \i in {1,...,\nx}
 \foreach \j in {0,...,\ny}{
-\pgfmathsetmacro{\yprime}{f({\xmin+\i*\hx},{\ymin+\j*\hy})}
-\draw[blue,shift={({\xmin+\i*\hx},{\ymin+\j*\hy})}] 
-(0,0)--($(0,0)!2mm!(.1,.1*\yprime)$);
+    \pgfmathsetmacro{\yprime}{f({\xmin+\i*\hx},{\ymin+\j*\hy})}
+    \draw[blue, shift={({\xmin+\i*\hx},{\ymin+\j*\hy})}] 
+    (0,0)--($(0,0)!2mm!(.1,.1*\yprime)$);
 }
 
-% a solution y=(x^2)ln(x)
-\draw[magenta,thick] plot[domain=\xmin:2.3] (\x,{((\x)^2)*ln(\x)});
+% Fix 2: Start domain at 0.1 to avoid ln(0)
+\draw[magenta, thick, samples=100] plot[domain=0.1:2.3] (\x,{(\x^2)*ln(\x)});
 
 \draw[->] (\xmin-0.5,0)--(\xmax+.5,0) node[below right] {$x$};
 \draw[->] (0,\ymin-.5)--(0,\ymax+.5) node[above left] {$y$};
