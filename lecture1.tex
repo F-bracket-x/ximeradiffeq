@@ -1,6 +1,5 @@
 \documentclass{ximera}
 
-\usepackage{accsupp} % For screen reader alt-text
 
 
 % MATH -----------------------------------------------------------
@@ -22,7 +21,6 @@
 
 \begin{figure}[h]
     \centering
-    \BeginAccSupp{ActualText={A direction field (aka a slope field)}}
 \begin{tikzpicture}[scale=1.4,
     declare function = {f(\x) = \x*\x/\y;} % Define which function we're using
     ]
@@ -56,7 +54,6 @@
         ] (x,y,0);
     \end{axis}
 \end{tikzpicture}
-    \EndAccSupp{}
     \caption{A direction field (aka a slope field)}
 \end{figure}
 
