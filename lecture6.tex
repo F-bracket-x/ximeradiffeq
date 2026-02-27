@@ -1,0 +1,89 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Transformations Part II: Nonlinear Homogeneous and Others}
+    
+    \maketitle
+ Sometimes a substitution is useful to transform a first order non-linear, non-separable differential equation into one we know how to solve.\\
+
+ The second kind we will look at are called $``$nonlinear homogeneous equations" and they can be transformed into separable equations.   Note: Don't confuse these equations with $``$linear homogeneous" equations.\\
+
+ A first order de is called \underline{nonlinear homogeneous}  if it is nonlinear and can be written in the form $y'=q(y/x)$ where $q(u)$ is some function (of a single variable).\\ \\
+
+ To transform $y'=q(y/x)$ into a separable equation, use the substitution $u=\frac{y}{x}$, which is equivalent to $y=ux$.  Then: \\
+
+ $y'=u'\,x+u\rightarrow $   $u'\,x+u=q(u)\rightarrow$  $x\,u'=q(u)-u$ which is separable!\\
+
+ Note: I'd encourage not memorizing this, but rather going through the steps.\\ \\
+
+ Example: Let's solve $\displaystyle y'=\frac{y-x\sec{\left(\frac{y}{x}\right)}}{x}$.\\
+
+
+ It's nonlinear homogeneous as it can be rewritten as  $\displaystyle y'=\frac{y}{x}-\sec{\left(\frac{y}{x}\right)}$.\\
+
+ Applying the substitution $u=\frac{y}{x}$, or equivalently $y=ux$, yields $u'\,x+u=u-\sec{(u)}$.\\
+
+ We get $u'\,x=-\sec{(u)}$ after subtracting $u$ from both sides.\\
+
+ Separating variables gives $-\cos{(u)}u'=\frac{1}{x}$.  Integrating both sides gives $-\sin{(u)}=\ln{|x|}+C$.
+
+ Hence $u=\sin^{-1}{\left(C-\ln{|x|}\right)}$ (with $``-C$" relabeled as $C$).\\
+
+ Now we use that $u=\frac{y}{x}$ to get $y=x\sin^{-1}{\left(C-\ln{|x|}\right)}$.\\
+
+ Now consider the IVP $\displaystyle y'=\frac{y-x\sec{\left(\frac{y}{x}\right)}}{x}$, $y(e)=0$.  By imposing the initial condition, we get $C=1$,  so $y=x\sin^{-1}{\left(1-\ln{(x)}\right)}$.   Note: This works on any open interval contained in $(0,e^2)$.\\
+
+\newpage
+
+ Sometimes a little manipulation is needed.\\
+
+ Consider the de $(x+y)y\,'=2x$.  It is nonlinear and nonseparable.  It is not Bernoulli.  \\
+
+ But it is nonlinear homogeneous:  $\displaystyle y\,'=\frac{2x}{x+y}=\frac{2}{1+\frac{y}{x}}$.\\
+
+ So with $u=\frac{y}{x}$, equivalently $y=ux$, we get $\displaystyle u'\,x +u=\frac{2}{1+u}$.\\
+
+ Then $\displaystyle xu'=\frac{2}{1+u}-u=\frac{2-u(1+u)}{1+u}=\frac{2-u-u^2}{1+u}=-\frac{u^2+u-2}{1+u}=-\frac{(u-1)(u+2)}{u+1}$.\\
+
+Separating variables, $\displaystyle \frac{u+1}{(u-1)(u+2)}u'=-\frac{1}{x}$.   Integrating both sides, using partial fractions, \\
+
+ $\displaystyle \int \frac{u+1}{(u-1)(u+2)}\;du=-\ln{|x|}+C\rightarrow $  \hspace{1cm}  $\displaystyle \int \frac{2/3}{u-1}+\frac{1/3}{u+2}\;du=-\ln{|x|}+C\rightarrow $\\
+
+ $\displaystyle \int \frac{2}{u-1}+\frac{1}{u+2}\;du=-3\ln{|x|}+C\rightarrow $  \hspace{1cm} $\displaystyle 2\ln{|u-1|}+\ln{|u+2|}=-3\ln{|x|}+C\rightarrow $\\
+
+ $\displaystyle \ln{\left[(u-1)^2|u+2|\right]}=\ln{|x^{-3}|}+C\rightarrow $ \hspace{0.5cm}
+ $(u-1)^2(u+2)=Cx^{-3}$.\\
+
+ Since $u=\frac{y}{x}$ we get $\displaystyle \left(\frac{y}{x}-1\right)^2\left(\frac{y}{x}+2\right)=Cx^{-3}$, or equivalently $\displaystyle \left(y-x\right)^2\left(y+2x\right)=C$, which we leave as an implicit general solution (as it would be hard to solve for $y$ here).\\ \\ \\
+
+ Sometimes we create a substitution to suit. For example, let's attempt to solve $y'=\frac{1}{y-x}$.\\
+
+ Why not try $u=y-x$?  If we do we get that $u'=y'-1$ or equivalently $y'=u'+1$. \\
+
+ Then $\displaystyle u'+1=\frac{1}{u}$.   So $\displaystyle u'=\frac{1-u}{u}$, which is a separable!  By separating variables,  \\
+ 
+ $\displaystyle \frac{u}{1-u}u'=1$.  Then integrating both sides, using that $\frac{u}{1-u}=-1+\frac{1}{1-u}$, gives\\
+  
+  $-u-\ln{|1-u|}=x+C$.  So $\displaystyle -y+x-\ln{\left|1-y+x\right|}=x+C$, or equivalently \\
+  
+   $y+\ln{|1-y+x|}=C$, which we leave implicit (as it's impossible to solve for $y$ here).
+
+
+
+\end{document}
