@@ -1,0 +1,69 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Existence and Uniqueness}
+    
+    \maketitle
+
+\textbf{Existence and Uniqueness Theorem}: If $f(x,y)$ is cont. on the \emph{open rectangle}\\ $R=\{(x,y)|a<x<b,c<y<d\}$ containing $(x_{0},y_{0})$ then the IVP $y'=f(x,y)$, $y(x_{0})=y_{0}$ has a solution on some open interval in $(a,b)$ containing $x_{0}$.  If, in addition, the partial derivative $f_{y}$ is also continuous on $R$ then the IVP has a unique solution on some open interval containing $x_0$ contained in an open interval $(a,b)$ on which it has a solution.\\
+
+(We skip the proof.)\\
+
+
+  Consider the IVP $y'=2x\sqrt[3]{y}$, $y(x_{0})=y_{0}$.  For what points $(x_{0},y_{0})$ does this IVP have a solution (on some open interval containing $x_{0}$)?  For what points $(x_{0},y_{0})$ does this IVP have a unique solution (on some open interval containing $x_{0}$)?\\
+
+ Since $f(x,y)=2x\sqrt[3]{y}$ is continuous for all points in the $xy$-plane, there exists a solution to the IVP (on some open interval containing $x_{0}$) for any point $(x_{0},y_{0})$.\\
+
+
+ Notice that $f_{y}(x,y)=\dfrac{2x}{3\sqrt[3]{y^{2}}}$,  which is continuous everywhere except where $y=0$.  So for any $(x_{0},y_{0})$ such that $y_{0}\neq 0$ there is an open rectangle $R$ on which both $f$ and $f_{y}$ are continuous,  and hence there is a unique solution to the IVP on some open interval containing $x_{0}$.\\
+
+
+ Consider the IVP $y'=2x\sqrt[3]{y}$, $y(0)=0$.  One solution is $y=0$, as it makes both sides equal to $0$.  We can check that yet another solution $\displaystyle y=\sqrt{\frac{8}{27}}\;x^3$:\\
+
+ $\displaystyle y=\sqrt{\frac{8}{27}} \; x^3 \rightarrow $  $\displaystyle y'=\sqrt{\frac{8}{3}} x^2\rightarrow $  $\displaystyle y'=2x\left(\sqrt{\frac{2}{3}}\;x\right)\rightarrow $  $\displaystyle y'=2x\sqrt[3]{y}$.\\
+
+
+ Hence there are (at least) two solutions to this IVP (both work on $(-\infty,\infty)$):\\ 
+ $y=0$ and $\displaystyle y=\sqrt{\dfrac{8}{27}}x^{3}.$\\
+
+
+ Why didn't the Existence and Uniqueness Theorem guarantee a unique solution on some interval containing $0$?  Because for\\ $f(x,y)=2x\sqrt[3]{y}$, the partial $f_{y}=\dfrac{2x}{3\sqrt[3]{y^{2}}}$ isn't continuous at $y=0$.
+
+
+ Consider the IVP $\displaystyle y'=\frac{y}{x+y+1}$, $y(0)=1$.   Does this IVP have a solution on some open interval?  If so, is such a solution unique?\\
+
+ Since $\displaystyle f(x,y)=\frac{y}{x+y+1}$ is continuous near $(0,1)$  as the point doesn't lie on the line $y=-x-1$,  we know this IVP has a solution.\\
+
+ Using the Quotient Rule, $\displaystyle f_y=\frac{(x+y+1)-y}{(x+y+1)^2}=\frac{x+1}{(x+y+1)^2}$.   Since $f_y$ is continuous near $(0,1)$ (same reason as above)  this IVP has a unique solution.\\
+
+
+ Now consider the slightly modified IVP $\displaystyle y'=\frac{y-1}{x+y+1}$, $y(0)=1$.
+
+ By the Existence and Uniqueness Theorem, this IVP has a unique solution solution on some open interval containing $0$ (as both $f(x,y)=\frac{y-1}{x+y+1}$ and its $y$-partial $f_y$ are continuous near $(0,1)$ as the point doesn't lie on $y=-x-1$).\\  
+
+ By looking at this de we see that $y=1$ is one solution to it.  Well, it must be the ONLY solution.\\ \\  
+
+ Notes: 
+
+-This theorem doesn't provide for a method for finding solutions.\\
+
+-If $f_y$ is not continuous at $(x_0,y_0)$ then we get no conclusion regarding uniqueness, that is, the corresponding IVP may or may not have a unique solution.  It might, but its not guaranteed by this Theorem.\\ \\
+
+
+\end{document}
