@@ -1,0 +1,146 @@
+\documentclass{ximera}
+
+\usepackage{accsupp} % For screen reader alt-text
+
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\begin{document}
+
+    \title{First Order Linear}
+    
+    \maketitle
+
+
+ A 1st order de is \underline{linear} if it can be expressed as \framebox{$y'+p(x)y=f(x)$}  $\leftarrow \,``$standard form"\\  for some functions $p(x),f(x)$; otherwise it's called \underline{non-linear}.\\
+
+ A 1st order linear de that can be written in the form $y'+p(x)y=0$ is called \underline{homogeneous}; otherwise it is called \underline{non-homogeneous}.\\
+
+ Note:  $y=0$ is a solution to any linear homogeneous 1st order de, called the \underline{trivial solution}.\\
+
+For example, $xy'=x^2-y\cos{(x)}$ is linear as it can be written as $\displaystyle y'+\frac{\cos{(x)}}{x}y=x$.  But the equation $xy'=x^2-x\cos{(y)}$ is not linear as we cannot make look it $y'+p(x)y=f(x)$.\\
+
+ Consider the linear homogeneous equation $y'+p(x)y=0$.  \\
+
+ Either $y=0$ or $y\neq 0$.\\
+
+ Let's consider the case where a solution $y$ is non-trivial.  Since $y$ is differentiable, it must be continuous and thus there is an open interval $I$ on which $y$ never has $0$ as an output. \\
+
+Then on $I$,\\
+
+$y'=-p(x)y$ by subtracting $p(x)y$ from both sides.  Dividing both sides by $y$, \\
+
+ $\displaystyle \frac{1}{y} y'=-p(x)$ on $I$.  By integrating both sides\\
+
+ $\ln{|y|}=-P(x)+C$ where $P(x)$ is any antiderivative of $p(x)$ and $C$ is an arbitrary constant.\\
+
+ So $|y|=e^{-P(x)+C}=e^C e^{-P(x)}$.\\
+
+ Then $y=\pm e^C e^{-P(x)}$.  \\
+
+ Relabeling $\pm e^C$ (arbitrary non-zero constant) by $C$,  and even allowing $C=0$, gives all solutions:
+
+ $y=C e^{-P(x)}$\hfill  (Such a family of functions is the $``$general solution" to a de.)\\
+
+ Note: $I$ could be any open interval where $p(x)$ is continuous, even $(-\infty,\infty)$ if $p(x)$ is continuous everywhere, because if $C\neq 0$ then $y$ is never equal to $0$.\\
+\bigskip
+
+ Now consider the linear non-homogeneous equation $y'+p(x)y=f(x)$ where $f(x)\neq 0$.  \\
+
+ We would like to find the general solution to this de.  Observe that $y=0$ is NOT a solution.  \\
+
+\emph{Method of integrating factors}:  Find \textbf{an} \underline{integrating factor} $\mu (x)$, which is a function satisfying... \\
+
+
+ \begin{center} $\mu (x)\, y'+ \mu(x) p(x)\, y=[\mu(x)\, y]'$.\end{center}
+
+\vspace{0.5cm}
+ Equivalently,\\
+
+ \begin{center} $\mu (x)\, y'+ \mu(x) p(x)\, y=\mu(x) \,y'+\mu'(x) \,y$.\end{center}
+
+\vspace{1cm}
+
+ Then $\mu$ must satisfy the linear homogeneous equation $\mu '=p(x)\, \mu$. \\
+
+ Since we only need \textbf{a} solution we pick \framebox{$\mu=e^{P(x)}$} where $P(x)$ is any antiderivative of $p(x)$.  Memorize this!\\
+
+ So why do we call it an integrating factor (I.F.)?   Well:\\
+
+ (A) Multiply both sides of $y'+p(x)y=f(x)$ by $\mu$  to get $\mu (x)\, y'+ \mu(x) p(x)\, y=\mu (x)f(x)$.\\
+
+ (B) Use that $\mu$ is an integrating factor to rewrite this as $[\mu (x)\, y]'=\mu (x)f(x)$.\\
+
+ (C) Integrate both sides to get $\displaystyle \mu(x)\, y=\int \mu (x)f(x)\;dx$.  Divide by $\mu$.\\ \\
+
+Then \framebox{$\displaystyle y =\frac{1}{\mu (x)} \int \mu (x)f(x)\;dx$.}   $\leftarrow$ You could choose to memorize, but I prefer going through the steps!\\ \\
+
+ Notes: \\
+
+ -The possible open intervals for the solutions depend on the functions $p(x)$ and $f(x)$.\\
+
+ -Often we drop the $``$of x" notation and write $\displaystyle y=\frac{1}{\mu } \int \mu f \;dx$.\\ \\
+\bigskip
+
+ Example: Find the general solution to $y'=\frac{2y}{x}+x$ on $(0,\infty)$. \\
+
+  First write it in standard form:    $y'-\frac{2}{x}y=x$.\\ 
+ 
+  So an integrating factor is  $\mu =e^{-2\ln{|x|}}=  e^{\ln{x^{-2}}}=x^{-2}=\frac{1}{x^2}$.\\
+ 
+ Mult. both sides of the de by $\mu$: 
+ 
+ $\frac{1}{x^2}\,y' -\frac{2}{x^3}\, y=\frac{1}{x}$  , so:\\
+
+ $\left(\frac{1}{x^2}\,y \right)'=\frac{1}{x}$.  By integrating  $\frac{1}{x^2}\,y=\ln{(x)}+C$. \\
+
+ Hence $y=x^2\ln{(x)}+Cx^2$ is the general solution on $(0,\infty)$.
+
+
+\begin{figure}[h]
+    \centering
+    \BeginAccSupp{ActualText={A direction field with a solution curve}}
+\begin{tikzpicture}[scale=1.5,declare function={f(\x,\y)=(2/(\x))*\y+\x;}]
+\def\xmax{4} \def\xmin{0}
+\def\ymax{4} \def\ymin{-1}
+\def\nx{15}
+\def\ny{15}
+
+\pgfmathsetmacro{\hx}{(\xmax-\xmin)/\nx}
+\pgfmathsetmacro{\hy}{(\ymax-\ymin)/\ny}
+\foreach \i in {0,...,\nx}
+\foreach \j in {0,...,\ny}{
+\pgfmathsetmacro{\yprime}{f({\xmin+\i*\hx},{\ymin+\j*\hy})}
+\draw[blue,shift={({\xmin+\i*\hx},{\ymin+\j*\hy})}] 
+(0,0)--($(0,0)!2mm!(.1,.1*\yprime)$);
+}
+
+% a solution y=(x^2)ln(x)
+\draw[magenta,thick] plot[domain=\xmin:2.3] (\x,{((\x)^2)*ln(\x)});
+
+\draw[->] (\xmin-0.5,0)--(\xmax+.5,0) node[below right] {$x$};
+\draw[->] (0,\ymin-.5)--(0,\ymax+.5) node[above left] {$y$};
+\draw (current bounding box.north) node[above]
+{Slope field of $\displaystyle y'=\frac{2y}{x}+x$ with a solution curve.};
+\end{tikzpicture}
+    \EndAccSupp{}
+    \caption{A direction field with a solution curve}
+\end{figure}
+
+
+
+
+
+
+
+\end{document}
