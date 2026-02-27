@@ -1,0 +1,84 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exact Equations}
+    
+    \maketitle
+
+
+
+ A convenient way to write a first order de is with differentials:  $M(x,y)\,dx+N(x,y)\,dy=0$.   This is equivalent to $M(x,y)+N(x,y)y'=0$, treating $y$ as an implicit function of $x$.   Any first order de can be expressed this way.   Note: We often drop the $``$of $x,y$" on $M$ and $N$.
+
+ Let $F(x,y)$ be a function.  The level curves of $F(x,y)$, which are given by $F(x,y)=C$ where $C$ is a constant, is an \underline{implicit general solution} of $M\,dx+N\,dy=0$ if every differentiable function $y(x)$ such that $F(x,y(x))=C$ is a solution of $M(x,y) + N(x,y)y'=0$.
+
+
+
+ In particular, if $y(x)$ is a differentiable function satisfying $F(x,y)=C$ then by implicit differentiation,  $F_x +F_y \,y'=0$, which is equivalent to $F_x\, dx+F_y\,dy=0$ (by multiplying by $dx$ on both sides).\\
+
+
+ This motivates the following important definition:  $M\,dx+N\,dy=0$, explicitly as written, is \underline{exact} on an open rectangle $R$ in the $xy$-plane if there exists a function $F(x,y)$ such that $F_{x},F_{y}$ are continuous on $R$, and both $F_{x}=M$ and $F_{y}=N$ for all $(x,y)$ in $R$.\\ 
+
+ \emph{Theorem}:  Let $M(x,y)$ and $N(x,y)$ have continuous partial derivatives on some rectangle $R$ in the $xy$-plane.  $M \,dx+N \,dy=0$ is exact on an open rectangle $R$ in the $xy$-plane if and only if $M_{y}=N_{x}$ (\emph{exactness condition}).
+
+ (We skip the proof -- though one direction is justified by the equality of mixed partials!)\\
+
+
+ To find an implicit solution for an exact equation $M\,dx+N\,dy=0$ use the following procedure:\\
+
+ (1) Integrate $M$ with respect to $x$,  producing a constant of integration that can be a function of $y$, to get $F(x,y)$ up to a function of $y$.\\
+
+ (2) Then take the $y$-partial of the result and set it to $N$ to determine a function of $y$.\\
+
+ (3) An implicit general solution is $F(x,y)=C$.\\
+
+ Note:  One can do the above with the roles of $M$ and $N$ switched and the roles of $x$ and $y$ switched.
+
+\newpage
+
+
+Example:  Consider the de $\displaystyle \left(\frac{1}{xy}+y-2x\right)\, dx+\left(1+x-\frac{\ln{(x)}}{y^2}\right)\,dy=0$ for $x>0$.\\
+
+ Let $\displaystyle M=\frac{1}{xy}+y-2x$ and $\displaystyle N=1+x-\frac{\ln{(x)}}{y^2}$.  Let's determine if this equation (as written) is exact:\\
+
+ $\displaystyle M_y=-\frac{1}{xy^2}+1=N_x$ so it is exact!\\
+
+ Integrating $M$ with respect to $x$ yields 
+ $\displaystyle F(x,y)=\frac{\ln{(x)}}{y}+xy-x^2+g(y)$ where $g(y)$ is some differentiable function of $y$.\\
+
+ Then we set $F_y=N$ to determine $g(y)$.   Well, $\displaystyle F_y=-\frac{\ln{(x)}}{y^2}+x+g'(y)$ and $\displaystyle N=1+x-\frac{\ln{(x)}}{y^2}$ so $g'(y)=1$.  We set $g(y)=y$.\\
+
+ So $\displaystyle F(x,y)=\frac{\ln{(x)}}{y}+xy-x^2+y$.  An implicit general solution is $\displaystyle \frac{\ln{(x)}}{y}+xy-x^2+y=C$.\\
+
+ Now suppose $M(x,y)\,dx+N(x,y)\,dy=0$ is not exact, but can be made exact by multiplying both sides by some function $\mu(x,y)$.  Such a function is called an \underline{integrating factor}.\\
+
+ Of course we have seen this terminology already:   The equation $y'+p(x)y=f(x)$ can be rewritten as $dy+(p(x)y-f(x))\,dx=0$.   Then $\displaystyle \mu=e^{\int p(x)\,dx}$ is an integrating factor since $\mu\, dy+(\mu p(x)y-\mu f(x))\,dx=0$ is exact as $\displaystyle \frac{\partial}{\partial x}\left(\mu\right)=\mu\, p(x)=\frac{\partial}{\partial y}\left(\mu\, p(x)y-\mu f(x)\right)$.\\ \\
+
+ \emph{Theorem}:  Let $M,N,M_{y},N_{x}$ be continuous functions on an open rectangle $R$ in the $xy$-plane.   Assume that $p=(M_{y}-N_{x})/N$ is independent of $y$.  Then $\displaystyle \mu (x)=\pm e^{\int p(x)\,dx}$ is an integrating factor of $M\,dx+N\,dy=0$ on $R$.\\
+
+ \emph{Proof}:  $\displaystyle (\mu M)_{y}=\mu_{y} M+\mu M_{y}=\mu M_{y}=\mu (p N+N_{x})$.  So it follows that \\$\displaystyle (\mu N)_{x}=\mu_{x} N+ \mu N_{x}=\mu p N+\mu N_{x}=(\mu M)_{y}$.  Hence $\mu M\,dx+\mu N\,dy=0$ is exact$\mbox{ }_{\square}$\\
+
+ Example:  $\displaystyle \left(\frac{1}{y}+xy-2x^2\right)\, dx+\left(x+x^2-\frac{x\ln{(x)}}{y^2}\right)\,dy=0$ for $x>0$ is not exact. %%% YOU CAN CHECK!!\\
+
+
+ Set $\displaystyle M=\frac{1}{y}+xy-2x^2$ and $\displaystyle N=x+x^2-\frac{x\ln{(x)}}{y^2}$,\\ 
+ $\displaystyle p=(M_y-N_x)/N=\left(-\frac{1}{y^2}+x-\left[1+2x-\frac{\ln{(x)}}{y^2}-\frac{1}{y^2}\right]\right)/\left(x+x^2-\frac{x\ln{(x)}}{y^2}\right)$     $\displaystyle =-\frac{1}{x}$ is independent of $y$.  So we get an integrating factor of $\displaystyle \mu= e^{\int p(x)\,dx}= \frac{1}{x}$.
+
+ Note: Multiplying through by $\displaystyle \frac{1}{x}$ returns us to our earlier example above!
+
+\end{document}
