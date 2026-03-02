@@ -1,0 +1,102 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{2nd Order Linear Homogeneous Constant Coefficient}
+    
+    \maketitle
+
+ A 2nd order linear equation that can be written in the form $ay''+by'+cy=f$ where $a,b,c$ are constants, $a\neq 0$, and $f$ is a function (of $x$ or $t$) is called \underline{constant coefficient}.  \\
+
+ Consider a 2nd order linear homogeneous constant coefficient equation:  $ay''+by'+cy=0$.\\
+
+ We guess that there might be solutions of the form $y=e^{rt}$; so $y'=re^{rt}$ and $y''=r^2 e^{rt}$.\\
+
+ Then $ay''+by'+cy=0$ becomes $ar^2 e^{rt}+br e^{rt}+c e^{rt}=0$, equivalently $\left(ar^2+br +c\right) e^{rt}=0$.\\
+
+ Since $e^{rt}$ is never $0$, $ar^2+br +c=0$.  This is called the \underline{characteristic equation} and the left side is called the \underline{characteristic polynomial}.  \\
+
+ This equation can (1) have two distinct real solutions $r_1<r_2$, or (2) have just one real solutions $r_1$, or (3) have complex conjugate solutions $\lambda \pm \omega i$ where $\lambda,\omega$ are real numbers, $\omega\neq 0$, and $i=\sqrt{-1}$.\\ \\ \\
+
+\emph{Case 1}:  Assume $ar^2+br +c=0$ has two distinct real solutions $r_1<r_2$. Then $y_1=e^{r_1 t}$ and $y_2=e^{r_2 t}$ form a fundamental set of solutions of $ay''+by'+cy=0$ since $y_2/y_1=e^{(r_2-r_1)t}$ is non-constant (since the derivative of $y_2/y_1$ is $W/y_1^2$ and is non-zero, the Wronskian $W$ isn't $0$).\\ \\
+
+ So the general solution in this case is \framebox{$y=c_1 e^{r_1 t}+c_2e^{r_2 t}$} where $c_1,c_2$ are arbitrary constants.
+
+\newpage
+
+
+
+\emph{Case 2}:  Assume $ar^2+br +c=0$ has just one real solutions $r_1$.  That means that \\$ar^2+br +c=a(r-r_1)^2=a(r^2-2r_1 r+r_1^2)$ which in particular implies that $b=-2ar_1$ and $c=ar_1^2$. \\
+
+
+ So $y_1=e^{r_1 t}$ is a solution of $ay''+by'+cy=0$, but does not form a fundamental set of solutions.  Let's see if we can find another solution of the form $y_2=uy_1=ue^{r_1 t}$ where $u$ is a function of $t$.\\
+
+ $y_2'=u' y_1+uy_1'$ and $y''=u''y_1+u'y_1'+u'y_1'+uy_1''=u''y_1+2u'y_1'+uy_1''$.\\
+
+Then
+
+ \begin{eqnarray*}
+  ay''+by'+cy=0 &\rightarrow & a(u''y_1+2u'y_1'+uy_1'')+b(u' y_1+uy_1')+c(uy_1)=0 \\
+   &\rightarrow & au''y_1+2au'y_1'+auy_1''+bu' y_1+buy_1'+cuy_1=0 \\
+   &\rightarrow & au''y_1+2au'y_1'+bu' y_1+u\left(ay_1''+by_1'+cy_1\right)=0 \\
+   &\rightarrow & au''y_1+2au'y_1'+bu' y_1=0 \\
+   &\rightarrow & au''e^{r_1 t}+2au' r_1e^{r_1 t}+bu' e^{r_1 t}=0 \\
+   &\rightarrow & au''+u'(2ar_1+b) =0 \\
+   &\rightarrow & au''=0\mbox{ since }b=-2ar_1.\\
+   &\rightarrow & u=m t+k\mbox{ by integrating both sides twice}\\
+ \end{eqnarray*}
+
+ Since we only need one solution that is linearly independent with $y_1=e^{r_1 t}$ we choose $u=t$, meaning $y_2=te^{r_1 t}$ as then $y_2/y_1=t$ is non-constant (and so the Wronskian is non-zero).\\
+
+ So the general solution in this case can be expressed as \framebox{$y=(c_1+c_2 t)e^{r_1 t}$} where $c_1,c_2$ are arbitrary constants.
+
+
+\emph{Case 3}: Assume $ar^2+br +c=0$ has complex conjugate solutions $\lambda \pm \omega i$ where $\lambda,\omega$ are real numbers, $\omega\neq 0$, and $i=\sqrt{-1}$.\\
+
+
+ Then $\bar{y_1}=e^{(\lambda+ \omega i)t}$ and $\bar{y_2}=e^{(\lambda- \omega i)t}$ are solutions of $ay''+by'+cy=0$.  While any linear combination of these is a solution, some are not real-valued, even for real values of $t$. We restrict our attention towards finding the general solution for real-valued functions.
+
+ \newpage
+
+
+ $e^{(\lambda\pm \omega i)t}=e^{\lambda t}e^{\pm \omega i t}=e^{\lambda t}(\cos{(\omega t)}\pm i\sin{(\omega t)})$ using Euler's formula \\$e^{i\theta}=\cos{(\theta)}+i\sin{(\theta)}$.\\
+
+ So $\bar{y_1}=e^{\lambda t}(\cos{(\omega t)}+ i\sin{(\omega t)})$ and $\bar{y_2}=e^{\lambda t}(\cos{(\omega t)}- i\sin{(\omega t)})$.\\
+
+ In particular, any linear combination of these are solutions, so we can take $$y_{1}=\frac{1}{2}[\bar{y_1}+\bar{y_2}]=\frac{1}{2}\left[e^{\lambda t}(\cos{(\omega t)}+ i\sin{(\omega t)})+e^{\lambda t}(\cos{(\omega t)}- i\sin{(\omega t)})\right]=e^{\lambda t}\cos{(\omega t)}\mbox{ and }$$
+
+$$y_{2}=\frac{1}{2i}[\bar{y_1}-\bar{y_2}]=\frac{1}{2i}\left[e^{\lambda t}(\cos{(\omega t)}+ i\sin{(\omega t)})-e^{\lambda t}(\cos{(\omega t)}- i\sin{(\omega t)})\right]=e^{\lambda t}\sin{(\omega t)}.$$
+
+ Since $y_{2}/y_{1}=\tan{(\omega t)}$ is non-constant $y_{1},y_{2}$ form a fundamental set of solutions to\\ $ay''+by'+cy=0$, and hence the general solution is \framebox{$y=e^{\lambda t}\left[c_{1}\cos{(\omega t)}+c_{2}\sin{(\omega t)}\right]$} where $c_1,c_2$ are arbitrary constants.\\ \\ \\
+
+
+ Examples: \\
+
+ (1) Let's solve the IVP $y''=4y'-4y$, $y(0)=1$, $y'(0)=0$.\\
+
+ First rewrite the de in standard form, $y''-4y'+4y=0$.  The characteristic equation is $r^2-4r+4=0$.  Since $r^2-4r+4=(r-2)^2$ the only solution is $r=2$.  So the general solution is $y=(c_1+c_2 t)e^{2t}$.  Then $y'=c_2 e^{2t}+2(c_1+c_2 t)e^{2t}$.\\
+
+ Since $y(0)=1$ we get $1=c_1$.  Since $y'(0)=0$ we get $0=c_2+2c_1$.  Since $c_1=1$ it follows that $c_2=-2$.  So the IVP solution is $y=(1-2t)e^{2t}$.\\
+
+ (2) Let's find the general solution of $y''+2y'+10y=0$.  The characteristic equation is $r^2+2r+10=0$ and by completing the square it can be rewritten as $(r+1)^2+9=0$ so $r=-1\pm 3i$.   Therefore the general solution is $y=e^{-t}\left[c_1 \cos{(3t)}+c_2 \sin{(3t)}\right]$.
+
+
+
+
+
+\end{document}

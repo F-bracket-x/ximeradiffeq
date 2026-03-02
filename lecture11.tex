@@ -1,0 +1,111 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{2nd Order Linear Homogeneous \& the Wronskian}
+    
+    \maketitle
+
+
+ Two functions $y_{1},y_{2}$ defined on an open interval $I$ are \underline{linearly independent} on $I$ if neither is a constant multiple of the other on $I$.   Otherwise they are said to be \underline{linearly dependent} on $I$.\\
+
+ For example, $y_1=e^x$ and $y_2=e^{1+x}$ are linearly dependent because $y_2=ey_1$.   However, for $x>0$, $y_1=\ln{(x)}$ and $y_2=\frac{1}{\sqrt{x}}$ are linearly independent since neither is a scalar multiple of the other, just consider that $\ln{(x)}$ is sometimes negative.\\
+
+
+ A second order differential equation that can be written in the form $y''+py'+qy=f$ where $p,q,f$ are functions of the independent input variable is  \underline{linear}.  If $p,q$ are constant then we call the linear equation a \underline{constant coefficient equation}.\\
+
+ It is linear and \underline{homogeneous} if $f=0$;  otherwise it is linear and \underline{nonhomogeneous}.  We begin by focusing on the homogeneous case.\\
+
+ \textbf{Theorem}:  Suppose $p,q$ are continuous functions on an open interval $I$, $x_{0}$ is in $I$ and $k_{0},k_{1}$ are arbitrary real numbers.  Then the IVP $y''+py'+qy=0$, $y(x_{0})=k_{0}$, $y'(x_{0})=k_{1}$, has a unique solution on $I$.
+
+ (We skip the proof.)\\
+
+ Suppose $y_{1}$ and $y_{2}$ are solutions to $y''+py'+qy=0$ on an open interval $I$ on which $p,q$ are continuous.   Then any \underline{linear combination} $y=c_{1}y_{1}+c_{2}y_{2}$ is also a solution on $I$.\\
+
+%%%%%%%%%%%%%%%%%%%%%%
+% DO IN VIDEO?
+%%%%%%%%%%%%%%%%%%%%%%
+
+ The pair $\{y_{1},y_{2}\}$ is called a \underline{fundamental set of solutions} on open interval $I$ if all solutions to $y''+py'+qy=0$ can be expressed as $y=c_{1}y_{1}+c_{2}y_{2}$ for an appropriate choice of constants.\\  When $\{y_{1},y_{2}\}$ is a fundamental set of solutions on $(a,b)$, \framebox{$y=c_{1}y_{1}+c_{2}y_{2}$} is said to be the \underline{general solution} to $y''+py'+qy=0$ on $I$.\\ \\
+
+\newpage
+
+ \textbf{Theorem}:   Suppose $p,q$ are continuous on an open interval $I$.  Then a set $\{y_{1},y_{2}\}$ of solutions to $y''+py'+qy=0$ on $I$ is a fundamental set of solutions on $I$ if and only if $y_{1},y_{2}$ are linearly independent on $I$.
+
+ (We skip the proof.)
+
+
+  Let $y_1,y_2$ be functions.   Define the \underline{Wronskian} of set $\{y_{1},y_{2}\}$  as the function $W=y_{1}y_{2}'-y_{1}'y_{2}$,  which can be written as a matrix determinant:
+ 
+ \[W=\mathrm{det}\left( \begin{array}{cc}
+ y_{1} & y_{2}\\
+ y_{1}' & y_{2}' \end{array}\right).\]
+
+\vspace{0.5cm}
+
+ So $W=y_{1}y_{2}'-y_{1}'y_{2}$.   By the Product Rule, $W'=y_{1}'y_{2}'+y_{1}y_{2}''-y_{1}''y_{2}-y_{1}'y_{2}'=$ 
+ $y_{1}y_{2}''-y_{1}''y_{2}$.\\
+
+ Using that $y_{1}''=-p y_{1}'-qy_{1}$ and  $y_{2}''=-p y_{2}'-qy_{2}$, assuming that $y_1$ and $y_2$ are solutions to $y''+py'+qy=0$ on some open interval $I$, \\
+
+ $W'=y_{1}(-py_{2}'-qy_{2})-(-py_{1}'-qy_{1})y_{2}$  $=-py_{1}y_{2}'+py_{1}'y_{2}$  $=-p W$,  a separable 1st order de!\\
+
+ Therefore, we have \framebox{\emph{Abel's formula}} for the Wronskian: \\
+
+ The Wronskian $W$ of two solutions $y_1,y_2$ to $y''+py'+qy=0$ satisfies \framebox{$W=Ce^{-P}$} where $P'=p$.\\
+
+ One important observation:  If $W(x_{0})=0$ then $W=0$ (as $C$ above would have to be $0$).  If $W(x_{0})\neq 0$ then $W$ is NEVER $0$.\\ \\
+
+
+  \textbf{Theorem}:   Suppose $p,q$ are continuous on an open interval $I$ and $\{y_{1},y_{2}\}$ are solutions to $y''+py'+qy=0$ on $I$.  Then $y_{1},y_{2}$ are linearly independent on $I$ if and only if the Wronskian  $W=y_{1}y_{2}'-y_{1}'y_{2}$ has no zeros on $I$.\\
+
+  We will prove the forward direction (by contrapositive) and leave the other as an exercise left for you:  \\
+
+  Suppose $W=0$ at some point on $I$.  Then by Abel's formula, $W=0$ at every point on $I$.  If $y_1$ is $0$ then the functions $y_1$ and $y_2$ are linearly dependent on $I$.  Suppose $y_1\neq 0$;  since it is differentiable on $I$ and thus continuous on $I$, $y_1$ is never $0$ on at least some open interval $J$ contained in $I$.   Then on $J$, $(y_{2}/y_{1})$ is defined  and
+  $\displaystyle \left(\frac{y_{2}}{y_{1}}\right)'=\frac{y_{1}y_{2}'-y_{1}'y_{2}}{y_{1}^{2}}=\frac{W}{y_{1}^{2}}=0$.\\
+
+  That means that on $J$, $y_2=Cy_1$ for some constant $C$.\\
+
+  We'd like to show this is the case on $I$.  Let $Y=Cy_{1}-y_{2}$.  Since $Y$ is a linear combination of $y_{1}$ and $y_{2}$, it is a solution of the IVP $y''+py'+qy=0$, with $y(x_{0})=y'(x_{0})=0$  for some $x_{0}$ in $J$.\\
+
+
+ Since the trivial solution $Y=0$ works and IVP has a unique solution, it must be the case that $Y=0$ on $I$ and hence $y_{2}=Cy_{1}$ on $I$.\\
+
+ Hence the functions are linearly dependent!\\
+ 
+ 
+
+ Example:
+ 
+ One can show that both $y_1=x$ and $\displaystyle y_2=\frac{1}{x^2}$ are solutions to $\displaystyle y''+\frac{2}{x}y'-\frac{2}{x^2}y=0$ on $(0,\infty)$.  Let's use the Wronskian to justify that these are linearly independent on $(0,\infty)$ and thereby determine the general solution to this de.\\
+ 
+ 
+ \[W=\mathrm{det}\left( \begin{array}{cc}
+ y_{1} & y_{2}\\
+ y_{1}' & y_{2}'  \end{array}\right)=\mathrm{det}\left( \begin{array}{cc}
+ x & x^{-2}\\
+ 1 & -2x^{-3} \end{array}\right)=-2x^{-2}-x^{-2}=-\frac{3}{x^2}.\]
+
+ So the Wronskian is indeed never zero on $(0,\infty)$.  Another way to see that the Wronskian is never zero, is to observe that $y_1\neq 0$ on $(0,\infty)$ and that $\frac{y_2}{y_1}=x^{-3}$ is non-constant; hence $\displaystyle \left(\frac{y_2}{y_1}\right)'=\frac{W}{y_1^2}$ is non-zero.  So $W\neq 0$, and by Abel's formula, if $W$ is not identically zero on $(0,\infty)$ then it is NEVER zero on the $(0,\infty)$.\\
+
+
+ Either way we see that $y_1=x$ and $y_2=x^{-2}$ are indeed linearly independent, and form a fundamental set of solutions to this second order linear homogeneous differential equation.  So the general solution to this de is $$y=c_1\,x\,+\,c_2\,\frac{1}{x^2}=\frac{c_1 x^3+c_2}{x^2}.$$
+
+
+
+\end{document}
