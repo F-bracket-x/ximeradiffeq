@@ -1,0 +1,163 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{IVPs with Impulses }
+    \maketitle
+
+ For any positive integer $n$, define the function $f_n$ by  $\displaystyle f_n (t)=\left\{\begin{array}{lr}
+       n(1-n|t|) & \mbox{ if }|t|<\frac{1}{n}\\
+       \\
+       0 &  \mbox{ if }|t|\geq \frac{1}{n}
+     \end{array}\right.$.\\
+
+ Here are the first few terms of the sequence $f_1,f_2,f_3,...$
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.25]
+\begin{axis}[axis x line=middle, axis y line=
+middle, xtick={-3,-2,...,3}, ytick={-1,1,2,3,4},
+xmin=-3, xmax=3, ymin=-1, ymax=4]
+
+\addplot[blue,thick,domain=-3:-1] {0.025};
+\addplot[blue,thick,domain=-1:0] {x+1};
+\addplot[blue,thick,domain=0:1] {1-x};
+\addplot[blue,thick,domain=1:3] {0.025};
+
+\addplot[red,thick,domain=-3:-0.5] {0};
+\addplot[red,thick,domain=-0.5:0] {x+x+x+x+2};
+\addplot[red,thick,domain=0:0.5] {2-x-x-x-x};
+\addplot[red,thick,domain=0.5:3] {0};
+
+\addplot[black,thick,domain=-3:-0.333] {-0.025};
+\addplot[black,thick,domain=-0.333:0] {x+x+x+x+x+x+x+x+x+3};
+\addplot[black,thick,domain=0:0.333] {3-x-x-x-x-x-x-x-x-x};
+\addplot[black,thick,domain=0.333:3] {-0.025};
+
+\end{axis}
+
+\end{tikzpicture}
+\caption{Triangle waves approaching Dirac Delta}
+\end{figure}
+
+  For any positive integer $n$ and any closed interval $I$ containing $\left[-\frac{1}{n},\frac{1}{n}\right]$, \\ \\  $\displaystyle \int_{I}f_{n}\;dt=\int_{-1/n}^{1/n}f_n(t)\;dt=$ $\displaystyle 2\int_0^{1/n} n(1-nt)\,dt=$ $2n\left.\left(t-\frac{1}{2}nt^2\right)\right|_0^{1/n}=1$.\\
+
+ The \underline{dirac delta function} $\delta$ is the limit of the above sequence of functions, that is, $\delta=\displaystyle \lim_{n\rightarrow \infty}f_{n}$. 
+
+\newpage
+
+ For all positive integers $n$, $f_{n}(0)=n$,  so we have that\\ $\displaystyle \delta (0)=\lim_{n\rightarrow \infty}f_{n}(0)=\lim_{n\rightarrow \infty}n=\infty$.  Since for any $t\neq 0$, there exists a sufficiently large positive integer $n$ such that $t$ is outside $\left[-\frac{1}{n},\frac{1}{n}\right]$ it follows that $f_m(t)=0$ for all integers $m\geq n$.  So $\delta (t)=0$ if $t\neq 0$.\\
+
+Let $I$ be a closed interval not containing $0$.  Then there exists a sufficiently large positive integer $n$ such that all of $I$ is outside $\left[-\frac{1}{n},\frac{1}{n}\right]$.  Hence for all integers $m\geq n$, $f_m=0$ on all of $I$, and hence $\displaystyle \int_{I}f_{m}\;dt=0$.  So $\displaystyle \int_{I}\delta\;dt=0$ for any closed interval $I$ not containing $0$.
+
+ Let $I$ be a closed interval containing $0$ (in the interior).  Then there exists a sufficiently large positive integer $n$ such that $I$ contains all of $\left[-\frac{1}{n},\frac{1}{n}\right]$.   Hence for all integers $m\geq n$, $\displaystyle \int_{I}f_{m}\;dt=1$.  So $\displaystyle \int_{I}\delta\;dt=1$ for any closed interval $I$ containing $0$ (in the interior).
+
+Note that if $0$ is an endpoint of $I$, then a different set of functions approaching $\delta$ (e.g. $f_n(x)=n$ if $x\in [0,1/n]$ and $0$ elsewhere, or $f_n(x)=n$ if $x\in [-1/n,0]$ and $0$ elsewhere) are used to have $\displaystyle \int_I \delta\, dt=1$ rather than $1/2$.\\ \\
+
+ The Dirac delta function models an impulse, where a force is applied over a very short period of time where it makes sense to model it as happening at an instant.\\ \\
+
+Let's find the Laplace Transform of $\delta(t-a)$.\\
+
+
+For any real number $s$, $f(t)=e^{-st}$ is a continuous function on $[a-\epsilon,a+\epsilon]$ for any positive $\epsilon$ and on $[a-\epsilon,a+\epsilon]$, $f(t)$ attains extreme values of $e^{-(a-\epsilon)s}$ and $e^{-(a+\epsilon)s}$  (one is a max. and one is a min. -- which is which depends on the value of $s$).  Then
+
+ $\displaystyle \mathcal{L}(\delta(t-a))=\int_{0}^{\infty}e^{-st}\delta(t-a)\,dt=$  $\displaystyle \lim_{\epsilon\rightarrow 0^{+}}\int_{a-\epsilon}^{a+\epsilon}e^{-st}\delta(t-a)\;dt$  and the integral $\displaystyle \int_{a-\epsilon}^{a+\epsilon}e^{-st}\delta(t-a)\;dt$ is between $e^{-(a-\epsilon)s}$ and $e^{-(a+\epsilon)s}$, which both approach $e^{-as}$ as $\epsilon\rightarrow 0^{+}$.
+
+ Hence \framebox{$\mathcal{L}(\delta(t-a))=e^{-as}$} by the Squeeze Theorem.\\ \\
+
+
+Let's solve the IVP $y''+2y'+5y=\delta(t-\pi)$, $y(0)=1$, $y'(0)=0$ (which could represent an underdamped spring-mass system where a total upward impulse of $1$ Ns occurs at time $t=\pi$).\\
+
+
+Take the Laplace transform of both sides, letting $Y=\mathcal{L}(y)$:   $s^2 Y-s+2(sY-1)+5Y=e^{-\pi s}$.\\
+
+So $(s^2+2s+5)Y=s+2+e^{-\pi s}\rightarrow $ $\displaystyle Y=\frac{s+2}{(s+1)^2+4}+e^{-\pi s} \frac{1}{(s+1)^2 +4}\rightarrow $\\
+
+$\displaystyle Y=\frac{s+1}{(s+1)^2+4}+\frac{1}{2} \,\frac{2}{(s+1)^2+4}+\frac{1}{2}e^{-\pi s} \frac{2}{(s+1)^2 +4}$.\\
+
+Then $y=\mathcal{L}^{-1} (Y)=e^{-t}\cos{(2t)}+\frac{1}{2}e^{-t}\sin{(2t)}+\frac{1}{2}\mathcal{U}(t-\pi)\; [e^{-(t-\pi)}\sin{(2(t-\pi))}]$.\\
+
+Equivalently, $y=e^{-t}\left(\cos{(2t)}+\frac{1}{2}\sin{(2t)}\right)+\frac{e^{\pi}}{2}\mathcal{U}(t-\pi)\; [e^{-t}\sin{(2t)}]$.\\
+
+
+In a more familiar form, $\displaystyle y(t)=\left\{\begin{array}{lr}
+       e^{-t}\left(\cos{(2t)}+\frac{1}{2}\sin{(2t)}\right) & \mbox{ if }0\leq t<\pi\\
+      \\
+       e^{-t}\left(\cos{(2t)}+\frac{1+e^{\pi}}{2}\sin{(2t)}\right) &  \mbox{ if }t\geq \pi
+     \end{array}\right.$.\\
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[axis x line=middle, axis y line=
+middle, xtick={-1,1,2,3,4}, ytick={-3,-2,...,3},
+xmin=-2, xmax=7, ymin=-1, ymax=1]
+
+\addplot[blue,thick,domain=0:3.14] {e^(-x)*(cos(deg(2*x))+0.5*sin(deg(2*x)))};
+\addplot[blue,thick,domain=3.14:7] {e^(-x)*(cos(deg(2*x))+0.5*(1+e^(3.14))*sin(deg(2*x)))};
+\end{axis}
+\end{tikzpicture}
+\caption{A solution curve to an IVP involving an impulse}
+\end{figure}
+
+\newpage
+
+ Let's solve the IVP $y''+\pi^2 y=2\delta(t-1)+\delta{(t-2)}$, $y(0)=0$, $y'(0)=0$ (which could represent an undamped spring-mass system where total upward impulses of $2$ Ns and $1$ Ns occur at times $t=1$ and $t=2$ respectively).\\
+
+
+We let $Y=\mathcal{L}(y)$ and take the Laplace transform of both sides.\\
+
+$s^2 Y+\pi^2 Y=2e^{-s}+e^{-2s}\rightarrow $\\
+
+$(s^2 +\pi^2) Y=2e^{-s}+e^{-2s}\rightarrow $\\
+
+$ Y=\frac{2}{\pi}e^{-s}\frac{\pi}{(s^2 +\pi^2)}+\frac{1}{\pi}e^{-2s}\frac{\pi}{(s^2 +\pi^2)}\rightarrow $\\
+
+$ y=\mathcal{L}^{-1}(Y)=\frac{2}{\pi}\mathcal{U}(t-1)\sin{(\pi(t-1))}+\frac{1}{\pi}\mathcal{U}(t-2)\sin{(\pi (t-2))}\rightarrow $\\
+
+ $ y=\mathcal{L}^{-1}(Y)=-\frac{2}{\pi}\mathcal{U}(t-1)\sin{(\pi t)}+\frac{1}{\pi}\mathcal{U}(t-2)\sin{(\pi t)}$.\\
+
+In a more familiar form, $\displaystyle y(t)=\left\{\begin{array}{lr}
+       0 & \mbox{ if }0\leq t<1\\
+       \\
+       -\frac{2}{\pi}\sin{(\pi t)} &  \mbox{ if }1\leq t< 2\\
+       \\ 
+       -\frac{1}{\pi}\sin{(\pi t)} &  \mbox{ if } t\geq 2
+     \end{array}\right.$.\\
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[axis x line=middle, axis y line=
+middle, xtick={-1,1,2,3,4}, ytick={-2,-1,...,2},
+xmin=-2, xmax=7, ymin=-1, ymax=1]
+
+\addplot[blue,thick,domain=0:1] {0};
+\addplot[blue,thick,domain=1:2] {-2/3.14*sin(deg(3.14*x)))};
+\addplot[blue,smooth,thick,domain=2:7] {-1/3.14*sin(deg(3.14*x)))};
+\end{axis}
+\end{tikzpicture}
+\caption{A solution curve to an IVP involving two impulses}
+\end{figure}
+
+
+\end{document}

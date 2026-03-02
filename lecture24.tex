@@ -1,0 +1,214 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{IVPs with Piecewise Continuous Forcing Functions}
+    
+    \maketitle
+
+
+ The \underline{unit step function} $\displaystyle \mathcal{U}(t)=\left\{\begin{array}{lr}
+       0 & \mbox{ if }t<0\\
+       \\
+       1 &  \mbox{ if }t\geq 0
+     \end{array}\right.$  is a basic piecewise continuous function.\\
+
+
+ Consider a piecewise continuous function $\displaystyle f(t)=\left\{\begin{array}{lr}
+       f_{1}(t) & \mbox{ if }0\leq t<t_{1}\\
+       \\
+       f_{2}(t) &  \mbox{ if }t\geq t_{1}
+    \end{array}\right.$.
+
+     \bigskip
+
+     We rewrite $f(t)$ using the unit step function: $f(t)=f_{1}(t)+\mathcal{U}(t-t_{1})\;[f_{2}(t)-f_{1}(t)]$.\\ \\
+
+     Here is the graph of $\displaystyle f(t)=\left\{\begin{array}{lr}
+
+       \frac{\pi}{2} -t& \mbox{ if }0\leq t<\frac{\pi}{2}\\
+       \\
+       0 &  \mbox{ if }t\geq \frac{\pi}{2}
+     \end{array}\right.$.
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, xtick={-2,-1,...,4}, ytick={-2,-1,...,4},
+xmin=-2, xmax=4, ymin=-2, ymax=4]
+
+\addplot[blue,ultra thick,domain=0:1.57] {1.57-x};
+\addplot[blue,ultra thick,domain=1.57:4] {0};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph of a piecewise continuous function}
+\end{figure}
+
+\newpage
+
+ Using the unit step function, $f(t)=\frac{\pi}{2}-t+\mathcal{U}\left(t-\frac{\pi}{2}\right)\;\left[0-\left(\frac{\pi}{2}-t\right)\right]$  $=\frac{\pi}{2}-t+\mathcal{U}\left(t-\frac{\pi}{2}\right)\;\left[t-\frac{\pi}{2}\right]$.\\
+
+
+ Consider a piecewise continuous function $\displaystyle f(t)=\left\{\begin{array}{lr}
+       f_{1}(t) & \mbox{ if }0\leq t<t_{1}\\
+      \\
+       f_{2}(t) &  \mbox{ if } t_{1}\leq t<t_{2} \\
+       \\
+       f_{3}(t) &  \mbox{ if }t\geq t_{2}
+     \end{array}\right.$.
+
+     \bigskip
+
+     Using the unit step function:  \\ $f(t)=f_{1}(t)+\mathcal{U}(t-t_{1})[f_{2}(t)-f_{1}(t)]+\mathcal{U}(t-t_{2})[f_{3}(t)-f_{2}(t)]$.
+
+
+
+
+     \textbf{2nd Shifting Property:} Consider that \\ $\displaystyle \mathcal{L}(\mathcal{U}(t-a)g(t))=\displaystyle \int_{0}^{\infty}e^{-st}\mathcal{U}(t-a)g(t)\;dt=\displaystyle \int_{a}^{\infty}e^{-st}g(t)\;dt$. \\ \\   Using the substitution $u=t-a$, $du=dt$ we get \\ \\  $\displaystyle \int_{a}^{\infty}e^{-st}g(t)\;dt=\int_{0}^{\infty}e^{-s(u+a)}g(u+a)\;du=$  $\displaystyle e^{-sa}\int_{0}^{\infty}e^{-su}g(u+a)\;du=e^{-sa}\int_{0}^{\infty}e^{-st}g(t+a)\;dt$.\\
+
+     Hence we have justified that: \framebox{$\mathcal{L}(\mathcal{U}(t-a)g(t))=e^{-sa}\mathcal{L}(g(t+a))$}.
+
+     An equivalent reformulation is \framebox{$\mathcal{L}(\mathcal{U}(t-a)g(t-a))=e^{-sa}\mathcal{L}(g(t))$}.  \\ \\ This is the $``$2nd Shifting Property" of the Laplace transform.  In particular, this means $\mathcal{L}^{-1}(e^{-as}G(s))=\mathcal{U}(t-a)g(t-a)$ where $g=\mathcal{L}^{-1}(G)$.\\
+
+
+
+     Let's find the Laplace transform of $\displaystyle f(t)=\left\{\begin{array}{lr}
+       2-t & \mbox{ if }0\leq t<1\\
+       \\
+       t &  \mbox{ if }t\geq 1
+     \end{array}\right.$.
+
+
+     \begin{figure}[h]
+     \centering
+     \begin{tikzpicture}[scale=0.65]
+\begin{axis}[axis x line=middle, axis y line=
+middle,xtick={-2,-1,...,4}, ytick={-2,-1,...,4},
+xmin=-2, xmax=4, ymin=-2, ymax=4]
+
+\addplot[blue,thick,domain=0:1] {2-x};
+\addplot[blue,thick,domain=1:4] {x};
+\end{axis}
+
+\end{tikzpicture}
+\caption{Another graph of a piecewise continuous function}
+\end{figure}
+
+
+
+\newpage
+
+
+     First we rewrite it as $f(t)=2-t+\mathcal{U}(t-1) \;[t-(2-t)]=2-t+2\,\mathcal{U}(t-1)\;[t-1]$.  Then \\ $\displaystyle \mathcal{L}(f(t))=\dfrac{2}{s}-\dfrac{1}{s^{2}}+2\mathcal{L}(\mathcal{U}(t-1)\;[t-1])$  $\displaystyle =\dfrac{2}{s}-\dfrac{1}{s^{2}}+2e^{-s}\mathcal{L}(t)$  $\displaystyle =\dfrac{2}{s}-\dfrac{1}{s^{2}}+\dfrac{2}{s^{2}}e^{-s}$.\\ \\
+
+
+
+
+ Let's use linearity and the 2nd Shifting Property to find $\mathcal{L}^{-1}\left(\dfrac{1-e^{-s}}{s^{3}}\right)$.\\
+
+
+ First we use linearity and then apply the second shifting property:\\ \\
+
+  $\mathcal{L}^{-1}\left(\dfrac{1-e^{-s}}{s^{3}}\right)=\frac{1}{2}\mathcal{L}^{-1}\left(\dfrac{2}{s^{3}}\right)-\frac{1}{2}\mathcal{L}^{-1}\left(e^{-s}\dfrac{2}{s^{3}}\right)$  $\displaystyle =\frac{1}{2}t^2-\frac{1}{2}\mathcal{L}^{-1}\left(e^{-s}\mathcal{L}(t^2)\right)=\frac{1}{2}\left(t^2-\mathcal{U}(t-1)[(t-1)^2]\right)$.\\
+
+
+  We rewrite this in the more familiar form $\displaystyle \mathcal{L}^{-1}\left(\dfrac{1-e^{-s}}{s^{3}}\right)=\left\{\begin{array}{lr}
+       \frac{1}{2}t^2 & \mbox{ if }0\leq t<1\\
+       \\
+       t-\frac{1}{2} &  \mbox{ if }t\geq 1
+     \end{array}\right.$.
+
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.8]
+\begin{axis}[axis x line=middle, axis y line=
+middle,xtick={-2,-1,...,4}, ytick={-2,-1,...,4},
+xmin=-2, xmax=4, ymin=-2, ymax=4]
+
+\addplot[blue,thick,domain=0:1] {0.5*x^2};
+\addplot[blue,thick,domain=1:4] {x-0.5};
+\end{axis}
+
+\end{tikzpicture}
+\caption{An inverse Laplace transform found with the 2nd shifting property}
+\end{figure}
+
+
+
+
+ Let's solve the IVP $\displaystyle y''+y=\left\{\begin{array}{lr}
+       t & \mbox{ if }0\leq t<\pi\\
+       \\
+       \pi &  \mbox{ if }t\geq \pi
+     \end{array}\right.$, \hspace{0.5cm} $y(0)=0$, $y'(0)=1$.
+
+ Let's first find $\mathcal{L}(f)$ where $\displaystyle f(t)=\left\{\begin{array}{lr}
+       t & \mbox{ if }0\leq t<\pi\\
+       \\
+       \pi &  \mbox{ if }t\geq \pi
+     \end{array}\right.$.
+
+     \bigskip
+
+     We can rewrite this function as $f(t)=t+\mathcal{U}(t-\pi)\;[\pi -t]$  $\displaystyle =t-\mathcal{U}(t-\pi)\;[t-\pi]$.\\
+
+
+     Then $\displaystyle \mathcal{L}(f)=\mathcal{L}(t)-\mathcal{L}\left(\mathcal{U}(t-\pi)[t-\pi]\right)$  $\displaystyle =\frac{1}{s^{2}}-e^{-\pi s}\mathcal{L}(t)$  $\displaystyle =\frac{1}{s^{2}}-e^{-\pi s}\,\frac{1}{s^{2}}$.\\
+
+     Let $Y=\mathcal{L}(y)$ and let's take the Laplace transform of both sides of the differential equation:
+
+     $$s^2 Y-1+Y=\frac{1}{s^{2}}-e^{-\pi s}\,\frac{1}{s^{2}}.$$
+
+\medskip
+
+ $(s^2+1)Y=1+\frac{1}{s^{2}}-e^{-\pi s}\,\frac{1}{s^{2}}\rightarrow $  $\displaystyle Y=\frac{1+\frac{1}{s^{2}}}{s^2+1}-e^{-\pi s}\,\frac{1}{s^{2}(s^2+1)}\rightarrow $  $\displaystyle Y=\frac{1}{s^2}-e^{-\pi s}\,\frac{1}{s^{2}(s^2+1)}\rightarrow $\\
+
+ $\displaystyle Y=\frac{1}{s^2}-e^{-\pi s}\,\left(\frac{1}{s^{2}}-\frac{1}{s^2+1}\right)$ using a PFD.\\
+
+ Therefore $y=\mathcal{L}^{-1} (Y)=t-\mathcal{U}(t-\pi)\;g(t-\pi)$  where $g=\mathcal{L}^{-1}\left(\frac{1}{s^{2}}-\frac{1}{s^2+1}\right)=t-\sin{(t)}$.\\
+
+ So $y=t-\mathcal{U}(t-\pi)\;[(t-\pi)-\sin{(t-\pi)}]$.  Since $\sin{(t-\pi)}=-\sin{(t)}$, $y=t-\mathcal{U}(t-\pi)\;[(t-\pi)+\sin{(t)}]$.
+
+
+
+ In a more familiar form, $\displaystyle y(t)=\left\{\begin{array}{lr}
+       t & \mbox{ if }0\leq t<\pi\\
+       \\
+      \pi-\sin{(t)} &  \mbox{ if }t\geq \pi
+     \end{array}\right.$.
+
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=0.7]
+\begin{axis}[axis x line=middle, axis y line=
+middle,xtick={-2,-1,...,9}, ytick={-2,-1,...,5},
+xmin=-2, xmax=9, ymin=-2, ymax=5]
+
+\addplot[blue,thick,domain=0:3.14] {x};
+\addplot[blue,thick,domain=3.14:9] {3.14-sin(deg(x))};
+\end{axis}
+
+\end{tikzpicture}
+\caption{A solution curve to an IVP with piecewise continuous forcing}
+\end{figure}
+
+\end{document}

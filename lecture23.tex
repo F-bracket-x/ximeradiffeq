@@ -1,0 +1,99 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{IVP solutions with Laplace Transforms}
+    
+    \maketitle
+
+ \textbf{Proposition}:  Suppose $y(t)$ is continuous on $[0,\infty)$ and of exponential order $s_{0}$, and $y'$ is continuous on $[0,\infty)$.   Then $\mathcal{L}(y)$ and $\mathcal{L}(y')$ are defined for $s>s_{0}$  and \framebox{$\mathcal{L}(y')=s\mathcal{L}(y)-y(0)$}.\\
+
+
+ \emph{Proof}:  By integration by parts,
+
+  $\displaystyle  \mathcal{L}(y')=\lim_{T\rightarrow \infty}\int_{0}^{T}e^{-st}y'(t)\,dt$  $\displaystyle=\lim_{T\rightarrow \infty} \left.e^{-st}y(t)\right|_{0}^{T}+s\int_{0}^{T}e^{-st}y(t)\,dt$.
+
+\medskip
+
+  Since $y$ is of exponential order $s_{0}$, for $s>s_{0}$ we have $\displaystyle \lim_{T\rightarrow \infty}e^{-sT}y(T)=0$  and $\displaystyle \mathcal{L}(y)=\int_{0}^{\infty}e^{-st}y(t)\,dt$ converges.  Hence $\mathcal{L}(y')$ converges for $s>s_{0}$  and $ \mathcal{L}(y')=-y(0)+s\mathcal{L}(y)\mbox{ }_{\square}$\\
+
+
+ Let's use this to solve an IVP using Laplace transforms!   Consider the first order IVP $y'-2y=te^t$, $y(0)=0$.\\
+
+ We take the Laplace transform of both sides of the equation.  \\
+
+ \begin{eqnarray*}
+  \mathcal{L}(y'-2y)=\mathcal{L}(te^t) &\rightarrow &  \mathcal{L}(y')-2\mathcal{L}(y)=\frac{1}{(s-1)^2} \\
+ &\rightarrow & s\mathcal{L}(y)-y(0)-2\mathcal{L}(y)=\frac{1}{(s-1)^2} \\
+ &\rightarrow & s\mathcal{L}(y)-0-2\mathcal{L}(y)=\frac{1}{(s-1)^2} \\
+ &\rightarrow & (s-2)\mathcal{L}(y)=\frac{1}{(s-1)^2} \\
+ &\rightarrow & \mathcal{L}(y)=\frac{1}{(s-2)(s-1)^2}\\
+ &\rightarrow & \mathcal{L}(y)=\frac{A}{s-1}-\frac{1}{(s-1)^2}+\frac{1}{s-2}
+ \end{eqnarray*}
+
+ By clearing fractions we get that $1=A(s-2)(s-1)-(s-2)+(s-1)^2$.   Evaluated at $s=0$, $1=2A+3$, implying $A=-1$.\\
+
+\newpage
+
+ So $Y=\mathcal{L}(y)=-\frac{1}{s-1}-\frac{1}{(s-1)^2}+\frac{1}{s-2}$ is the Laplace transform of the solution to this IVP.   Hence $y=\mathcal{L}^{-1} (Y)=-e^t-te^t+e^{2t}=-(t+1)e^t+e^{2t}$ is the solution to this IVP.
+
+
+ Well, if $\mathcal{L}(y')=s\mathcal{L}(y)-y(0)$  it follows that $\mathcal{L}(y'')=s\mathcal{L}(y')-y'(0)$  and hence\\ $\mathcal{L}(y'')=s(s\mathcal{L}(y)-y(0))-y'(0)$.\\
+
+
+
+ So \framebox{$\mathcal{L}(y'')=s^2 \mathcal{L}(y)-y(0) \,s -y'(0)$}.\\
+
+ Similarly \framebox{$\mathcal{L}(y''')=s^3 \mathcal{L}(y)-y(0) \,s^2 -y'(0)\,s-y''(0)$}.\\
+
+
+
+ Let's solve the IVP $y''+4y'-5y=6e^{t}\mbox{, }y(0)=1\mbox{, }y'(0)=0$  using Laplace transforms.   Let $Y=\mathcal{L}(y)$.\\
+
+  Then $s^2 Y-s-0+4(sY-1)-5Y=\frac{6}{s-1}$,  equivalently, $(s^2+4s-5)Y=\frac{6}{s-1}+s+4$. \\
+
+    Therefore $\displaystyle Y(s)=\frac{\frac{6}{s-1}+s+4}{s^{2}+4s-5}$ is the Laplace transform of the solution.\\
+
+ Simplifying this yields $Y(s)=\dfrac{6+(s+4)(s-1)}{(s-1)^{2}(s+5)}=\dfrac{s^{2}+3s+2}{(s-1)^{2}(s+5)}$.\\
+
+ We can begin our PFD by having $Y(s)=\dfrac{s^{2}+3s+2}{(s-1)^{2}(s+5)}=\dfrac{A}{s-1}+\dfrac{1}{(s-1)^{2}}+\dfrac{1/3}{s+5}$.\\
+
+ By clearing fractions, $$s^{2}+3s+2=A(s-1)(s+5)+(s+5)+(1/3)(s-1)^{2}=As^{2}+4As-5A+s+5+(1/3)s^{2}-(2/3)s+(1/3).$$
+
+ So $A=2/3$ and $Y(s)=\dfrac{2/3}{s-1}+\dfrac{1}{(s-1)^{2}}+\dfrac{1/3}{s+5}$.\\
+
+ Then $\displaystyle y(t)=(2/3)\mathcal{L}^{-1}\left(\frac{1}{s-1}\right)+\mathcal{L}^{-1}\left(\frac{1}{(s-1)^{2}}\right)+(1/3)\mathcal{L}^{-1}\left(\frac{1}{s+5}\right)$  $\displaystyle =\frac{2}{3}e^{t}+te^{t}+\frac{1}{3}e^{-5t}$.\\ \\ \\ \\
+
+ Let's solve $y''+y=\sin{(t)}$, $y(0)=1$, $y'(0)=2$ using Laplace transforms.  \\
+
+ Let $Y=\mathcal{L}(y)$.  Then  $s^2Y-s-2+Y=\frac{1}{s^2+1}$  or equivalently, \\$\displaystyle (s^2+1)Y=s+2+\frac{1}{s^2+1}$.\\
+
+
+ Hence $\displaystyle Y=\frac{s+2}{s^2+1}+\frac{1}{(s^2+1)^2}=\frac{s}{s^2+1}+2\frac{1}{s^2+1}+\frac{1}{(s^2+1)^2}$.\\
+
+ Dealing with the term $\frac{1}{(s^2+1)^2}$ requires some finesse.  Based on the Laplace table (see appendix) we re-express it as \\
+
+ $\displaystyle \frac{1}{(s^2+1)^2}=\frac{0.5(s^2+1)-0.5(s^2-1)}{(s^2+1)^2}=\frac{1}{2}\,\frac{1}{s^2+1}-\frac{1}{2}\,\frac{s^2-1}{(s^2+1)^2}$.\\
+
+
+ Thus $\displaystyle Y=\frac{s}{s^2+1}+\frac{5}{2}\,\frac{1}{s^2+1}-\frac{1}{2}\,\frac{s^2-1}{(s^2+1)^2}$.\\
+
+
+ Therefore the inverse Laplace transform, \\$y(t)=\mathcal{L}^{-1}(Y)=\cos{(t)}+\frac{5}{2}\sin{(t)}-\frac{1}{2}t\cos{(t)}$ is the IVP solution. 
+
+\end{document}

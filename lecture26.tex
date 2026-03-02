@@ -1,0 +1,53 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Convolution}
+    \maketitle
+
+ Let $f(t),g(t)$ be continuous functions for $t\geq 0$.  The \textbf{convolution} of $f$ and $g$ is the function $$\displaystyle (f\ast g)(t)=\int_{0}^{t}f(x)g(t-x)\,dx.$$
+
+ Let's compute the convolution of $t$ and $e^{-t}$:
+
+
+ \begin{eqnarray*}
+  t\ast e^{-t} &=& \displaystyle \int_{0}^{t}xe^{-(t-x)}\,dx \\
+   &=& \displaystyle e^{-t}\int_{0}^{t}xe^{x}\,dx \\
+  &=& \displaystyle e^{-t}\left.(x-1)e^{x}\right|_{0}^{t} \\
+   &=& \displaystyle e^{-t}\left[(t-1)e^{t}+1\right] \\
+   &=& \displaystyle t-1+e^{-t}.
+ \end{eqnarray*}
+
+ \textbf{Convolution Theorem}: Let $f(t)$ and $g(t)$ be continuous functions for $t\geq 0$.  Then \framebox{$\mathcal{L}(f\ast g)=\mathcal{L}(f)\mathcal{L}(g)$}.
+
+ (The proof is left as an exercise for the reader :)\\
+
+ This gives us another way to compute the Convolution of two functions:  Take the Laplace transform, use a PFD, and take the inverse Laplace transform.\\
+
+ $\displaystyle \mathcal{L}(t\ast e^{-t})=\mathcal{L}(t) \mathcal{L}(e^{-t})=\frac{1}{s^2} \, \frac{1}{s+1}=\frac{1}{s^2(s+1)}=\frac{A}{s}+\frac{1}{s^2}+\frac{1}{s+1}$.  Clearing fractions, $1=As(s+1)+(s+1)+s^2$.  At $s=1$ this is $1=2A+3$ implying $A=-1$.\\
+
+  So $\displaystyle \mathcal{L}(t\ast e^{-t})=\frac{-1}{s}+\frac{1}{s^2}+\frac{1}{s+1}$.   And the inverse transform is $t\ast e^{-t}=t-1+e^{-t}$, matching our direct calculation above.
+
+  \newpage
+  
+
+ Suppose $y(t)$ is a function satisfying $\displaystyle y(t)+\int_0^t y(x)\,dx=\frac{1}{2}t^2$ (an $``$integral equation").\\
+
+ A key observation is that $\displaystyle y\ast 1=\int_0^t y(x)\,dx$.  So we can rewrite this integral equation as $y\,+\,y\ast 1=\frac{1}{2}t^2$.  Then by taking the Laplace transform of both sides, with $Y=\mathcal{L}(y)$, we get $Y\,+\, Y\,\frac{1}{s}=\frac{1}{s^3}$, or equivalently, $\displaystyle \left(\frac{s+1}{s}\right) Y=\frac{1}{s^3}$.  So $\displaystyle Y=\frac{1}{s^2(s+1)}$,  which by the above we know that the solution is $y=t-1+e^{-t}$.
+
+\end{document}
