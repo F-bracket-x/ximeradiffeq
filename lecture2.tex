@@ -1,7 +1,7 @@
 \documentclass{ximera}
 
 
-
+\pgfplotsset{compat=1.18} 
 
 
 % MATH -----------------------------------------------------------
@@ -17,11 +17,8 @@
 \begin{document}
 \begin{abstract}
  \end{abstract}
-
-    \title{First Order Linear}
-        \maketitle
-
-
+    \title{First Order Linear}        
+    \maketitle
  A 1st order de is \underline{linear} if it can be expressed as\\ \framebox{$y'+p(x)y=f(x)$}  $\leftarrow$ ``standard form"\\  for some functions $p(x),f(x)$; otherwise it's called \underline{non-linear}.\\
 
  A 1st order linear de that can be written in the form $y'+p(x)y=0$ is called \underline{homogeneous}; otherwise it is called \underline{non-homogeneous}.\\
@@ -107,7 +104,7 @@ Then \framebox{$\displaystyle y =\frac{1}{\mu (x)} \int \mu (x)f(x)\;dx$.}   $\l
  Hence $y=x^2\ln{(x)}+Cx^2$ is the general solution on $(0,\infty)$.
 
 
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
 \begin{tikzpicture}[scale=1.5, declare function={f(\x,\y)=(2/(\x))*\y+\x;}]
 \def\xmax{4} \def\xmin{0}
