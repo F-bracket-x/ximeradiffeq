@@ -1,0 +1,62 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{2nd Order Linear Nonhomogeneous}
+    
+    \maketitle
+
+ Consider the nonhomogenous case of a 2nd order linear de, where $y''+p(x)y'+q(x)y=f(x)$.  We call the equation with $f(x)=0$ the \underline{complementary equation}.   Remember that often we drop the $``$of x" notation. \\
+
+
+ \textbf{Theorem}:   Suppose $p,q,f$ are continuous on an open interval $I$ and $x_{0}$ is a point in $I$.  Then for any constants $k_{0}$ and $k_{1}$ the IVP $y''+py'+qy=f,\mbox{ }y(x_{0})=k_{0},\mbox{ }y'(x_{0})=k_{1}$ has a unique solution on $I$.\\
+
+ (The proof is skipped.)\\ \\
+
+
+ The following gives a method for solving $y''+py'+qy=f$ for its general solution.   This theorem we will prove as its proof is instructive!\\
+
+
+ \textbf{Theorem}:   Suppose $p,q,f$ are continuous functions on an open interval $I$.  Assume $y_{p}$ is a particular solution to $y''+py'+qy=f$ on $I$, and $\{y_{1},y_{2}\}$ is a fundamental set of solutions to the complementary equation $y''+py'+qy=0$ on $I$.  Then $y$ is a solution to  $y''+py'+qy=f$ on $I$ if and only if $y=y_{p}+c_{1}y_{1}+c_{2}y_{2}$ for some constants $c_{1},c_{2}$.\\
+
+
+ \emph{Proof}:  Assume $p,q,f$ are continuous functions on an open interval $I$ and that $y_{p}$ is a particular solution to $y''+py'+qy=f$ on $I$. Let $\{y_1,y_2\}$ be a fundamental set of solutions to the complementary equation $y''+py'+qy=0$ on $I$.  \\
+
+  We start with the $``$reverse direction" of the argument.  Suppose $y=y_{p}+c_{1}y_{1}+c_{2}y_{2}$ where $c_1,c_2$ are arbitrary constants.  Then $y'=y_{p}'+c_{1}y_{1}'+c_{2}y_{2}'$ and $y''=y_{p}''+c_{1}y_{1}''+c_{2}y_{2}''$, so \\ $y''+py'+qy=y_{p}''+c_{1}y_{1}''+c_{2}y_{2}''+p(y_{p}'+c_{1}y_{1}'+c_{2}y_{2}')+q(y_{p}+c_{1}y_{1}+c_{2}y_{2})=$ \\    $=y_{p}''+py_{p}'+qy_{p}+c_{1}(y_{1}''+py_{1}'+qy_{1})+c_{2}(y_{2}''+py_{2}'+qy_{2})=$ $f+c_1(0)+c_2(0)=f$.\\
+
+
+ If $y=y_{p}+c_{1}y_{1}+c_{2}y_{2}$ for arbitrary $c_{1},c_{2}$ then $y$ is a solution to $y''+py'+qy=f$.\\
+
+ Now we prove the forward direction.  Suppose $y$ is a solution to  $y''+py'+qy=f$ on $I$.  Then consider $w=y-y_{p}$.  We show that $w$ is a solution to the complementary equation  $y''+py'+qy=0$ on $I$.  Well, \\ \begin{small}$w''+pw'+qw=y''-y_{p}''+p(y'-y_{p}')+q(y-y_{p})$ $=y''+py'+qy-(y_{p}''+py_{p}'+qy_{p})$ $=f-f=0$\end{small}.
+
+\newpage
+
+
+Therefore, since $\{y_1,y_2\}$ is a fundamental set of solutions to the complementary equation $y''+py'+qy=0$ on $I$ it follows that $w=y-y_p=c_1y_1+c_2y_2$ for some constants $c_1,c_2$.  Hence $y=y_p+c_1y_1+c_2y_2\mbox{ }_{\square}$
+
+
+So the general solution to $y''+py'+qy'=f$ (on some open interval $I$) is \framebox{$y=y_p+c_1y_1+c_2y_2$} where $y_p$ is a particular solution to $y''+py'+qy=f$ (on $I$) and $\{y_1,y_2\}$ is a fundamental set of solutions to the complementary equation $y''+py'+qy=0$ (on $I$).\\ \\
+
+ Let's solve the following IVP:  $y''+9y=9$, $y(0)=0$, $y'(0)=4$.\\
+
+ The characteristic polynomial of the complementary equation $y''+9y=0$ is $r^{2}+9$ which has roots $r=\pm 3i$.  So $\{\cos{(3x)},\sin{(3x)}\}$ are a fundamental set of solutions to $y''+9y=0$.  By inspection we can determine that $y_{p}=1$ is a particular solution of $y''+9y=9$.  Hence $y=1+c_{1}\cos{(3x)}+c_{2}\sin{(3x)}$ is the general solution of $y''+9y=9$.\\
+
+Imposing the initial condition $y(0)=0$ implies $0=1+c_{1}$, so $c_{1}=-1$.  Imposing the initial condition $y'(0)=4$ implies $4=3c_{2}$, so $c_{2}=\dfrac{4}{3}$.  So the solution to the IVP is $y=1-\cos{(3x)}+\dfrac{4}{3}\sin{(3x)}$.
+
+
+\end{document}

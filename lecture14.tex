@@ -1,0 +1,94 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Undetermined Coefficients, Part I}
+    
+    \maketitle
+
+ Suppose we need a particular solution to a 2nd order linear nonhomogeneous de (on some open interval $I$).  Sometimes making an educated guess at the form of a possible particular solution works.  Often these guesses involve coefficients that have to be determined.  This technique is called $``$the Method of Undetermined Coefficients."\\
+
+ Consider $y''+2y'+y=x^2-1$.  Suppose we want a particular solution.\\
+
+
+Since $x^2-1$ is a quadratic, and since a sum of multiples of a quadratic function and its derivatives usually results in a quadratic, we will guess that there is a particular solution that is a quadratic.  \\
+
+ That is, suppose $y_p=ax^2+bx+c$ is a particular solution where $a,b,c$ are constants.\\
+
+ Then $y_p'=2ax+b$ and $y_p''=2a$ and so $y_p''+2y_p'+y_p=x^2-1$ becomes \\$2a+2(2ax+b)+ax^2+bx+c=x^2-1$ which we can subsequently re-express as \\ $ax^2+(4a+b)x+(2a+2b+c)=x^2-1$.  So we get a system of linear equations:
+
+ \begin{eqnarray*}
+  a &=& 1, \\
+  4a+b &=& 0, \\
+  2a+2b+c &=& -1.\\
+ \end{eqnarray*}
+
+ Solving this yields $a=1$, $b=-4$ and $c=5$.\\
+
+ So a particular solution is $y_p=x^2-4x+5$.\\
+
+ The characteristic polynomial of the complementary equation is $(r+1)^2$.  Therefore the general solution to  $y''+2y'+y=x^2-1$ is $$y=x^2-4x+5+(c_1+c_2 x)e^{-x}.$$
+
+\newpage
+
+Consider $y''+4y=(1+t)e^{2t}$.  Suppose we want a particular solution.\\
+
+
+ Since $(1+t)e^{2t}$ is the product of a linear function and $e^{2t}$, and since a sum of multiples of $\ell(t)e^{2t}$ and its derivatives, where $\ell(t)$ is a linear function, usually results in a product of a linear function and $e^{2t}$,  we will guess that there is a particular solution of the form $y_p=(a+bt)e^{2t}$.\\
+
+ Then by the Product Rule, $y_p'=be^{2t}+2(a+bt)e^{2t}=[(2a+b)+2bt]e^{2t}$ and\\ $y_p''=2be^{2t}+2[(2a+b)+2bt]e^{2t}=[(4a+4b)+4bt]e^{2t}$. \\
+
+ So $y_p''+4y_p=(1+t)e^{2t}$ becomes $[(4a+4b)+4bt]e^{2t}+4(a+bt)e^{2t}=(1+t)e^{2t}$ or equivalently\\ $(8a+4b)+8bt=1+t$.  So we get a system of linear equations:
+
+ \begin{eqnarray*}
+  8a+4b &=& 1, \\
+  8b &=& 1.\\
+ \end{eqnarray*}
+
+ Solving this yields $b=\frac{1}{8}$ and $a=\frac{1}{16}$.  So a particular solution is $y_p=\left(\frac{1}{16}+\frac{1}{8}t\right)e^{2t}$.\\
+
+ The characteristic polynomial of the complementary equation is $r^2+4$ and has roots at $\pm 2i$.  Therefore the general solution to $y''+4y=(1+t)e^{2t}$ is $y=\left(\frac{1}{16}+\frac{1}{8}t\right)e^{2t}+c_1 \cos(2t)+c_2 \sin{(2t)}$.\\ \\
+
+
+ Consider $y''-2y'-3y=\cos{(3t)}$.  Suppose we need a particular solution.\\
+
+
+ Since the sum of multiples of a linear combination of cosine and sine functions of $3t$ and its derivatives is a linear combination of cosine and sine functions of $3t$, we will guess that there is a particular solution of the form $y_p=A\cos{(3t)}+B\sin{(3t)}$.  Then\\ $y_p'=-3A\sin{(3t)}+3B\cos{(3t)}$ and $y_p''=-9A\cos{(3t)}-9B\sin{(3t)}$.\\
+
+So the equation $y_p''-2y_p'-3y_p=\cos{(3t)}$ becomes \\$-9A\cos{(3t)}-9B\sin{(3t)}-2(-3A\sin{(3t)}+3B\cos{(3t)})-3(A\cos{(3t)}+B\sin{(3t)})=\cos{(3t)}$\\ or equivalently, $(-12A-6B)\cos{(3t)}+(6A-12B)\sin{(3t)}=\cos{(3t)}$.  So we require:
+
+ \begin{eqnarray*}
+  -12A-6B &=& 1, \\
+  6A-12B &=& 0.\\
+ \end{eqnarray*}
+
+ Then $A=2B$, which implies $-30B=1$, so $B=-\frac{1}{30}$  and $A=-\frac{1}{15}$.  So a particular solution is $y_p=-\frac{1}{15}\cos{(3t)}-\frac{1}{30}\sin{(3t)}$.\\
+
+The characteristic polynomial of the complementary equation, $r^2-2r-3$, factors as\\ $(r+1)(r-3)$.  Therefore the general solution to $y''-2y'-3y=\cos{(3t)}$ is \\ $y=-\frac{1}{15}\cos{(3t)}-\frac{1}{30}\sin{(3t)}+c_1e^{-t}+c_2e^{3t}$.\\
+
+
+ \emph{Superposition}:  Let $p,q,f_1,f_2$ be continuous functions on an open interval $I$.  If $y_{p_1}$ and $y_{p_2}$ are particular solutions to $y''+py'+qy=f_1$ and $y''+py'+qy=f_2$ on $I$ respectively then $y_{p_1}+y_{p_2}$ is a particular solution to $y''+py'+qy=f_1+f_2$ on $I$.\\
+
+The proof is left as an exercise for the reader/viewer.\\
+
+
+Consider $y''-2y'-3y=6t+\cos{(3t)}$.  Suppose we want a particular solution.  We already determined that $y_{p_1}=-\frac{1}{15}\cos{(3t)}-\frac{1}{30}\sin{(3t)}$ is a particular solution to $y''-2y'-3y=\cos{(3t)}$.\\
+
+We look for a solution to $y''-2y'-3y=6t$ of the form $y_{p_2}=a+bt$.  Since $y_{p_2}'=b$ and $y_{p_2}''=0$ we get $0-2b-3(a+bt)=6t$, or equivalently, $-2b-3a-3bt=6t$, so $b=-2$ and $a=\frac{4}{3}$.  So $y_{p_2}=\frac{4}{3}-2t$.  By superposition, $y_p=\frac{4}{3}-2t-\frac{1}{15}\cos{(3t)}-\frac{1}{30}\sin{(3t)}$ is a particular solution to $y''-2y'-3y=6t+\cos{(3t)}$.
+
+\end{document}

@@ -1,0 +1,87 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Undetermined Coefficients, Part II}
+    
+    \maketitle
+
+ When using the Method of Undetermined Coefficients sometimes the natural (structure-matching) guess at a particular solution doesn't work because the guess, or some terms of the guess, forms a solution of the complementary equation.  We illustrate this with an example:\\
+
+ Consider the de $y''-4y=e^{-2t}$.  Suppose we assume there is a particular solution of the form $y_p=Ae^{-2t}$.  Then $y_p'=-2Ae^{-2t}$ and $y_p''=4Ae^{-2t}$.  But then $y_p''-4y_p=0$ and therefore our assumption is not correct.  The issue is that $Ae^{-2t}$ is a solution to the complementary equation.\\
+
+Suppose some or all terms of a natural guess at a particular solution to a 2nd order linear nonhomogeneous de is a solution to the complementary equation.  Then one can show that there is a particular solution of the form of the independent variable multiplied by the natural guess, or the square of the independent variable multiplied by the natural guess (in the case that some or all parts of the former is a solution to the complementary equation.)\\
+
+
+So for the de $y''-4y=e^{-2t}$ we guess that there is a solution of the form $y_p=Ate^{-2t}$ and that should work because it is not a solution to the complementary equation, which has the general solution $y=c_1 e^{2t}+c_2 e^{-2t}$.\\
+
+If $y_p=Ate^{-2t}$ then $y_p'=Ae^{-2t}-2Ate^{-2t}$ and \\$y_p''=-2Ae^{-2t}-2Ae^{-2t}+4Ate^{-2t}=-4Ae^{-2t}+4Ate^{-2t}$.\\
+
+So $y_p''-4y_p=e^{-2t}$ is $-4Ae^{-2t}+4Ate^{-2t}-4Ate^{-2t}=e^{-2t}$ and simplifies to $-4Ae^{-2t}=e^{-2t}$.  So $A=-\frac{1}{4}$.\\
+
+Thus a particular solution to $y''-4y=e^{-2t}$ is $y_p=-\frac{1}{4}te^{-2t}$ and the general solution is $y=c_1 e^{2t}+\left(c_2-\frac{1}{4}t\right)e^{-2t}$.\\
+
+\newpage
+
+Consider the de $y''+2y'+y=(t-6)e^{-t}$.  \\
+
+The characteristic polynomial of the complementary equation $y''+2y'+y=0$ is\\ $r^2+2r+1=(r+1)^2$ and hence the general solution to the complementary equation is $y=(c_1+c_2 t)e^{-t}$.  That means that the natural structure-matching guess at a particular solution, $y_p=(a+bt)e^{-t}$, has no hope of working.\\
+
+Also, multiplying that guess by $t$ isn't enough, because one term of that, $ate^{-t}$, will \emph{still} be a complementary solution.\\
+
+  So we must multiply by $t^2$ and guess that there is a particular solution to \\$y''+2y'+y=(t-6)e^{-t}$ of the form $y_p=t^2(a+bt)e^{-t}=(at^2+bt^3)e^{-t}$.\\
+
+  So $y_p'=(2at+3bt^2)e^{-t}-(at^2+bt^3)e^{-t}$ and $y_p''=(2a+6bt)e^{-t}-2(2at+3bt^2)e^{-t}+(at^2+bt^3)e^{-t}$.\\
+
+  [Note: $(fg)''=f''g+2f'g'+fg''$.]\\
+
+  By substituting all this in the de $y''+2y'+y=(t-6)e^{-t}$:\\
+
+ $$[(2a+6bt)e^{-t}-2(2at+3bt^2)e^{-t}+(at^2+bt^3)e^{-t}]+2[(2at+3bt^2)e^{-t}-(at^2+bt^3)e^{-t}]+(at^2+bt^3)e^{-t}=(t-6)e^{-t}\rightarrow $$
+
+  $$(2a+6bt)-2(2at+3bt^2)+(at^2+bt^3)+2(2at+3bt^2)-2(at^2+bt^3)+(at^2+bt^3)=t-6\rightarrow $$
+
+  $$2a+6bt-4at-6bt^2+at^2+bt^3+4at+6bt^2-2at^2-2bt^3+at^2+bt^3=t-6\rightarrow $$
+
+ \vspace{0.5cm}
+
+  $2a+6bt=t-6\rightarrow $  $a=-3$ and $b=\frac{1}{6}$ so $y_p=\left(-3t^2+\frac{1}{6}t^3\right)e^{-t}$.\\
+
+   The general solution is $y=\left(c_1+c_2 t-3t^2+\frac{1}{6}t^3\right)e^{-t}$.
+
+
+\newpage
+
+Let's solve the IVP $y''+9y=12\cos{(3x)}$, $y(0)=0$, $y'(0)=3$.\\
+
+ The complementary equation $y''+9y=0$ has $\{\cos{(3x)},\sin{(3x)}\}$ as a fundamental set of solutions, so we need to multiply our natural guess at a particular solution by $x$:\\
+
+Let $y_p=x(A\cos{(3x)}+B\sin{(3x)})$.  That's good enough because neither term is a complementary solution.\\
+
+ Then $y_p'=(A\cos{(3x)}+B\sin{(3x)})+x(-3A\sin{(3x)}+3B\cos{(3x)})$ and \\ $$y_p''=2(-3A\sin{(3x)}+3B\cos{(3x)})+x(-9A\cos{(3x)}-9B\sin{(3x)}=2(-3A\sin{(3x)}+3B\cos{(3x)}-9y_p,$$
+
+\vspace{0.5cm}
+
+ so $y_p''+9y_p=2(-3A\sin{(3x)}+3B\cos{(3x)})=-6A\sin{(3x)}+6B\cos{(3x)}$ and we set this to $12\cos{(3x)}$ to get $A=0$ and $B=2$.\\
+
+ Then the general solution is  $y=c_1\cos{(3x)}+(c_2+2x)\sin{(3x)}$.  Using $y(0)=0$ yields $0=c_1$ so $y=(c_2+2x)\sin{(3x)}$.  Using $y'=2\sin{(3x)}+3(c_2+2x)\cos{(3x)}$ and $y'(0)=3$ yields $3=3c_2$ so $c_2=1$.\\
+
+ So the solution to this IVP is  $y=(1+2x)\sin{(3x)}$.
+
+
+\end{document}
