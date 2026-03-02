@@ -1,0 +1,98 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Euler Equations}
+    
+    \maketitle
+
+ A 2nd order linear differential equation is called an $``$Euler equation" if it can be expressed in the form $ax^2 y''+bxy'+cy=f(x)$ where $a,b,c$ are constants with $a\neq 0$ and $f$ is a function.  We will only consider these equations for $x>0$.\\
+
+ Let's determine the general solution to a homogeneous Euler equation $ax^2 y''+bxy'+cy=0$ for $x>0$.\\
+
+ We \emph{guess} that there might be solutions of the form $y=x^m$.  Then $y'=mx^{m-1}$ and \\$y''=m(m-1)x^{m-2}$.  Then $ax^2 y''+bxy'+cy=0$ becomes\\ $ax^2\,m(m-1)x^{m-2}+bx\,mx^{m-1}+c\,x^m=0$, which simplifies to $(am(m-1)+bm+c)x^m=0$.  Since $x>0$, we can divide both sides by $x^m$ to get $am(m-1)+bm+c=0$, which we refer to as the $``$Euler-characteristic equation" and call the polynomial \\$am(m-1)+bm+c=am^2+(b-a)m+c$ the $``$Euler-characteristic polynomial."\\
+
+Since it is a quadratic equation, three cases arise.  Case $1$: There are two distinct real solutions $m_1<m_2$.  Case $2$: There is only one real solution $m_1$.  Case $3$:  There are non-real complex-conjugate solutions $\alpha \pm \beta i$ where $\alpha$, $\beta$ are real numbers and $\beta\neq 0$.\\
+
+Case $1$: We already have two solutions, $y_1=x^{m_1}$ and $y_2=x^{m_2}$.  Since $\displaystyle \frac{y_2}{y_1}$ is non-constant it follows that these solutions form a fundamental set of solutions and that the general solution is \framebox{$y=c_1x^{m_1}+c_2x^{m_2}$}.
+
+\newpage
+
+Case $2$: We use that $y_1=x^{m_1}$ is a solution and\\ $am^2+(b-a)m+c=a(m-m_1)^2=a(m^2-2m_1 m+m_1^2)$, the latter implies that $b-a=-2am_1$.  We can build the general solution by using Reduction of Order!\\
+
+Let $y=ux^{m_1}$ be a solution to $ax^2 y''+bxy'+cy=0$ for $x>0$. Then $y'=u'x^{m_1}+m_1ux^{m_1 -1}$ and $y''=u''x^{m_1}+2m_1u'x^{m_1 -1}+m_1(m_1 -1)ux^{m_1 -2}$.  So $ax^2 y''+bxy'+cy=0$ becomes:
+
+
+ \begin{eqnarray*}
+  &\;& ax^2(u''x^{m_1}+2m_1u'x^{m_1 -1}+m_1(m_1 -1)ux^{m_1 -2})+bx(u'x^{m_1}+m_1ux^{m_1 -1})+c ux^{m_1} =0  \\
+  &\rightarrow & au''x^{m_1+2}+2am_1u'x^{m_1 +1}+bu'x^{m_1+1}=0\\
+  &\rightarrow & au''x^{m_1+2}+2am_1u'x^{m_1 +1}+(a-2am_1)u'x^{m_1+1}=0\;(\mbox{ since }b=a-2am_1)\\
+  &\rightarrow & au''x^{m_1+2}+au'x^{m_1+1}=0\\
+  &\rightarrow & u''x+u'=0\;(\mbox{ dividing by }ax^{m_1+1})\\
+  &\rightarrow & z'x+z=0\\
+  &\rightarrow & z=u'=c_1x^{-1}\\
+  &\rightarrow & u=c_1\ln(x)+c_2\\
+  &\rightarrow & y=ux^{m_1}=(c_1\ln(x)+c_2)x^{m_1}
+ \end{eqnarray*}
+
+So the general solution in this case is \framebox{$y=(c_1\ln(x)+c_2)x^{m_1}$}.\\
+
+
+Case 3:  In this case we get two complex-valued solutions, $\bar{y_1}=x^{\alpha +\beta i}$ and $\bar{y_2}=x^{\alpha -\beta i}$.\\
+
+ We can re-express these as $\bar{y_1}=x^{\alpha}x^{\beta i}$ and $\bar{y_2}=x^{\alpha}x^{-\beta i}$.\\
+
+ We can even re-express these as $\displaystyle \bar{y_1}=x^{\alpha}e^{ln{\left(x^{\beta i}\right)}}=x^{\alpha}e^{i\beta ln{(x)}}$ and \\$\displaystyle \bar{y_2}=x^{\alpha}e^{\ln{\left(x^{-\beta i}\right)}}=x^{\alpha}e^{-i\beta ln{(x)}}$.\\
+
+Then using Euler's formula ($e^{i\theta}=\cos{(\theta)}+i\sin{(\theta)}$) we get that 
+
+ $\displaystyle \bar{y_1}=x^{\alpha}\left( \cos{\left(\beta \ln{(x)}\right)}+i\sin{\left(\beta \ln{(x)}\right)} \right)$ and 
+
+ $\displaystyle \bar{y_2}=x^{\alpha}\left(\cos{\left(\beta \ln{(x)}\right)}-i\sin{\left(\beta \ln{(x)}\right)}\right)$.
+
+ Since any linear combination of solutions to any 2nd order linear homogeneous de is yet another solution we can find the following two real-valued solutions,\\  $\displaystyle y_1=\frac{1}{2}\left(\bar{y_1}+\bar{y_2}\right)=x^{\alpha}\cos{\left(\beta \ln{(x)}\right)}$ and $\displaystyle y_2=\frac{1}{2i}\left(\bar{y_1}-\bar{y_2}\right)=x^{\alpha}\sin{\left(\beta \ln{(x)}\right)}$.
+
+So the general solution in this case is \framebox{$y=x^{\alpha}\left[c_1\cos{\left(\beta \ln{(x)}\right)}+c_2\sin{\left(\beta \ln{(x)}\right)}\,\right]$}.
+
+
+
+\newpage
+
+Examples:\\
+
+(1) Let's solve the IVP $2x^2 y'' -xy'+y=0$, $y(1)=0$, $y'(1)=1$.\\
+
+The Euler-characteristic polynomial is $2m(m-1)-m+1=2m^2-3m+1=(2m-1)(m-1)$.  It has roots at $m=\frac{1}{2}$ and $m=1$.\\
+
+So $y=c_1 \sqrt{x}+c_2 x$.  Since $y(1)=0$ we get $0=c_1+c_2$ which means $c_2=-c_1$.  \\
+
+$\displaystyle y'=\frac{c_1}{2\sqrt{x}}+c_2$.  Since $y'(1)=1$ we get $\displaystyle 1=\frac{c_1}{2}+c_2$. \\
+
+ Then $\displaystyle 1= \frac{c_1}{2}-c_1=-\frac{c_1}{2}$ so $c_1=-2$ and $c_2=2$.\\
+
+So the IVP solution is $y=2x-2\sqrt{x}$.\\ \\
+
+(2) Let's solve the IVP $x^2 y''-xy'+5y=0$, $y(1)=0$, $y'(1)=8$.\\
+
+The Euler-characteristic polynomial is $m(m-1)-m+5=m^2-2m+5=(m-1)^2+4$.  It has roots at $m=1\pm 2i$.  So $y=x\left[c_1\cos{\left(2\ln{(x)}\right)}+c_2\sin{\left(2\ln{(x)}\right)}\,\right]$.\\
+
+Since $y(1)=0$ we get $0=c_1$.  So $y=Cx\sin{\left(2\ln{(x)}\right)}$ and $y'=C\sin{\left(2\ln{(x)}\right)}+2C\cos{\left(2\ln{(x)}\right)}$.  Then $y'(1)=8$ yields $8=2C$ so $C=4$.\\
+
+So the solution to this IVP is $y=4x\sin{\left(2\ln{(x)}\right)}$.
+
+\end{document}

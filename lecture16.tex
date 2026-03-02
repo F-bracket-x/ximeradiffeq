@@ -1,0 +1,101 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Reduction of Order}
+    
+    \maketitle
+
+
+ Suppose we want to find a general solution to the 2nd order linear differential equation \\ $y''+py'+qy=f$ in the situation where we can find, or are given, a non-trivial solution $y_{1}$ of the complementary homogeneous equation $y''+py'+qy=0$.\\
+
+ Let's look for a solution of the form $y=uy_{1}$. \\
+
+ Then $y'=u'y_{1}+uy_{1}'$ and $y''=u''y_{1}+2u'y_{1}'+uy_{1}''$.  By substitution we get
+
+ \begin{eqnarray*}
+  y''+py'+qy=f &\rightarrow & u''y_{1}+2u'y_{1}'+uy_{1}''\,+\,p(u'y_{1}+uy_{1}')\,+\,q(uy_{1})=f \\
+   &\rightarrow & u'' y_1 +(2y_1'+py_1)u'+(y_1 ''+py_1 '+qy_1)u=f \\
+   &\rightarrow & u'' y_1 +(2y_1'+py_1)u'+(0)u=f \\
+   &\rightarrow & u'' y_1 +(2y_1'+py_1)u'=f \\
+   &\rightarrow & y_1 z'  +(2y_1'+py_1)z=f\mbox{ using the sub. }z=u'.\\
+ \end{eqnarray*}
+
+ This results in a 1st order linear de for $z$, which can be solved for $z=u'$, which can in turn be solved for $u$, and then $y=uy_1$.\\
+
+ This method is called $``$Reduction of Order."  You can choose to memorize \framebox{$y_1 z'  +(2y_1'+py_1)z=f$} but make sure the de is in the standard form!  The process works even when the de isn't in the standard form.  Our examples will illustrate that.\\
+
+
+ Let's find the general solution to $x^{2}y''+xy'-y=4x^{-2}$ given that $y=x$ is a solution to the complementary equation.\\
+
+ Setting $y=ux$ yields $y'=u'x+u$ and $y''=u''x+2u'$.  By substitution, we get  \\$\displaystyle x^{2}(u''x+2u')+x(u'x+u)-ux=4x^{-2}$ $\mbox{ which implies }x^{3}u''+3x^{2}u'=4x^{-2}$.\\
+
+ In terms of $z=u'$ this is equivalent to $x^3 z'+3x^2 z=4x^{-2}$.\\
+
+ The left side is already in the form $(x^3 z)'$ so $(x^3 z)'=4x^{-2}$ implies $x^3 z=-4x^{-1}+c_1$.
+
+ \newpage
+ 
+
+ So $z=u'=-4x^{-4}+c_1x^{-3}\rightarrow $ $u=\frac{4}{3}x^{-3}+c_1x^{-2}+c_2$.  (Note: $-\frac{c_1}{2}$ is as arbitrary as $c_1$.) \\ So the general solution is \\$\displaystyle y=ux=\frac{4}{3}x^{-2}+c_1x^{-1}+c_2x=\frac{4}{3x^2}+\frac{c_1}{x}+c_2x=\frac{4+c_1 x+c_2 x^3}{3x^2}$.\\ (Note: $3c_1,3c_2$ are as arbtirary as $c_1,c_2$).
+
+
+
+Let's solve the IVP $(x^{2}-4)y''+4xy'+2y=x+2$, $y(0)=0$, $\displaystyle y'(0)=-\frac{3}{8}$ , given that $y=\dfrac{1}{x-2}$ is a complementary solution.  Let $y=u(x-2)^{-1}$. \\
+
+ Then $y'=u'(x-2)^{-1}-u(x-2)^{-2}$ and $y''=u''(x-2)^{-1}-2u'(x-2)^{-2}+2u(x-2)^{-3}$.  So
+
+
+$$(x^{2}-4)(u''(x-2)^{-1}-2u'(x-2)^{-2}+2u(x-2)^{-3})+4x(u'(x-2)^{-1}-u(x-2)^{-2})+2u(x-2)^{-1}=x+2\rightarrow$$
+
+\medskip
+
+ $$(x+2)u''-2(x+2)(x-2)^{-1}u'+2(x+2)(x-2)^{-2}u+4x(x-2)^{-1}u'-4x(x-2)^{-2}u+2(x-2)^{-1}u=x+2\rightarrow$$
+
+
+\medskip
+
+ $$(x+2)u''+(-2(x+2)(x-2)^{-1}+4x(x-2)^{-1})u'+(2(x+2)(x-2)^{-2}-4x(x-2)^{-2}+2(x-2)^{-1})u=x+2\rightarrow$$
+
+
+\medskip
+
+ $(x+2)u''+2u'=x+2$.   Letting $z=u'$ and dividing through by $x+2$ yields $z'+2(x+2)^{-1}z=1$.\\
+
+ We find an integrating factor: $\displaystyle \mu=e^{2\ln{|x+2|}}=(x+2)^{2}$.\\
+
+ Let's solve $(x+2)^{2}z'+2(x+2)z=(x+2)^{2}$, which is equivalent to $((x+2)^{2}z)'=(x+2)^{2}$.\\
+
+ Integrating yields $(x+2)^{2}z=\frac{1}{3}(x+2)^{3}+c_1$.  So $z=u'=\frac{1}{3}(x+2)+c_1(x+2)^{-2}$. \\
+
+ So $u=\frac{1}{6}(x+2)^2+c_1(x+2)^{-1}+c_2$.\\
+
+ Finally we get a general solution by multiplying $u$ by $y_1=(x-2)^{-1}$, so \\$\displaystyle y=\frac{1}{6}(x+2)^2(x-2)^{-1}+c_1(x+2)^{-1}(x-2)^{-1}+c_2(x-2)^{-1}$.  Now we impose the initial conditions:  $y(0)=0$ implies $\displaystyle 0=-\frac{1}{3}-\frac{c_1}{4}-\frac{c_2}{2}$.
+
+ $$y'= \frac{1}{3}(x+2)(x-2)^{-1}-\frac{1}{6}(x+2)^2(x-2)^{-2} -c_1(x+2)^{-2}(x-2)^{-1}-c_1(x+2)^{-1}(x-2)^{-2}-c_2(x-2)^{-2}.$$
+
+ So $\displaystyle y'(0)=-\frac{3}{8}$ implies $\displaystyle -\frac{3}{8}=-\frac{1}{3}-\frac{1}{6} +\frac{c_1}{8}-\frac{c_1}{8}-\frac{c_2}{4}=-\frac{1}{2}-\frac{c_2}{4}$.  So $\displaystyle c_2=-\frac{1}{2}$, and $\displaystyle c_1=-\frac{1}{3}$.\\
+
+
+ So the IVP solution is $ \displaystyle y=\frac{1}{6}(x+2)^2(x-2)^{-1}-\frac{1}{3}(x+2)^{-1}(x-2)^{-1}-\frac{1}{2}(x-2)^{-1}$,\\
+
+ equivalently, $\displaystyle y=\frac{x(x+3)^2}{6(x^2-4)}$.
+
+
+
+\end{document}

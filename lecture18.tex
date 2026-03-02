@@ -1,0 +1,82 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Variation of Parameters}
+    
+    \maketitle
+
+The following method is called $``$Variation of Parameters."\\
+
+Let $p,q,f$ be continuous functions on some open interval $I$.  Suppose we want to find a particular solution to $y''+py'+qy=f$ and we can find, or are given, two functions $y_{1},y_{2}$ that form a fundamental set of solutions to $y''+py'+qy=0$ on $I$.\\
+
+We look for a particular solution of the form $y_p=uy_1+vy_2$ where $u,v$ are unknown functions of the independent variable.  Then $y_p'=u'y_1+uy_1'+v'y_2+vy_2'$. \\
+
+ Since there are two unknown functions, we have $``$one degree of freedom" to use up, so we can assume that (1) $u'y_1+v'y_2=0$ as a simplifying assumption.\\
+
+  So with this assumption, 
+  $y_p'=uy_1'+vy_2'$.  Then $y_p''=u'y_1'+uy_1''+v'y_2'+vy_2''$. \\
+
+  Then $y_p''+py_p'+qy_p=f$ yields $u'y_1'+uy_1''+v'y_2'+vy_2''\,+\,p(uy_1'+vy_2')\,+\,q(uy_1+vy_2)=f$, which can be re-expressed as $u'y_1'+v'y_2'+u(y_1''+py_1'+qy_1)+v(y_2''+py_2'+qy_2)=f$.  Since $y_1''+py_1'+qy_1=0$ and $y_2''+py_2'+qy_2=0$ we get (2) $u'y_1'+v'y_2'=f$.\\
+
+  Putting (1) and (2) together we get the following system of equations:
+
+\begin{eqnarray*}
+  u'y_1+v'y_2 &=& 0, \\
+  u'y_1'+v'y_2' &=& f.
+\end{eqnarray*}
+
+
+
+Multiplying the first equation by $y_2'$ and the second equation by $-y_2$ yields:
+
+\begin{eqnarray*}
+  +u'y_1y_2'+v'y_2y_2' &=& 0, \\
+  -u'y_1'y_2-v'y_2y_2' &=& -fy_2.
+\end{eqnarray*}
+
+
+Adding these equations, we get $u'(y_1y_2'-y_1'y_2)=-fy_2\rightarrow $ \framebox{$\displaystyle u'=-\frac{fy_2}{W}$}.  Going back to the original system, multiplying the first equation by $-y_1'$ and the second equation by $y_1$ yields:
+
+\begin{eqnarray*}
+  -u'y_1y_1'-v'y_1'y_2 &=& 0, \\
+  u'y_1y_1'+v'y_1y_2' &=& fy_1.
+\end{eqnarray*}
+
+
+Adding these equations, we get $v'(y_1y_2'-y_1'y_2)=fy_1\rightarrow $ \framebox{$\displaystyle v'=\frac{fy_1}{W}$}. Note: Always make sure the equation is in standard form as otherwise the $``f$" can be miss-identified.\\
+
+
+Example:  Let's find a particular solution to $y''+y=\tan{(t)}$ on $I=\left(0,\frac{\pi}{2}\right)$ and then construct the general solution on $I$.\\
+
+We can use $y_1=\cos{(t)}$ and $y_2=\sin{(t)}$ since they form a fundamental set of solutions to the complementary equation $y''+y=0$.\\
+
+Their Wronskian is $W=y_1y_2'-y_1'y_2=\cos^2{(t)}+\sin^2{(t)}=1$.  So we want $y_p=uy_1+vy_2$ where \\$\displaystyle u'=-\tan{(t)}\sin{(t)}=\frac{-\sin^2{(t)}}{\cos{(t)}}=\frac{\cos^2{(t)}-1}{\cos{(t)}}=\cos{(t)}-\sec{(t)}$ and \\ $v'=\tan{(t)}\cos{(t)}=\sin{(t)}$.\\
+
+Hence $u=\sin{(t)}-\ln{(\tan{(t)}+\sec{(t)})}$ and $v=-\cos{(t)}$.
+
+ So $y_p=uy_1+vy_2=(\sin{(t)}-\ln{(\tan{(t)}+\sec{(t)})})\cos{(t)}-\cos{(t)}\sin{(t)}=-\cos{(t)}\ln{(\tan{(t)}+\sec{(t)})})$ is  particular solution to $y''+y=\tan{(t)}$, and the general solution is \\ $y=-\cos{(t)}\ln{(\tan{(t)}+\sec{(t)})})+c_1\cos{(t)}+c_2\sin{(t)}$.\\
+
+
+Another Example:  Let's find a particular solution to $x^2 y''-2xy'+2y=5x$ on $I=(0,\infty)$ and then construct the general solution on $I$.
+
+The Euler-characteristic polynomial of $x^2 y''-2xy'+2y=0$ is $m(m-1)-2m+2$, equiv. $m^2-3m+2=(m-1)(m-2)$.  Since it has roots at $m=1$ and $m=2$ we can use $y_1=x$ and $y_2=x^2$ as a fundamental set of solutions to the complementary equation on $I$.\\
+
+Their Wronskian is $W=y_1y_2'-y_1'y_2=x(2x)-x^2=x^2$.  We carefully determine that $\displaystyle f=\frac{5}{x}$.  Then $\displaystyle u'=-\frac{(5/x)x^2}{x^2}=-\frac{5}{x}$ and $\displaystyle v'=\frac{(5/x)x}{x^2}=\frac{5}{x^2}$.  Then $u=-5\ln{(x)}$ and $\displaystyle v=-\frac{5}{x}$.  So $\displaystyle y_p=uy_1+vy_2=-5x\ln{(x)}-5x$.  Hence the general solution is $y=-5x\ln{(x)}-5x+c_1x+c_2x^2$. Or equivalently \\$y=-5x\ln{(x)}+c_1x+c_2x^2$.
+
+\end{document}
