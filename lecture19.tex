@@ -1,0 +1,140 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{2nd Order Applications, Part I (Springs)}
+    
+    \maketitle
+
+ There are many applications of 2nd order differential equations, particularly 2nd order linear.  We take a look at a couple.\\
+
+ Springs:  Consider an object of constant mass $m>0$ suspended from a spring (of negligible mass).  We say that the spring-mass system is at \emph{equilibrium}  when the object is at rest and the sum of the forces acting on it is $0$.  The corresponding position is called the \emph{equilibrium position}.\\
+
+ Let $y$ be the displacement of the mass from the equilibrium where $y>0$ is upward.\\
+
+
+\vfill
+
+
+
+ The following forces act on the object:\\
+
+
+\begin{itemize}
+
+ \item Gravity:  $F_{g}=-mg$ where $g$ is the gravitational constant.\\
+
+
+ \item Spring Force (Hooke's Law):  $F_{s}=k\Delta L$ where $k>0$ is the spring constant -- sometimes called the $``$spring stiffness" --  and $\Delta L$ is the change in length (stretching is positive) from the spring equilibrium position with no mass attached.  This is often called the $``$natural length of the spring."\\
+
+
+\end{itemize}
+
+\vfill
+
+
+ The following forces might act on the object depending on the situation:\\
+
+ \begin{itemize}
+
+ \item Damping Force:  $F_{d}=-cy'$ where $c>0$ is the damping constant (due to medium resistance, friction, or even a mechanical damper).\\
+
+\item External force(s):  A time-dependent force independent of the motion, which we denote by $F(t)$, could act on the object.\\
+
+ \end{itemize}
+
+\vfill
+
+\newpage
+
+ By Newton's second law we can write a de to model the spring-mass system described above:
+
+ $$my''=F(t)-mg-cy'+k\Delta L.$$
+
+\vspace{0.5cm}
+
+ Let's relate $\Delta L$ and $y$.  Imagine the spring without a mass attached.  When a mass $m$ is attached, the spring stretches by some amount $\ell$ from its natural length to the spring-mass equilibrium position, where the sum of forces on the spring is $0$, so $F_{g}+F_{s}=0$.   Hence $-mg+k\ell=0$,  or $\ell=mg/k$.\\
+
+ If at this point, a displacement of $y$ occurs then we would have $\Delta L=\ell-y=mg/k-y$.\\
+
+
+ So $my''=F(t)-mg-cy'+k\Delta L$ becomes $my''=F(t)-cy'-ky$ or equivalently \framebox{$my''+cy'+ky=F(t)$}.\\
+
+
+ If $F(t)=0$ we say the motion is \underline{free}.  Otherwise, it is said to be \underline{forced}.\\
+
+
+ If $c=0$ we say the motion is \underline{undamped}.  If $c>0$ we say the motion is \underline{damped}.  \emph{Simple harmonic motion} or a \emph{simple harmonic oscillator} (SHO) is free and undamped.\\
+
+
+ We begin with the case of a spring-mass system that is a simple harmonic oscillator:\\
+
+ Consider the free undamped system modeled by $my''+ky=0$.  The characteristic equation for this constant-coefficient homogeneous de is $mr^2+k=0$ and has roots at $r=\pm \sqrt{\frac{k}{m}}\,i$.  It is standard notation to let $\omega=\sqrt{\frac{k}{m}}$.   So we know that a general solution is $$y=c_{1}\cos{(\omega t)}+c_{2}\sin{(\omega t)}\mbox{, where }\omega=\sqrt{\frac{k}{m}}.$$
+
+
+ Let $A=\sqrt{c_1^2+c_2^2}$.   If $A=0$ then $y=0$.  \\
+
+ Otherwise, we can rewrite the above as $y=A\left(\frac{c_{1}}{A}\cos{(\omega t)}+\frac{c_{2}}{A}\sin{(\omega t)}\right)$.   There exists\\ $\varphi\in [0,2\pi)$ satisfying $c_1=A\cos{(\varphi)}$ and $c_2=A\sin{(\varphi)}$.\\
+
+
+ So we can rewrite the above as $y=A\left(\cos{(\varphi)}\cos{(\omega t)}+\sin{(\varphi)}\sin{(\omega t)}\right)$.   Using the Trigonometric identity $\cos{(\alpha-\beta)}=\cos{(\alpha)}\cos{(\beta)}+\sin{(\alpha)}\sin{(\beta)}$, where $\alpha=\omega t$ and $\beta=\varphi$ we get $y=A\cos{(\omega t-\varphi)}$ which even works if $A=0$.   Note: $A\cos{(\omega t-\varphi)}=A\sin{\left(\omega t-\left[\varphi-\frac{\pi}{2}\right]\right)}$.\\
+
+
+ Here are some key features of a simple harmonic oscillator where $y=A\cos{(\omega t-\varphi)}$:\\
+
+ $A$ is the amplitude of the oscillations -- which range between $-A$ and $A$.  $\omega$ is the angular frequency -- in radians per second.   $f=\frac{\omega}{2\pi}$ is the frequency -- in cycles per second, or hertz (hz).   $T=\frac{1}{f}=\frac{2\pi}{\omega}$ is the period -- in seconds.  $\varphi$ is the phase angle -- in radians.   $c=\frac{\varphi}{\omega}$ is the phase shift -- in seconds.\\
+
+
+
+ Example:   Suppose an object is hung from a spring whose natural length is $98$ cm and attains an equilibrium position of $1$ m.  Suppose the object is displaced downward $5$ cm, but given an initial upward velocity of $11$ cm/s.  Find the displacement for time $t>0$, and then the amplitude, frequency and period of the oscillations.
+
+ Since $g/\ell=k/m$, we have that $\omega=\sqrt{k/m}=\sqrt{g/\ell}=\sqrt{9.8/0.02}\approx 22$.  So \\$y\approx c_{1}\cos{(22t)}+c_{2}\sin{(22t)}$.  Imposing $y(0)=-0.05$ yields $c_{1}=-0.05$.   Imposing $y'(0)\approx 0.11$ yields $22c_{2}\approx 0.11$, so $c_{2}\approx 0.005$.\\
+
+ Hence $y\approx -0.05\cos{(22t)}+0.005\sin{(22t)}$.\\
+
+ The amplitude is $A\approx \sqrt{(-0.05)^2+(0.005)^2}\approx 0.05$ m,  the frequency is $f=\frac{\omega}{2\pi}\approx \frac{11}{\pi}$ hz \& the period is $T=\frac{1}{f}\approx \frac{\pi}{11}$ sec (the phase angle would be $\varphi\approx \tan^{-1}{(-0.1)}+\pi\approx 3.04$ rad and the phase shift would be approximately 0.28 s).\\
+
+\newpage
+
+ Let's consider an example with an external force: A mass of $m$ kg is hung on a large spring, of spring constant $k$ N/m, whose natural length is $50$ cm and is brought to rest at an equilibrium position of $77.2$ cm.  Starting at rest at time $t=0$, Someone pushes the mass with a force of  $F(t)=6m\cos{(6t)}$ N at time $t\geq 0$ seconds.  Let's find the displacement $y(t)$ above equilibrium at time $t\geq 0$ seconds and describe the long-run behavior.\\
+
+
+ Since $g/\ell=k/m$, we have that $\omega=\sqrt{k/m}=\sqrt{g/\ell}=\sqrt{9.8/0.272}\approx 6$.\\
+
+ We can model this motion by $my''+ky=F(t)$, $y(0)=0$, $y'(0)=0$.  So $my''+ky=6m \cos{(6t)}$ or equivalently $y''+36 y= 6\cos{(6t)}$.  The functions $y_1=\cos{(6t)}$ and $y_2=\sin{(6t)}$ form a fundamental set of solutions to the complementary equation.   By using Undetermined Coefficients, Reduction of Order, of Variation of Parameters, we get that $y_p=0.5t\sin{(6t)}$ is a solution.  The general solution is $y=c_1 \cos{(6t)}+(0.5t +c_2)\sin{(6t)}$.  By using the initial conditions, $c_1=0$ and $c_2=0$.  So $y=0.5t \sin{(6t)}$.  In the long run, the oscillations get larger and larger (until the spring eventually fails).  This is because the mass is forced with a periodic force that is in sync with the natural frequency of the spring mass system.  This concept is called $``$resonance."\\ \\
+
+ Now let's consider a free damped system:  $my''+cy'+ky=0$ where $c>0$.  The characteristic polynomial is $mr^{2}+cr+k$.   The roots of this polynomial are $\displaystyle r=\frac{-c\pm \sqrt{c^{2}-4mk}}{2m}$.\\
+
+
+ Underdamped case: $c<\sqrt{4mk}$\\
+
+ Then we get two complex conjugate roots $\alpha\pm \omega i$ where $\alpha=-c/(2m)$ and $\omega=\dfrac{\sqrt{4mk-c^{2}}}{2m}$.\\
+
+ Hence a general solution is $y=e^{\alpha t}(c_{1}\cos{(\omega t)}+c_{2}\sin{(\omega t)})$ and since $\alpha<0$ we get that $y\rightarrow 0$ as $t\rightarrow \infty$, but with oscillations.\\
+
+\newpage
+
+ Overdamped case: $c>\sqrt{4mk}$\\
+
+ Then we get two distinct real and negative roots $r_{1},r_{2}$,  and a general solution of \\ $y=c_{1}e^{r_{1}t}+c_{2}e^{r_{2}t}$ which goes towards $0$ as $t\rightarrow\infty$.   In this case no oscillation occurs as $y\neq 0$ cannot equal zero for more than one value of $t$.\\
+
+
+ Critically damped case: $c=\sqrt{4mk}$\\
+
+ Then we get one repeated real and negative root $r=-c/(2m)$, and a general solution of \\ $y=(c_{1}+c_{2}t)e^{rt}$ which goes towards $0$ as $t\rightarrow\infty$.  As in the overdamped case, no oscillation occurs and $y\neq 0$ cannot equal zero for more than one value of $t$.
+\end{document}
