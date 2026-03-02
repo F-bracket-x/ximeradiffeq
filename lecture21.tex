@@ -1,0 +1,90 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Laplace Transforms}
+    
+    \maketitle
+ Let $f(t)$ be defined for $t\geq 0$ and $s$ represent a real number.   Then the \underline{Laplace transform} of the function $f(t)$ is the function  $\displaystyle F(s)=\int_{0}^{\infty}e^{-st}f(t)\,dt$ on its domain of convergence (meaning where the improper integral converges).  The functions $f$ and $F$ are called a \underline{Laplace transform pair}.\\
+
+ Notation:  $\mathcal{L}(f)=F$ or we use the identification $f\leftrightarrow F$.\\
+
+ Note:  Technically the improper integral must be turned in a limit, but we will be lazy and never formally do this.  We will allow $``\infty$" to appear as though it were a real number (but with the understanding that we are taking a limit).
+
+\vspace{1cm}
+
+ Let's calculate a few basic Laplace transforms:\\
+
+ Consider the constant function $f(t)=k$ for $k\neq 0$.  Then $F(0)$ diverges (to $\pm \infty$) and for $s\neq 0$, $\displaystyle F(s)=\int_{0}^{\infty}ke^{-st}\,dt=\left.-\frac{k}{s}e^{-st}\right|_{0}^{\infty}=$  $\displaystyle \left\{
+     \begin{array}{lr}
+       \dfrac{k}{s} & \mbox{ if }s>0\\
+       \\
+       \pm \infty &  \mbox{ if }s<0
+     \end{array}\right.$.  So $\mathcal{L}(k)=\dfrac{k}{s}$ ($s>0$).\\ \\
+
+
+ Consider $f(t)=t$.  Then $F(0)$ diverges (to $\infty$) and for $s\neq 0$, \\$\displaystyle F(s)=\int_{0}^{\infty}te^{-st}\,dt=\left.-\frac{t}{s}e^{-st}\right|_{0}^{\infty}+\dfrac{1}{s}\int_{0}^{\infty}e^{-st}\,dt=$  $\displaystyle \left(\left.-\frac{t}{s}e^{-st}-\frac{1}{s^2}e^{-st}\right|_{0}^{\infty}\right)$  $\displaystyle =\left\{
+     \begin{array}{lr}
+       \dfrac{1}{s^{2}} & \mbox{ if }s>0\\
+      \\
+       \infty &  \mbox{ if }s<0
+     \end{array}\right.$.  \\ So $\mathcal{L}(t)=\dfrac{1}{s^2}$  ($s>0$). \\ \\
+
+\newpage
+
+
+ Consider  $f(t)=e^{at}$.
+
+ $\displaystyle F(s)=\int_{0}^{\infty}e^{-st}e^{at}\,dt=\int_{0}^{\infty}e^{-(s-a)t}\,dt=$  $\displaystyle \left.-\dfrac{1}{s-a}e^{-(s-a)t}\right|_{0}^{\infty}=$  $\displaystyle \left\{
+     \begin{array}{lr}
+       \dfrac{1}{s-a} & \mbox{ if }s>a\\
+       \\
+       \infty &  \mbox{ if }s< a
+     \end{array}\right.$.
+
+Note: F(a) diverges.\\
+
+  So $\mathcal{L}(e^{at})=\dfrac{1}{s-a}$ ($s>a$).
+
+
+
+ \textbf{Linearity of Laplace transforms}: If $\mathcal{L}(f)$ and $\mathcal{L}(g)$ both exist for $s>s_{0}$, where $f,g$ are functions and $s_0$ is a real number, then for any constants $c_{1},c_{2}$  we have $$\mathcal{L}(c_{1}f(t)+c_{2}g(t))=c_{1}\mathcal{L}(f)+c_{2}\mathcal{L}(g)\mbox{ for }s>s_{0}.$$
+
+
+(The proof is left as an exercise for the reader.) \\
+
+ Let's find the Laplace transform of $\sinh{(at)}=\dfrac{e^{at}-e^{-at}}{2}$ where $a>0$.   We know that $\mathcal{L}(e^{at})=\dfrac{1}{s-a}$ for $s>a$  and $\mathcal{L}(e^{-at})=\dfrac{1}{s+a}$ for $s>-a$.   So by linearity, \\$\mathcal{L}(\sinh{(at)})=\dfrac{1}{2}\left( \dfrac{1}{s-a}-\dfrac{1}{s+a}\right)=\dfrac{a}{s^{2}-a^{2}}$ for $s>a$.\\ \\  \\
+
+
+ \textbf{1st Shifting Property}:   Let $f(t)$ be a function and $\mathcal{L}(f)=F$,  which means \\$\displaystyle F(s)=\int_{0}^{\infty}e^{-st}f(t)\,dt$.  Let's determine $\mathcal{L}(e^{at}f(t))$ where $a$ is a constant.  Thus we get\\ $\displaystyle \mathcal{L}(e^{at}f(t))=\int_{0}^{\infty}e^{-st}(e^{at}f(t))\,dt=$  $\displaystyle \int_{0}^{\infty}e^{-(s-a)t}f(t)\,dt=F(s-a).$
+
+ The identity \framebox{$\mathcal{L}(e^{at}f(t))=F(s-a)$}  is the \emph{first shifting property} of the Laplace transform.\\
+
+ One can show, using integration by parts twice, and then solving for the integral as an algebraic variable, that $\displaystyle \mathcal{L}(\sin{(\omega t)})=\frac{\omega}{s^2+\omega^2}$.   Therefore by the first shifting property, $\displaystyle \mathcal{L}(e^{at}\sin{(\omega t)})=\frac{\omega}{(s-a)^2+\omega^2}$
+
+ \newpage
+ 
+
+ A function $f$ is of \underline{exponential order $s_{0}$} if there are constants $M$ and $t_{0}$ such that $\displaystyle|f(t)|\leq Me^{s_{0}t}\mbox{ for all }t\geq t_{0}$.   Often we say a function is of $``$exponential order" without a reference to a particular $s_{0}$.\\
+
+
+ \textbf{Theorem}:  Suppose $f$ is of exponential order $s_{0}$.  Then $\mathcal{L}(f)$ is defined for $s>s_{0}$.\\
+
+ (The proof is left as an exercise left for the reader.)
+
+\end{document}
