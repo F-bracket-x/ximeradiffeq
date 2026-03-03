@@ -1,0 +1,78 @@
+\documentclass{ximera}
+
+\pgfplotsset{compat=1.18}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+
+
+%-------------------------------------------------------------
+
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Inverse Laplace Transforms}
+    
+\maketitle
+
+ For the types of functions we encounter in this course, the Laplace transform is $1-1$.\\
+
+%%%% SO IT MAKES SENSE TO CONSIDER THE INVERSE TRANSFORM
+
+ Suppose $F(s)=\mathcal{L}(f(t))$.  For example, $\frac{6}{s^4}=\mathcal{L}(t^3)$.  Then we call $f(t)$ the \underline{inverse Laplace transform} of $F(s)$.   In our example, $t^3$ is the inverse Laplace transform of $\frac{6}{s^4}$.   Notation:  $f=\mathcal{L}^{-1}(F)$.\\
+
+
+ While there is a formula for computing $\mathcal{L}^{-1}(F)$ we will not use it as it requires the theory of functions of a complex variable (complex analysis).   We can however, make use the table (see appendix) to find inverse Laplace transforms.\\
+
+
+ Suppose we need $\mathcal{L}^{-1}\left(\dfrac{s}{s^{2}+4}\right)$.   By looking through the table of Laplace transforms we find $\mathcal{L}(\cos{(kt)})=\dfrac{s}{s^2+k^2}$.  So $\mathcal{L}^{-1}\left(\dfrac{s}{s^{2}+4}\right)=\cos{(2t)}$.\\
+
+
+ Note:  Linearity also holds for the inverse Laplace transform! We leave the justification as exercise left for the reader.\\
+
+
+ Let's find $\mathcal{L}^{-1}\left(\dfrac{2s+3}{s^{2}+4s+13}\right)$.\\
+
+
+ $$\mathcal{L}^{-1}\left(\dfrac{2s+3}{s^{2}+4s+13}\right)=\mathcal{L}^{-1}\left(\dfrac{2(s+2)-1}{(s+2)^{2}+9}\right)=2\mathcal{L}^{-1}\left(\dfrac{s+2}{(s+2)^{2}+9}\right)-\dfrac{1}{3}\mathcal{L}^{-1}\left(\dfrac{3}{(s+2)^{2}+9}\right)$$
+
+\medskip
+
+ \hspace{0.5cm} $\displaystyle =2e^{-2t}\cos{(3t)}-\dfrac{1}{3}e^{-2t}\sin{(3t)}=e^{-2t}\left(2\cos{(3t)}-\dfrac{1}{3}\sin{(3t)}\right)$\\ \\
+
+
+\newpage
+
+ In the last example, the denominator is irreducible over the reals.  Our method changes when the denominator factors nicely:\\
+
+
+ Let's find $\mathcal{L}^{-1}\left(\dfrac{2s-1}{s^{2}-5s+6}\right)$.\\
+
+ Using a PFD (partial fraction decomposition)  we get \\$\displaystyle \dfrac{2s-1}{s^{2}-5s+6}= \dfrac{2s-1}{(s-2)(s-3)}=\dfrac{5}{s-3}-\dfrac{3}{s-2}$.\\
+
+
+ Then $\mathcal{L}^{-1}\left(\dfrac{2s-1}{s^{2}-5s+6}\right)=5\mathcal{L}^{-1}\left(\dfrac{1}{s-3}\right)-3\mathcal{L}^{-1}\left(\dfrac{1}{s-2}\right)=5e^{3t}-3e^{2t}$.\\
+
+
+ Let's find $\mathcal{L}^{-1}\left(\dfrac{s}{s^{2}-8s+16}\right)$.   We can setup a PFD as follows:  $$\dfrac{s}{s^{2}-8s+16}=\dfrac{s}{(s-4)^{2}}=\dfrac{A}{s-4}+\dfrac{4}{(s-4)^{2}}.$$
+
+\bigskip
+
+ Clearing fractions and equating common-degree coefficients, we get $A=1$.
+
+\bigskip
+
+ So $\displaystyle \mathcal{L}^{-1}\left(\dfrac{s}{s^{2}-8s+16}\right)=\mathcal{L}^{-1}\left(\dfrac{1}{s-4}\right)+4\mathcal{L}^{-1}\left(\dfrac{1}{(s-4)^{2}}\right)=e^{4t}+4te^{4t}=e^{4t}(1+4t)$.
+
+
+
+
+\end{document}
