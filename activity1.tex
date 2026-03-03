@@ -1,0 +1,125 @@
+\documentclass{ximera}
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 1}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item Determine which first order differential equation has the following slope field.
+
+\begin{figure}[h]
+    \centering
+\begin{tikzpicture}[scale=0.9,
+    declare function = {f(\x) = \x*\x*\y;} % Define which function we're using
+    ]
+    \begin{axis}[
+        zmax = 1,
+        zmin = 0,
+        xtick = {-1,-0.5,...,1},
+        axis equal image = true, % Unit vectors for both axes have the same length
+        view = {0}{90}
+        ]
+        \addplot3[% Arrows' first-half
+            blue,
+            -stealth,
+            domain  = -1:1,
+            samples = 20,
+            quiver  = {
+                u=1/(2*sqrt(1^2 + f(x)^2)),
+                v=f(x)/(2*sqrt(1^2 + f(x)^2)),
+                scale arrows=0.075,
+                },
+        ] (x,y,0);
+        \addplot3[% Arrow's second-half
+            blue,
+            domain  = -1:1,
+            samples = 20,
+            quiver  = {
+                u=-1/(2*sqrt(1^2 + f(x)^2)),
+                v=-f(x)/(2*sqrt(1^2 + f(x)^2)),
+                scale arrows=0.075,
+                },
+        ] (x,y,0);
+    \end{axis}
+\end{tikzpicture}
+    \caption{A direction field (aka a slope field)}
+\end{figure}
+
+ \begin{enumerate}[label=(\alph*)]
+    \item $y^{\,\prime}=xy$
+    \item $y^{\,\prime}=x^2y$ % ***
+    \item $y^{\,\prime}=xy^2$
+    \item $y^{\,\prime}=x^2y^2$
+    \item $y^{\,\prime}=x/y$
+    \item $y^{\,\prime}=y/x$
+    \end{enumerate}
+
+    \newpage
+
+\item Find a real value of the parameter $k$ such that $y=e^{kt}$ is a solution to $y^{\,\prime\prime}-y^{\,\prime}-12y=0$.\\
+
+% -3 OR 4
+
+\item    A 1st order differential equation $y'=f(t,y)$ with a so-called $``$initial condition" $y(t_0)=y_0$ is called an \underline{Initial Value Problem} (abbreviated $``$IVP").  An $``$IVP solution" must satisfy both the differential equation and the initial condition.  There is a unique solution $y(t)$ to the 1st order IVP $ty^{\,\prime}-y=-\dfrac{200}{t}$, $y(1)=101$ on the interval $(0,\infty)$.  Find $y(2026)$ to the nearest hundredth.\\
+
+% mu=t^(-1).  So (mu y)' = -200 t^(-3) ---> mu y=100t^(-2)+C so y=100/t +ct.  101=100+c so c=1. 
+
+% So y=100/t+ t
+
+% y(2026)=100/2026+2026 \approx 2026.05
+
+
+\item  On which of the following open intervals is it guaranteed that there is \textbf{NO solution} to the IVP $(x+1)y^{\,\prime}+y=1$, $y^{\,\prime}(0)=2$?  Select all that apply.
+
+% y = 1 + 1/(x+1)
+% y' = -y/(x+1)
+
+ \begin{enumerate}[label=(\alph*)]
+    \item $(-\infty,\infty)$% ***
+    \item $(-1,1)$
+    \item $(-1,\infty)$
+    \item $(-\infty,1)$ % ***
+    \item $(-2,1)$  % ***
+    \item $(-2,2)$  
+    \item $(-2,-1)$ % ***
+    \item $(-1,2)$
+    \end{enumerate}
+
+\newpage
+
+\item Suppose an epidemic spreading through a certain population is modeled by the differential equation $y^{\,\prime}(t)=ay(t)-b[y(t)]^2$ where $a,b$ are positive constants and $y(t)$ is the number of individuals who have the disease at time $t$ days.  Below is a direction field for such a model.  Suppose we are given that $a=0.75$ and $\displaystyle \lim_{t\rightarrow\infty} y(t)=6,000$ for any non-trivial solution $y(t)$.  Determine $b$. Round to the nearest ten-thousandth.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale= 0.7]{UnkLogisticAct1.pdf}
+\caption{Another direction field}
+\end{figure}
+
+% 0.75/6000=b \approx 0.0001
+
+
+\end{enumerate}
+
+
+
+\end{document}
