@@ -63,7 +63,57 @@
 
 -This theorem doesn't provide for a method for finding solutions.\\
 
--If $f_y$ is not continuous at $(x_0,y_0)$ then we get no conclusion regarding uniqueness, that is, the corresponding IVP may or may not have a unique solution.  It might, but its not guaranteed by this Theorem.\\ \\
+-If $f_y$ is not continuous at $(x_0,y_0)$ then we get no conclusion regarding uniqueness, that is, the corresponding IVP may or may not have a unique solution.  It might, but its not guaranteed by this Theorem.
+
+
+\newpage
+
+This is \textbf{optional} supplementary material exploring the uniqueness part of the theorem:\\
+
+Consider the IVP $y'=f(x,y)$, $y(x_0)=y_0$.\\
+
+Assume $f$ is defined on $R=\{(x,y)|x_0-a\leq x\leq x_0+a,y_0-b\leq y\leq y_0+b\}$ for some positive $a,b$.\\
+
+Assume that both $f$ and $f_y$ are continuous on $R$.\\
+
+We make use of the fact (from real analysis) that a continuous function on a closed and bounded domain is bounded.  So there exists positive constant $N$ such that $|f_y(x,y)|\leq N$ on all of $R$.\\ \\
+
+Lemma: Let $y$ be a function defined on $I_h=[x_0-h,x_0+h]$ where $0<h\leq a$ with a continuous derivative $y'$ and values in $[y_0-b,y_0+b]$.  Then $y$ satisfies the IVP $y'=f(x,y)$, $y(x_0)=y_0$ if and only if $y$ satisfies the so-called integral equation $\displaystyle y=y_0+\int_{x_0}^x f(t,y)\,dt$.\\
+
+Proof: Let $y$ be a function defined on $I_h=[x_0-h,x_0+h]$ with a continuous derivative $y'$ and values in $[y_0-b,y_0+b]$.  First assume $y$ satisfies the IVP $y'=f(x,y)$, $y(x_0)=y_0$.  Then for $|x-x_0|\leq h$ we have that\\ $\displaystyle \int_{x_0}^x y'(t) \,dt=\int_{x_0}^x f(t,y)\,dt$.  By the Fundamental Theorem of Calculus (FTC) this is equivalent to $\displaystyle y(x)-y(x_0)=\int_{x_0}^x f(t,y)\,dt$ so $\displaystyle y=y_0+\int_{x_0}^x f(t,y)\,dt$.  Next assume $y$ satisfies $\displaystyle y=y_0+\int_{x_0}^x f(t,y)\,dt$.  Then $y(x_0)=y_0$.  By taking the derivative of both sides, again using the FTC, $y'=f(x,y)$ on $I_h$. That completes the proof of this lemma$\;_{\square}$
+
+\newpage
+
+
+Let's prove that our IVP $y'=f(x,y)$, $y(x_0)=y_0$ has at most one solution on some open interval $I$ containing $x_0$.\\
+
+Proof:  Let $\alpha,\beta$ be two functions and $I$ be an open interval within $[x_0-a,x_0+a]$ and containing $x_0$ such that the values of $\alpha,\beta$ on $I$ are in $[y_0-b,y_0+b]$.  Assume $\alpha,\beta$ both satisfy $\displaystyle y=y_0+\int_{x_0}^x f(t,y)\,dt$ on $I$.  So
+
+\begin{eqnarray*}
+  \alpha &=& y_0+\int_{x_0}^x f(t,\alpha)\,dt \mbox { and }\\
+  \beta &=& y_0+\int_{x_0}^x f(t,\beta)\,dt. \\
+\end{eqnarray*}
+
+
+Let's show $\alpha(x)=\beta (x)$ for $x\geq x_0$ on $I$ and leave the argument for $x\leq x_0$ on $I$ to the reader (that's you!)\\
+
+Suppose $x\geq x_0$ on $I$.  From the equations above, properties of definite integrals, and the Mean Value Theorem, we get
+
+\begin{eqnarray*}
+  |\alpha(x)-\beta(x)| &=& \left|\int_{x_0}^x f(t,\alpha)-f(t,\beta)\,dt \right| \\
+   &\leq & \int_{x_0}^x |f(t,\alpha)-f(t,\beta)|\,dt \\
+   &\leq & N\int_{x_0}^x |\alpha(t)-\beta(t)|\,dt,
+\end{eqnarray*}
+
+
+since by the \emph{Mean Value Theorem} there exists $\gamma$ between $\alpha(t)$ and $\beta(t)$ such that\\ $f(t,\alpha)-f(t,\beta)=f_y (t,\gamma)\, (\alpha(t)-\beta(t))$ and as $|f_y (t,\gamma)|\leq N$, we get that \\$|f(t,\alpha)-f(t,\beta)|\leq N|\alpha(t)-\beta(t)|$, where all this holds for all $t\geq x_0$ on $I$.  \\
+
+Now we focus on the function $\displaystyle \psi(x) =\int_{x_0}^x |\alpha(t)-\beta(t)|\,dt$ for $x>x_0$ on $I$, which is non-negative.  By the FTC again, for $x\geq x_0$ on $I$, we have $\psi'(x)=|\alpha(x)-\beta(x)|\leq N\psi(x)$, which is equiv. to $\psi'(x)-N\psi(x)\leq 0$, which is also equivalent to $[\psi'(x)-N\psi(x)]e^{-N(x-x_0)}\leq 0$ since $e^{-N(x-x_0)}>0$ for all $x\geq x_0$ on $I$. This can be rewritten as $\displaystyle \frac{d}{dx}\left[\psi(x)e^{-N(x-x_0)}\right]\leq 0$.
+
+Then $\displaystyle \psi(x)e^{-N(x-x_0)}-\psi(x_0)e^{-N(x_0-x_0)}=\int_{x_0}^x \frac{d}{dt}\left[\psi(t)e^{-N(t-x_0)}\right]\,dt \leq 0$.  Since
+$\psi(x_0)=0$ this latest inequality becomes $\psi(x)e^{-N(x-x_0)}\leq 0$ for $x\geq x_0$ on $I$, but this implies that $\psi(x)\leq 0$  for $x\geq x_0$ on $I$.  But $\displaystyle \psi(x)=\int_{x_0}^x |\alpha(t)-\beta(t)|\,dt\geq 0$ for $x\geq x_0$ on $I$.  Thus $\psi(x)=0$, and since the integrand is continuous, it follows that $|\alpha(x)-\beta(x)|=0$ for all $x\geq x_0$ on $I$.  Hence, $\alpha(x)=\beta(x)$ for $x\geq x_0$ on $I$.  A similar argument left to the reader shows $\alpha(x)=\beta(x)$ for $x\leq x_0$ on $I$.\\
+
+So there is at most one solution on $I$. 
 
 
 \end{document}
