@@ -1,5 +1,11 @@
 \documentclass{ximera}
 
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
 
 % MATH -----------------------------------------------------------
 \newcommand{\nats}{\mathbb N}
@@ -28,6 +34,7 @@
 
 \begin{figure}[h]
     \centering
+    \alttext{A direction field.}
 \begin{tikzpicture}[scale=0.9,
     declare function = {f(\x) = \x*\x*\y;} % Define which function we're using
     ]
@@ -61,7 +68,7 @@
         ] (x,y,0);
     \end{axis}
 \end{tikzpicture}
-    \caption{A direction field (aka a slope field)}
+    \caption{A direction field (also known as a slope field)}
 \end{figure}
 
  \begin{enumerate}[label=(\alph*)]

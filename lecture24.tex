@@ -1,5 +1,10 @@
 \documentclass{ximera}
 
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
 
 
 % MATH -----------------------------------------------------------
@@ -49,6 +54,7 @@
 
 \begin{figure}[h]
 \centering
+\alttext{The graph of a piecewise continuous function.}
 \begin{tikzpicture}
 \begin{axis}[axis lines=middle, xtick={-2,-1,...,4}, ytick={-2,-1,...,4},
 xmin=-2, xmax=4, ymin=-2, ymax=4]
@@ -97,6 +103,7 @@ xmin=-2, xmax=4, ymin=-2, ymax=4]
 
      \begin{figure}[h]
      \centering
+     \alttext{The graph of a piecewise continuous function.}
      \begin{tikzpicture}[scale=0.65]
 \begin{axis}[axis x line=middle, axis y line=
 middle,xtick={-2,-1,...,4}, ytick={-2,-1,...,4},
@@ -138,6 +145,7 @@ xmin=-2, xmax=4, ymin=-2, ymax=4]
 
 \begin{figure}[h]
 \centering
+\alttext{The graph of a piecewise continuous function that is an inverse Laplace transform found by 2nd shifting property.}
 \begin{tikzpicture}[scale=0.8]
 \begin{axis}[axis x line=middle, axis y line=
 middle,xtick={-2,-1,...,4}, ytick={-2,-1,...,4},
@@ -198,6 +206,7 @@ xmin=-2, xmax=4, ymin=-2, ymax=4]
 
 \begin{figure}[h]
 \centering
+\alttext{A solution curve to an IVP with piecewise continuous forcing.}
 \begin{tikzpicture}[scale=0.7]
 \begin{axis}[axis x line=middle, axis y line=
 middle,xtick={-2,-1,...,9}, ytick={-2,-1,...,5},

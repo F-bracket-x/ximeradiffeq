@@ -1,5 +1,12 @@
 \documentclass{ximera}
 
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
+
 \pgfplotsset{compat=1.6}
 
 % MATH -----------------------------------------------------------
@@ -52,6 +59,7 @@ Denote by $y_{i}$ the approximate value $y(x_{i})$ (for $i=1,2,..,n$).  Then the
 
 \begin{figure}[h]
 \centering
+\alttext{A direction field.}
 \begin{tikzpicture}[scale=1.4,
     declare function = {f(\x) = \x-\y*\y;} % Define which function we're using
     ]

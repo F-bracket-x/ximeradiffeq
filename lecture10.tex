@@ -1,5 +1,10 @@
 \documentclass{ximera}
 
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
 
 
 % MATH -----------------------------------------------------------
@@ -78,6 +83,7 @@ Example:   Suppose a 192 lb person dives from a helicopter vertically toward the
 
 \begin{figure}[h]
 \centering
+\alttext{A line segment atop a circle representing an object launching off the surface of the Earth.}
  \begin{tikzpicture}[scale=1]
  \draw (0,0) circle (2);
  \draw (0,2) -- (0,3);

@@ -1,5 +1,10 @@
 \documentclass{ximera}
 
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
 
 \pgfplotsset{compat=1.18} 
 
@@ -106,6 +111,7 @@ Then \framebox{$\displaystyle y =\frac{1}{\mu (x)} \int \mu (x)f(x)\;dx$.}   $\l
 
 \begin{figure}[ht]
     \centering
+\alttext{A direction field with a solution curve.}
 \begin{tikzpicture}[scale=1.5, declare function={f(\x,\y)=(2/(\x))*\y+\x;}]
 \def\xmax{4} \def\xmin{0}
 \def\ymax{4} \def\ymin{-1}

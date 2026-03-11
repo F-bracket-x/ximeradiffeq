@@ -1,5 +1,10 @@
 \documentclass{ximera}
 
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
 
 
 % MATH -----------------------------------------------------------
@@ -31,6 +36,7 @@
 
 \begin{figure}[h]
 \centering
+\alttext{Triangle waves approaches Dirac delta.}
 \begin{tikzpicture}[scale=1.25]
 \begin{axis}[axis x line=middle, axis y line=
 middle, xtick={-3,-2,...,3}, ytick={-1,1,2,3,4},
@@ -54,12 +60,12 @@ xmin=-3, xmax=3, ymin=-1, ymax=4]
 \end{axis}
 
 \end{tikzpicture}
-\caption{Triangle waves approaching Dirac Delta}
+\caption{Triangle waves approaching Dirac delta}
 \end{figure}
 
   For any positive integer $n$ and any closed interval $I$ containing $\left[-\frac{1}{n},\frac{1}{n}\right]$, \\ \\  $\displaystyle \int_{I}f_{n}\;dt=\int_{-1/n}^{1/n}f_n(t)\;dt=$ $\displaystyle 2\int_0^{1/n} n(1-nt)\,dt=$ $2n\left.\left(t-\frac{1}{2}nt^2\right)\right|_0^{1/n}=1$.\\
 
- The \underline{dirac delta function} $\delta$ is the limit of the above sequence of functions, that is, $\delta=\displaystyle \lim_{n\rightarrow \infty}f_{n}$. 
+ The \underline{Dirac delta function} $\delta$ is the limit of the above sequence of functions, that is, $\delta=\displaystyle \lim_{n\rightarrow \infty}f_{n}$. 
 
 \newpage
 
@@ -106,6 +112,7 @@ In a more familiar form, $\displaystyle y(t)=\left\{\begin{array}{lr}
 
 \begin{figure}[h]
 \centering
+\alttext{A solution curve to an IVP involving an impulse.}
 \begin{tikzpicture}[scale=0.8]
 \begin{axis}[axis x line=middle, axis y line=
 middle, xtick={-1,1,2,3,4}, ytick={-3,-2,...,3},
@@ -146,6 +153,7 @@ In a more familiar form, $\displaystyle y(t)=\left\{\begin{array}{lr}
 
 \begin{figure}[h]
 \centering
+\alttext{A solution curve to an IVP involving two impulses.}
 \begin{tikzpicture}[scale=0.8]
 \begin{axis}[axis x line=middle, axis y line=
 middle, xtick={-1,1,2,3,4}, ytick={-2,-1,...,2},
