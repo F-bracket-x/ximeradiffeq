@@ -1,0 +1,301 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Lab 1 - First Order Linear \& Separable}
+    
+    \maketitle
+
+This activity is graded for completion so long as a relevant and genuine \underline{handwritten} attempt is made on each exercise.  This activity is due in Gradescope by 11:59PM.
+
+
+\textbf{First Order Linear}:  A first order equation is \underline{linear} if it can be transformed to \\ $y^{\,\prime}+p(x)y=f(x)$.  If $f(x)=0$ it's \underline{homogeneous} and otherwise it's \underline{nonhomogeneous}.
+
+\textbf{Separable}:  A first order equation is \underline{separable} if it can be transformed to $h(y)y^{\,\prime}=g(x)$.
+
+[Note: Often $t$ is used as the independent variable instead of $x$.]
+
+
+\begin{enumerate}
+
+\item  Categorize each of the following first order differential equation as either (A) linear and not separable, (B) separable and not linear, (C) linear and separable or (D) neither linear nor separable.
+
+
+
+\begin{enumerate}
+
+\vfill
+
+\item $y^{\,\prime}=1-y^2$
+
+\vfill
+\vfill
+
+\item $y^{\,\prime}=ty-t$
+
+\vfill
+\vfill
+
+\item $y^{\,\prime}=1-x^2y$
+
+\vfill
+\vfill
+
+
+\item $y^{\,\prime}=\dfrac{t}{y}-y$
+
+\vfill
+\vfill
+
+\item $y^{\,\prime}=t+y^3$
+
+\vfill
+\vfill
+
+\item $y^{\,\prime}=x\sin{(y)}$
+
+\vfill
+\vfill
+
+
+\item $y^{\,\prime}=(x-y)^2$
+
+\vfill
+\vfill
+
+\item $y^{\,\prime}=y\tan{(t)}$
+
+\vfill
+\vfill
+
+\item $y^{\,\prime}=2ye^{x-y^2}$
+
+\vfill
+\vfill
+
+
+\item $y^{\,\prime}=\dfrac{x+y}{x}$
+
+\vfill
+\vfill
+
+\item $y^{\,\prime}=\dfrac{x+y}{y}$
+
+\vfill
+\vfill
+
+\item $y^{\,\prime}=x-y^{1/3}$
+
+
+
+
+\end{enumerate}
+
+\newpage
+
+\item The differential equation $t^2y^{\,\prime}=1+y$ is both linear and separable.
+
+
+\begin{enumerate}
+
+\item  Are there any constant solutions of the form $y=C$?  If so, find them and put the values of $C$ in the box provided.
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in} $y=C$ for $C=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+
+\item  Solve this equation using the integrating factor method for a first order linear nonhomogeneous equation.  Show all steps!  Can some or all of the constant solutions (if any) from part $(a)$ be lumped together with all these solutions?  If not, include $``$or $y=C_{1}$ or $y=C_{2}$ or..." in the box provided.
+
+
+\vfill
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+\newpage
+
+
+
+\item  Now solve the same equation using the standard method for a separable equation.  Show all steps!  Put the general solution found in the box provided (remembering to address constant solutions if needed).  Did you get the same result as in $(b)$?
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+\item  An IVP of the form $t^2y^{\,\prime}=1+y$, $y(t_{0})=y_{0}$ will be guaranteed a unique solution (on some open interval containing $t_{0}$) so long as $t_{0}\neq 0$.
+
+    Explain why it is that with this knowledge the IVP $t^2y^{\,\prime}=1+y$, $y(1)=-1$ can be solved without doing much work (such as the work done in part $(b)$ or $(c)$).  Would have it been apparent if one had just done part $(b)$ or $(c)$?
+
+    \vspace{2cm}
+
+\end{enumerate}
+
+
+
+
+\newpage
+
+\item The differential equation $xy^{\,\prime}=-y-y^{2}$ is not linear, but is separable.
+
+\begin{enumerate}
+
+\item  Are there any constant solutions of the form $y=C$?  If so, find them and put the values of $C$ in the box provided.
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in} $y=C$ for $C=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+\item  Solve this equation using the standard method for a separable equation.  Show all steps!  Put the general solution found in the box provided.  Can some or all of the constant solutions (if any) from part $(a)$ be lumped together with all these solutions?  If not, include $``$or $y=C_{1}$ or $y=C_{2}$ or..." in the box provided.
+
+
+    \vfill
+    \vfill
+
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+\item  An IVP of the form $xy^{\,\prime}=-y-y^2$, $y(x_{0})=y_{0}$ will be guaranteed a unique solution (on some open interval containing $x_{0}$) so long as $x_{0}\neq 0$.
+
+    Explain why it is that with this knowledge the IVP $xy^{\,\prime}=-y-y^2$, $y(1)=0$ can be solved without much work (such as the work done in part $(b)$).  Would this solution have been apparent if one had just done part $(b)$?
+
+
+
+    \vspace{2cm}
+
+\end{enumerate}
+
+\newpage
+
+\item The differential $y^{\,\prime}=2x+y$ is not separable, but is linear.
+
+% y=ax+b so y^{\,\prime}=a so a=2x+ax+b.  So a=-2 and b=-2.  y=-2x-2 is a particular solution.  
+
+% So y=-2x-2+Ce^x
+
+% HARD WAY:  y^{\,\prime}-y=2x.  I.F. is e^(-x) so [e^(-x)y]'=2xe^(-x) ---> e^(-x)y = -2xe^(-x)-2e^(-x)+C
+
+
+\begin{enumerate}
+
+\item  Are there any constant solutions of the form $y=C$?  If so, find them and put the values of $C$ in the box provided.
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in} $y=C$ for $C=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+
+
+\item  Solve this equation using the integrating factor method for a first order linear nonhomogeneous equation.  Show all steps!  Put the general solution found in the box provided.  Can some or all of the constant solutions (if any) from part $(a)$ be lumped together with all these solutions?  If not, include $``$or $y=C_{1}$ or $y=C_{2}$  or..." in the box provided.
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+
+\item  An IVP of the form $y^{\,\prime}=2x+y$, $y(x_{0})=y_{0}$ will ALWAYS be guaranteed a unique solution (on any open interval containing $x_{0}$).
+
+Find the solution to the IVP $y^{\,\prime}=2x+y$, $y(0)=0$.  Put the solution in the box provided.
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+\end{enumerate}
+
+\newpage
+
+\item Solve each IVP below, and for each report the open interval $I$ on which the solution is valid, but not so on any interval $J\neq I$ containing $I$. 
+    
+    Hints: the interval must contain the independent variable coordinate of initial condition, the differential equation must be defined on the interval AND the solution must be differentiable on the interval.  Put the solutions in the boxes provided.  Look for ones that require no work!
+
+\begin{enumerate}
+
+\item $y^{\,\prime}=2ty^2$, $y(0)=0$.
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+
+\item $y^{\,\prime}=2ty^2$, $y(0)=1$.
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+
+\newpage
+
+\item $y^{\,\prime}=x^2+y$, $y(0)=0$.
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+
+\item $y^{\,\prime}=1+y\tan{(t)}$, $y(0)=0$.
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+\item $y^{\,\prime}=xy^3$, $y(1)=-1$.
+
+\vfill
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+%  y^(-3) y^{\,\prime}=x ---> -1/(2y^2)=1/2 x^2+C ---> 1/y^2 =C - x^2 ---> y=+/- 1/sqrt(C-x^2).   By initial condition, y=-1/sqrt(2-x^2).  Interval (-sqrt(2),sqrt(2)).
+
+
+%\item $y^{\,\prime}=\dfrac{y\ln{(y)}}{t^{2}}$, $y(e)=1$.
+
+%\vfill
+
+%\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+%\vfill
+
+%\item $y^{\,\prime}=\dfrac{y\ln{(y)}}{t^{2}}$, $y(1)=e$.
+
+%\vfill
+
+%\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+%\vfill
+
+
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+    
+
+\end{document}
