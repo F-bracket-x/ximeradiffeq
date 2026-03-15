@@ -1,0 +1,187 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Lab 2 - Transformations}
+    
+    \maketitle
+
+This activity is graded for completion so long as a relevant and genuine \underline{handwritten} attempt is made on each exercise.  This activity is due in Gradescope by 11:59PM.
+
+
+\begin{enumerate}
+
+\item  Consider a so-called \underline{Bernoulli equation}: $y^{\,\prime}+p(x)y=f(x)y^{n}$ where $n$ is a real number not equal to $0$ nor $1$.
+
+
+
+\begin{enumerate}
+
+\item  For what values of $n$ does a Bernoulli equation have a constant solution.  For those values, what constant solution(s) does a Bernoulli equation have?  Put the answer in the box provided.
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in} \hfill\vspace{0.25in} \end{minipage} }
+
+
+\item  Find the general solution to the Bernoulli equation $y^{\,\prime}+y=\dfrac{y^3}{e^{x}}$.  Put the answer in the box provided.
+    
+    Hints: make note of any constant solution(s).  You can use that\\ $y_1=e^{-x}$ is a solution to the complementary equation together with the substitution $u=\dfrac{y}{y_1}$ to transform the equation into a separable equation.  Alternatively, the substitution $v=y^{-2}$ will transform he equation into a linear equation..
+    
+    
+    % y=ue^{-x}.  y^{\,\prime}=u'e^(-x)-ue^(-x).  So u' e^(-x)=e^(-x) u^3 e^(-3x)
+    
+    % u^{-3} u'= e^{-3x}
+    
+    % 1/(u^2)=(2/3)e^(-3x)+C
+    
+    % u= +/- 1/Sqrt[(2/3)e^(-3x)+C] 
+    
+    % y=+/- e^(-x)/Sqrt[(2/3)e^(-3x)+C]  
+    
+    
+    % v=y^(-2) so v'=(-2)y^(-3) y^{\,\prime} and thus y^{\,\prime}=-0.5y^3 v'.  So v'-2v=-2e^{-x}.  IF: [e^(-2x)v]'=-2e^(-3x) ---> v=y^(-2)=e^(2x)[(2/3)e^(-3x)+C]
+    
+    % Also yields y=+/- e^(-x)/Sqrt[(2/3)e^(-3x)+C]
+    
+
+
+
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in}$y=$ \hfill\vspace{0.25in} \end{minipage} }
+
+\vfill
+
+\newpage
+
+\item  Solve the IVP $y^{\,\prime}+y=\dfrac{y^3}{e^{x}}$, $y(0)=-1$.  Put the answer in the box provided.
+
+
+
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in} \hfill\vspace{0.25in} \end{minipage} }
+
+
+\vfill
+
+
+\item  Solve the IVP $y^{\,\prime}+y=\dfrac{y^3}{e^{x}}$, $y(0)=0$.  Put the answer in the box provided.
+
+
+
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in} \hfill\vspace{0.25in} \end{minipage} }
+
+
+\vfill
+
+\end{enumerate}
+
+\newpage
+
+
+
+\item  A \underline{nonlinear homogeneous} first order equation is a nonlinear differential equation of the form $y^{\,\prime}=f(y/x)$. By applying the substitution $u=y/x$ we can transform this type of equation to a separable differential equation..
+
+
+
+\begin{enumerate}
+
+\item  Solve $y^{\,\prime}=\dfrac{x^{2}-xy+y^{2}}{x^{2}}$.  Show all your work. Put the answer in the box provided.
+
+
+
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in}\hfill\vspace{0.25in} \end{minipage}}
+
+
+% xu'=1-2u+u^2=(1-u)^2=(u-1)^2
+
+% 1/(u-1)^2 u'=1/x
+
+
+% 1/(1-u) =ln|x|+C
+
+% 1-u=1/[ln|x|+C]
+
+% u=1 - 1/[ln|x|+C]
+
+\vfill
+\vfill
+
+
+\item  Solve the IVP $y^{\,\prime}=\dfrac{x^{2}-xy+y^{2}}{x^{2}}$, $y(1)=0$.  Show all your work. Put the answer in the box provided.
+
+
+
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in}\hfill\vspace{0.25in} \end{minipage}}
+
+
+\vfill
+
+
+\end{enumerate}
+
+\newpage
+
+\item Another kind of substitution:
+
+
+
+\begin{enumerate}
+
+\item Consider $y^{\,\prime}=(2x-y+3)^{2}$.  What transformation do you see that might be useful?  Put the answer in the box provided.
+
+
+
+
+\hfill{}\fbox{ \begin{minipage}{2in}\vspace{0.25in}$u=$\hfill\vspace{0.25in} \end{minipage}}
+
+\vfill
+
+\item  Transform the equation!  Put the resulting equation in the box provided.
+
+
+
+
+\hfill{}\fbox{ \begin{minipage}{2in}\vspace{0.25in}\hfill\vspace{0.25in} \end{minipage}}
+
+\vfill
+
+\item  Solve for $u$ and then $y$.  Put the solutions in the box provided.
+
+
+
+
+\hfill{}\fbox{ \begin{minipage}{5in}\vspace{0.25in}$u=$\hfill$y=$\hfill\vspace{0.25in} \end{minipage}}
+
+
+
+\vfill
+
+\end{enumerate}
+
+\newpage
+
+ \item Now consider the first order differential equation $(y^{\,\prime}(t))^{2}=t+y$.  Try to solve it for an implicit general solution of the form $F(t,y)=C$.  Put your answer in the box provided.
+
+Hint:  $\displaystyle \int\dfrac{1}{1\pm \sqrt{u}}\;du$ can be evaluated with a substitution for the denominator.
+
+\hfill{}\fbox{ \begin{minipage}{5in}\vspace{0.25in}\hfill$=C$\vspace{0.25in} \end{minipage}}
+
+\end{enumerate}
+
+
+\end{document}
