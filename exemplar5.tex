@@ -1,0 +1,109 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 5}
+    
+    \maketitle
+
+
+Let's consider the first order differential equation $xy^{\,\prime}=x+y-\dfrac{y^2}{x}$ for $x>0$.
+
+\begin{enumerate}
+
+\item Does this equation have any constant solutions?   
+
+\vfill
+
+\item This equation is not linear, not separable, and not Bernoulli.  But it is nonlinear homogeneous.  Let's determine a differential equation $u=\dfrac{y}{x}$ must satisfy.
+
+\vfill
+\vfill
+
+% y^{\,\prime}=xu'+u=1+u-u^2 ---> xu'=1-u^2 ----> 1/(1-u^2) u'=1/x
+
+
+
+\item Let's solve this equation and then determine a general solution for $y$.
+
+% ln|(1+u)/(1-u)|=ln(x^2)+c ---EXP---> (1+u)/(1-u)=cx^2
+
+% -1+2/(1-u)=cx^2 ---> 2/(1-u)=1+cx^2 ---> u=1 - 2/(1+cx^2).  y=x - 2x/(1+cx^2)
+
+
+\vfill
+\vfill
+\vfill
+
+\item  Let's determine the solution to the IVP $xy^{\,\prime}=x+y-\dfrac{y^2}{x}$, $y(1)=0$.
+
+% 0=1-2/(1+c).  c=1.  So y=x - 2x/(1+x^2)
+
+\vspace{1cm}
+
+
+\end{enumerate}
+
+
+
+\newpage
+
+
+Now let's consider the first order differential equation $y^{\,\prime}=(x+y)^2$.
+
+
+\begin{enumerate}
+
+\item Does this equation have any constant solutions? 
+
+\vfill
+
+% No!
+
+\item This equation is not linear, not separable, not Bernoulli, and not non-linear homogeneous.  However, let's determine a nice substitution to try in order to transform this differential equation into something nicer.
+
+\vfill
+\vfill
+
+% u=x+y so y=u-x and y^{\,\prime}=u'-1=u^2.  So u'=1+u^2 and thus 1/(1+u^2) u'=1.
+
+\item Let's solve that equation, and then determine a general solution for $y$.
+
+% arctan(u)=x+C so u=tan(x+C).  Hence y=tan(x+C)-x is the general solution.
+
+\vfill
+\vfill
+
+
+\item What is the solution to the IVP $y^{\,\prime}=(x+y)^2$, $y(0)=0$?
+
+% y=tan(x)-x
+
+\vfill
+\vfill
+
+\item Let's determine the interval $I$ of maximum width on which this solution is valid.
+
+\vspace{1cm}
+
+% (-pi/2,pi/2)
+
+
+\end{enumerate}
+
+
+
+\end{document}
