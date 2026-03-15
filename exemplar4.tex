@@ -1,0 +1,77 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 4}
+    
+    \maketitle
+
+Let's consider the first order Bernoulli differential equation $xy'=y-2xy^2$.
+
+\begin{enumerate}
+
+\item Does this equation have any constant solutions? 
+
+% YES!  y=0
+
+\vfill
+
+\item Let's look for non-constant solutions.  Let's write this equation the standard form $y'+p(x)y=q(x)y^r$ and determine a non-trivial solution $y_1$ to the complementary equation $y'+p(x)y=0$.
+
+\vfill
+\vfill
+
+% y'-1/x y=-2y^2.  y_1=x is a complementary solution.
+
+\item Let's use the substitution $u=\dfrac{y}{y_1}$ to determine a separable differential equation $u$ must satisfy.
+
+
+% y=xu ---> y'=xu'+u.  y'-1/x y=xu'.  So xu'=-2(xu)^2 ---> xu'=-2x^2 u^2 ---> u^(-2) u'=-2x
+
+\vfill
+\vfill
+\vfill
+
+\item Let's solve that equation, and then determine a general solution for $y$.
+
+% ---> -1/u = -x^2+C --> u=1/(x^2+C) ---> y=x/(x^2+C) OR y=0
+
+% SANITY CHECK: y=x(x^2+1)^(-1) ---> y'=y/x-y/(x^2+1)(2x) ----> xy'=y-2x y^2.  Checks out!
+
+\vfill
+\vfill
+
+
+\newpage
+
+\item What is the solution to the IVP $xy'=y-2xy^2$, $y(1)=0.5$?
+
+% y=x/(x^2+1)
+
+\vfill
+
+
+\item What is the solution to the IVP $xy'=y-2xy^2$, $y(1)=0$?
+
+\vfill
+
+% y=0
+
+
+\end{enumerate}
+
+
+\end{document}
