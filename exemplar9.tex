@@ -1,0 +1,84 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 9}
+    
+    \maketitle
+
+Suppose a toy rocket is launched vertically into the air (at time $t=0$) and that the functions $T(t)=2000/(t+10)$ and $m(t)=100/(t+10)$ represent the thrust of the rocket (in N) and the mass (in kg) of the rocket respectively at $t$ seconds for $0\leq t\leq 10$.  Assume air resists motion (in N) at a rate equal to $10$ times the speed of the rocket in $m/s$.   
+
+
+\begin{enumerate}
+
+\item Let's have $v(t)$ be the vertical velocity of the rocket at $0\leq t\leq 10$ seconds after launch.  Let's derive an IVP that $v(t)$ satisfies using the most general form of Newton's 2nd Law: $\displaystyle \sum F=(m(t)v(t))'$ and $g\approx 10$ meters per square second as the magnitude of the acceleration due to gravity.
+
+
+% m' v+ m v' = F_gravity + F_resistance + F_thrust
+
+% -100(t+10)^(-2) v + 100(t+10)^(-1) v'=-100(t+10)^(-1)*10-10v+2000(t+10)^(-1), v(0)=0
+
+ \vfill
+
+
+ \item Let's solve this IVP in terms of an integral function $I(t)=\displaystyle \int_{0}^{t}f(x)\;dx$.
+
+
+
+% -100(t+10)^(-2) v + 100(t+10)^(-1) v'=1000(t+10)^(-1)-10v
+
+% -10(t+10)^(-2) v + 10(t+10)^(-1) v'=100(t+10)^(-1)-v
+
+% 10(t+10)^(-1) v'=100(t+10)^(-1)+ [-1+10(t+10)^(-2)] v
+
+% 10 v'=100 + [-t-10+10(t+10)^(-1)] v
+
+% v' + [0.1(t+10) - 1/(t+10)]   v=10
+
+% I.F. is e^((t+10)^2/20-ln(t+10))=e^((t+10)^2/20)/(t+10)
+
+% [e^((t+10)^2/20)/(t+10) v]'=10e^((t+10)^2/20)/(t+10)
+
+% v=10(t+10)e^(-(t+10)^2/20) Int_0^t e^((x+10)^2/20)/(x+10)dx +C
+
+% 0=C
+
+% v=10(t+10)e^(-(t+10)^2/20) Int_0^t e^((x+10)^2/20)/(x+10)dx
+
+\vfill
+
+\newpage
+
+
+
+\item Let's determine the rocket's approximate velocity at $t=1$ and at $t=10$ seconds (using a numerical approx. of the integral function).
+
+
+% v(1)=110e^(-(1+10)^2/20) Int_0^1 e^((x+10)^2/20)/(x+10)dx
+
+% v(10)=200e^(-20) Int_0^10 e^((x+10)^2/20)/(x+10)dx
+
+
+
+
+\vspace{2cm}
+
+
+\end{enumerate}
+
+
+
+\end{document}
