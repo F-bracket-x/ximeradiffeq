@@ -1,0 +1,55 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 10}
+    
+    \maketitle
+
+Let's consider the second order linear homogeneous differential equation $$\displaystyle y\,^{\prime\prime}+\dfrac{3}{x}y\,^{\prime}+\dfrac{1}{x^2}y=0.$$
+
+\begin{enumerate}
+
+\item Suppose $y_1$ and $y_2$ are a fundamental set of solutions to this differential equation on $(0,\infty)$ and that their Wronskian $W(x)$ satisfies $W(1)=1$.  Let's determine $W(x)$.
+
+\vfill
+
+
+% W=Ce^(-3ln(x))=C/x^3
+
+\item Let's show that $y_1=x^{-1}\ln{(x)}$ is a solution to this differential equation.
+
+% PLUG IN TO LEFT SIDE AND SIMPLIFY TO 0
+
+\vfill
+
+\item It turns out that $y_2=x^{-1}\ln{(x^2)}$ is also a solution.  Does $\{y_1,y_2\}$ form a fundamental set of solutions to $\displaystyle y\,^{\prime\prime}+\dfrac{3}{x}y\,^{\prime}+\dfrac{1}{x^2}y=0$ on $(0,\infty)$?
+
+\vfill
+
+% No, because y_2 = 2y_1
+
+\newpage
+
+\item It turns out that with $y_2=x^{-1}$ we get a fundamental set of solutions. Let's solve the IVP $\displaystyle y^{\,\prime\prime}+\dfrac{3}{x}y^{\,\prime}+\dfrac{1}{x^2}y=0$, $y(1)=1$, $y^{\,\prime}(1)=0$.
+
+
+% y=x^{-1}ln(x)+x^{-1}
+
+
+\end{enumerate}
+
+\end{document}
