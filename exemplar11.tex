@@ -1,0 +1,91 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 11}
+    
+    \maketitle
+
+The theory for second-order linear constant-coefficient homogeneous differential equations naturally extends to higher-order linear constant-coefficient homogeneous differential equations.
+
+We determine the characteristic polynomial/equation by assuming that there are solutions of the form $y=e^{rt}$.  For a factor of the form $(r-a)^k$ in the characteristic polynomial we get a contribution of $(c_1+c_2 t+\cdots +c_{k}t^{k-1})e^{at}$ in the general solution and for a non-repeated quadratic factor in the characteristic polynomial that has roots at $\lambda\pm \omega i$ we get a contribution of\\ $e^{\lambda t}(c_1\cos{(\omega t)}+c_2\sin{(\omega t)})$ in the general solution.
+
+Let's consider the third-order linear constant-coefficient homogeneous differential equation $y^{\,\prime\prime\prime}-y^{\,\prime\prime}-y^{\,\prime}+y=0$.
+
+
+\begin{enumerate}
+
+\item  Let's determine the characteristic polynomial (assuming there are solutions of the form $y=e^{rt}$).
+
+
+% (r+1)(r-1)^2
+
+\vspace{2cm}
+
+
+
+\item Let's factor this as much as possible and determine the roots (aka zeros).
+
+% r=-1,1.
+
+\vfill
+
+\item Let's find the general solution to $y^{\,\prime\prime\prime}-y^{\,\prime\prime}-y^{\,\prime}+y=0$.
+
+\vfill
+
+\newpage
+
+\item Let's solve the IVP $y^{\,\prime\prime\prime}-y^{\,\prime\prime}-y^{\,\prime}+y=0$, $y(0)=1$, $y^{\,\prime}(0)=0$, $y^{\,\prime\prime}(0)=3$.
+
+\vfill
+
+% y=e^{-t}+te^t
+
+% y'=-e^{-t}+(1+t)e^t
+
+% y''=e^{-t}+(2+t)e^t
+
+
+\item How would the general solution change if the differential equation were $y^{\,\prime\prime\prime\prime}-y^{\,\prime\prime\prime}-y^{\,\prime\prime}+y^{\,\prime}=0$?
+
+% Add a constant term
+
+\vfill
+
+\end{enumerate}
+
+\newpage
+
+Let's consider the fourth-order linear constant-coefficient homogeneous differential equation $y^{\,(4)}-y=0$.
+
+\begin{enumerate}
+\item What's the characteristic polynomial?  What roots does it have?
+
+% r^4-1=(r-1)(r+1)(r^2+1), so -1,1 and -i,i
+
+\vspace{2cm}
+
+\item What's the general solution?
+
+% y=c_1 e^t+c_2e^(-t)+c_3 cos (t)+c_4 sin(t)
+
+\vfill
+
+
+\end{enumerate}
+
+\end{document}
