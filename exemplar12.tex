@@ -1,0 +1,80 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 12}
+    
+    \maketitle
+
+
+The theory for second-order linear non-homogeneous differential equations naturally extends to higher-order linear non-homogeneous differential equations.
+
+
+Let's consider the third-order linear constant-coefficient non-homogeneous differential equation $y^{\,\prime\prime\prime}-y^{\,\prime}=1-2t$.
+
+\begin{enumerate}
+  \item  Let's determine the characteristic polynomial for the complementary equation $y^{\,\prime\prime\prime}-y^{\,\prime}=0$.
+
+% r^3-r=r(r-1)(r+1)
+
+\vfill
+
+
+\item Let's find the general solution to the complementary equation $y^{\,\prime\prime\prime}-y^{\,\prime}=0$.
+
+
+% y=c_1+c_2 e^t+c_3e^(-t)
+
+\vfill
+\vfill
+
+\item Let's find a particular solution to $y^{\,\prime\prime\prime}-y^{\,\prime}=1-2t$ by observing that if $y$ is a quadratic polynomial then $y^{\,\prime\prime\prime}=0$.
+
+% Is there a quadratic polynomial solution to -y'=1-2t?  Yes!  y_p=t^2-t
+
+\vfill
+
+\newpage
+
+\item Now let's write down the general solution to $y^{\,\prime\prime\prime}-y^{\,\prime}=1-2t$.
+
+% y=t^2-t+c_1+c_2 e^t+c_3e^(-t)
+
+
+\vfill
+
+\item Let's solve the IVP $y^{\,\prime\prime\prime}-y^{\,\prime}=1-2t$, $y(0)=0$, $y^{\,\prime}(0)=0$, $y^{\,\prime\prime}(0)=0$.
+
+
+% y=t^2-t+c_1+c_2 e^t+c_3e^(-t).  y(0)=0:  0=c_1+c_2+c_3
+
+% y'=2t-1 +c_2 e^t-c_3e^(-t).  y'(0)=0:  0=-1+c_2-c_3 
+
+% y''=2+c_2 e^t+c_3e^(-t).  y''(0)=0:  0=2+c_2+c_3 --->   c_2 = -0.5. c_3=-1.5 and c_1=2
+
+% y=t^2-t+2-0.5e^t-1.5e^(-t).
+
+
+
+\vfill
+\vfill
+
+
+
+\end{enumerate}
+
+
+\end{document}
