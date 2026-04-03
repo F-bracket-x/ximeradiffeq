@@ -1,0 +1,77 @@
+\documentclass{ximera}
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 2}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+
+
+\item Which first order differential equation(s) are \textbf{NOT} separable?  Select all that apply.
+
+\begin{enumerate}[label=(\alph*)]
+\item $y^{\,\prime}=1-y^2$
+\item $y^{\,\prime}=\dfrac{x}{y}+x$
+\item $y^{\,\prime}=\dfrac{y}{x}+x$  % ***
+\item $y^{\,\prime}=\tan^{-1}(xy)$ % ***
+\item $y^{\,\prime}=e^{x^2-y}$
+\item $y^{\,\prime}=y^2+xy^2$
+\item $y^{\,\prime}=y^3+xy^2$ % ***
+\item $y^{\,\prime}=\ln \left(x^y\right)$
+\end{enumerate}
+
+% (c), (d), and (g) with options through (h)
+
+\item There is a solution of the form $y=\dfrac{1}{C-x}$ for the first order IVP $y^{\,\prime}=y^2$, $y(1)=0.5$.  Find the constant $C$.
+
+% C=3
+
+\item The differential equation $y^{\,\prime}=2x(y^2-4)\ln (y)$ is separable. How many constant solutions of the form $y=C$ does this differential equation have? 
+
+% 2
+
+\item Find the width of the widest interval on which there exists a solution to the IVP $y^{\,\prime}=-\dfrac{y^2}{x}$, $y(e^{-2})=-1$.  Round to the nearest hundredth.
+
+    % 1/y=ln(x)+C.  C=1.  So 1/y=ln(x)+1. y=1/(ln(x)+1).  Interval is (0,1/e).  1/e\approx 0.37
+
+
+\newpage
+
+\item Suppose $y(x)$ satisfies the first order IVP $(x^2+a^2)\,y^{\,\prime}=y^3-3b y^2+3b^2y-b^3$, $y(0)=b$ where $a,b$ are non-zero constants.  Which is $y(2026)$?
+
+\begin{enumerate}[label=(\alph*)]
+\item $a$
+\item $b$
+\item $0$
+\item $a+b$
+\item $a-b$
+\item $ab$
+\item $a/b$
+\item None of these
+\end{enumerate}
+
+
+% (b) with options through (h)
+
+\end{enumerate}
+
+\end{document}
