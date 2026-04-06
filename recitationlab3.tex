@@ -1,0 +1,139 @@
+\documentclass{ximera}
+
+%\usepackage{lmodern} % scalable font
+\newcommand{\inbetween}{\fontsize{7.5pt}{9pt}\selectfont}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Lab 3 - Lin. Homog. and Wronskian (incl. 3rd Order \& Higher)}
+    
+    \maketitle
+
+This activity is graded for completion so long as a relevant and genuine \underline{handwritten} attempt is made on each exercise.  This activity is due in Gradescope by 11:59PM.
+
+
+\begin{enumerate}
+
+\item For each of the following second-order linear homogeneous differential equations, show that the given functions $y_1,y_2$ are solutions. Then compute the Wronskian $W=y_1y_2'-y_1'y_2$ to determine if they form a fundamental set of solutions or not.  If they do form a fundamental set of solutions, write down the general solution as $y=c_1y_1+c_2y_2$.\\
+
+\begin{enumerate}
+\item $y^{\,\prime\prime}-3y^{\,\prime}+2y=0$; $y_1=e^t$; $y_2=e^{2t}$
+
+\vfill
+
+\item $y^{\,\prime\prime}-8y^{\,\prime}+16y=0$; $y_1=e^{4t}$; $y_2=te^{4t}$
+
+\vfill
+
+\item $y^{\,\prime\prime}-y=0$, $y_1=e^{1-t}$; $y_2=2e^{-t}$
+
+\vfill
+
+\item $y^{\,\prime\prime}+4y=0$; $y_1=\cos{(2t)}$; $y_2=\sin{(2t)}$
+
+\vfill
+
+
+\item $y^{\,\prime\prime}+2y^{\,\prime}+5y=0$; $y_1=e^{-t}\cos{(2t)}$; $y_2=e^{-t}\sin{(2t)}$
+
+\vfill
+
+\item $y^{\,\prime\prime}+\dfrac{1}{t}y^{\,\prime}-\dfrac{1}{t^2}y=0$; $y_1=t$; $y_2=\dfrac{1}{t}$
+
+% m^2-1
+
+\vfill
+
+\end{enumerate}
+
+\newpage
+
+For a third-order linear homogeneous differential equation, we need three linearly independent solutions to form a fundamental set of solutions. In order to check the linear independence of a given set of solutions, we can compute the Wronskian:  The \textbf{Wronskian} of $f,g,h$ is
+
+\[
+W(x)=\left|\begin{array}{ccc} f & g & h\\ f' & g'  & h'\\ f'' & g'' & h''\end{array}\right| = f\left|\begin{array}{cc} g' & h'\\ g'' & h'' \end{array}\right|-g\left|\begin{array}{cc} f' & h'\\ f'' & h'' \end{array}\right| + h\left|\begin{array}{cc} f' & g'\\ f'' & g'' \end{array}\right|
+\]
+
+where the absolute value bars denote determinants.
+
+\item Consider $y^{\,\prime\prime\prime}+3y^{\,\prime\prime}+3y^{\,\prime}+y=0$
+
+\begin{enumerate}
+
+\item Check that $y_{1}=e^{-t}$, $y_2=te^{-t}$ and $y_3=t^2e^{-t}$ are solutions.
+
+\vfill
+
+
+
+\vfill
+
+
+\item Compute the Wronskian of the solutions you found to determine if they form a fundamental set of solutions or not.  If they do form a fundamental set of solutions, write down the general solution as $y=c_1y_1+c_2y_2+c_3y_3$.
+
+
+
+\vfill
+
+
+\end{enumerate}
+
+\newpage
+
+\item Consider $y^{\,\prime\prime\prime}-y^{\,\prime\prime}+9y^{\,\prime}-9y=0$
+
+\begin{enumerate}
+
+\item Check that $y_{1}=e^{t}$, $y_2=\cos{(3t)}$ and $y_3=\sin{(3t)}$ are solutions.
+
+\vfill
+
+
+
+\item Compute the Wronskian of the solutions you found to determine if they form a fundamental set of solutions or not.  If they do form a fundamental set of solutions, write down the general solution as $y=c_1y_1+c_2y_2+c_3y_3$.
+
+
+
+\vfill
+
+
+\end{enumerate}
+
+\newpage
+
+\item Consider $y^{(4)}+2y^{\,\prime\prime}+y=0$. Show that $y_1=\cos{(t)}$, $y_2=\sin{(t)}$, $y_3=t\cos{(t)}$, and $y_4=t\sin{(t)}$ are each solutions.  Given that these form a fundamental set of solutions, write down the general solution.
+
+
+\newpage
+
+\item Given three linearly independent solutions $y_1,y_2,y_3$ to a third order linear homogeneous differential equation, for any solution $y$ to that same equation, the functions $y_1,y_2,y_3,y$ must form a linearly dependent set, which implies (via linear algebra) that 
+
+
+{\inbetween
+$\displaystyle
+\mathrm{det}\left(\begin{array}{cccc} y_1 & y_2 & y_3 & y\\ y_1' & y_2' & y_3'  & y'\\ y_1'' & y_2'' & y_3'' & y'' \\ y_1''' & y_2''' & y_3''' & y''' \end{array}\right) $ 
+
+
+$$= y_1\,\mathrm{det}\left(\begin{array}{ccc} y_2' & y_3' & y'\\ y_2'' & y_3'' & y''\\  y_2''' & y_3''' & y'''\end{array}\right)-y_2\,\mathrm{det}\left(\begin{array}{ccc} y_1' & y_3' & y'\\ y_1'' & y_3'' & y''\\ y_1''' & y_3''' & y''' \end{array}\right) + y_3\,\mathrm{det}\left(\begin{array}{ccc} y_1' & y_2' & y'\\ y_1'' & y_2'' & y''\\ y_1''' & y_2''' & y'''\end{array}\right)-y\,\mathrm{det}\left(\begin{array}{ccc} y_1' & y_2' & y_3'\\ y_1'' & y_2'' & y_3''\\ y_1''' & y_2''' & y_3'''\end{array}\right)=0.$$}
+
+Use this to construct a third order linear homogeneous differential equation for which $y_1=x$, $y_2=x^2$ and $y_3=e^x$ are linearly independent solutions. 
+
+% (x^2-2x+2)y'''-x^2y''+2xy'-2y=0
+
+\end{enumerate}
+
+
+\end{document}
