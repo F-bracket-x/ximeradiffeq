@@ -1,0 +1,94 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 4}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+
+\item Which of the following equations are Bernoulli equations?  Select all that apply.
+
+\begin{enumerate}[label=(\alph*)]
+	\item $y^{\,\prime}=xy$
+    \item $y^{\,\prime}=xy+y^2$  % ***
+    \item $y^{\,\prime}=x^2y+x$
+    \item $y^{\,\prime}=x^2y+y$
+    \item $y^{\,\prime}=y+x\sqrt{y}$   % ***
+    \item $y^{\,\prime}=x^2y+y^2+x$ 
+    \item $y^{\,\prime}=x^2y+y+\dfrac{1}{y}$   % ***
+    \item $y^{\,\prime}=e^x y +x e^y$ 
+    \item $y^{\,\prime}=\dfrac{xy^2+1}{y}$ % ***
+\end{enumerate}
+
+% (b), (e), (g), (i) with options through (i)
+
+\item The equation $2xy^4\,y^{\,\prime}+\dfrac{x^3}{y^2}=x^2y^5$ is a Bernoulli equation, but is not in the standard form for a Bernoulli equation, which is $y^{\,\prime}+p(x)y=f(x)y^r$ for some real number $r\neq 0,1$.  Write this Bernoulli equation in the standard form and determine the value of $r$. 
+
+% -6
+
+
+
+\item Suppose $y(x)$ satisfies the Bernoulli IVP $xy^{\,\prime}=y-3xy^3$, $y(1)=1$.  Find $y(2026)$ to the nearest ten-thousandth.
+
+% xy^{\,\prime}-y=-3xy^3.  Complementary solution is y_1=x.  y=ux ---> xy^{\,\prime}-y=x^2u' +xu-xu.  So x^2u'=-3x(ux)^3=-3x^4u^3
+
+% -u^(-3) u'= 3x^2 ---> 1/(2u^2)=x^3+C ---> 1/u^2=2x^3+C ---> u=+/- 1/sqrt(2x^3+C).  y=+/- x/sqrt(2x^3+C).
+
+% y(1)=1:  1=+ 1/sqrt(2+C) --- 2+C=1, C=-1.   y(2026)=2026/sqrt(2(2026)^3-1)\approx  0.0157
+
+% SANITY CHECK:  If y=x(2x^3-1)^(-0.5) then y^{\,\prime}=y/x -0.5x(2x^3-1)^(-1.5)6x^2 or equiv. xy^{\,\prime}=y-3x(x^3(2x^3-1)^(-1.5)).  Checks out!
+
+
+\item Suppose $y(x)$ satisfies the Bernoulli IVP $xy^{\,\prime}=y-3xy^3$, $y(1)=0$.  Find $y(2026)$ to the nearest ten-thousandth.
+
+% 0
+
+\newpage
+
+\item Some models for population growth use differential equations of the form $p^{\,\prime}(t)=aP(t)\left[1-g(t)P(t)\right]$ where $P(t)$ is the population size at time $t\geq 0$, $a$ is a positive constant, and $g(t)$ is a continuous function of $t$ on $[0,\infty)$.  Assuming $P(0)>0$ and $\displaystyle \lim_{t\rightarrow \infty} e^{-at} \int_0^t g(x)e^{ax}\;dx=L>0$ find $\displaystyle \lim_{t\rightarrow\infty} P(t)$ in terms of $a,L$.
+
+
+
+% P_1=e^(at)  so u' e^(at)=-ag(t)(ue^{at})^2=-a g(t) u^2 e^(2at) so -u^(-2) u'= a g(t)e^(at) so 1/u=a int(g(x)e^(ax),x,0,t) +C
+
+% so P=e^(at)/[a int(g(x)e^(ax),x,0,t)+C] approaches a/L
+
+
+
+ \begin{enumerate}[label=(\alph*)]
+    \item $0$
+	\item $La$
+	\item $\dfrac{L}{a}$
+	\item $\dfrac{a}{L}$
+	\item $\dfrac{1}{La}$ % ***
+	\item $La^2$
+	\item $L^2a$
+    \item $L^2a^2$
+\end{enumerate}
+
+% (e) with options through (h)
+
+\end{enumerate}
+
+
+\end{document}
