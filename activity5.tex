@@ -1,0 +1,80 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 5}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+
+\item A first order differential equation is \underline{nonlinear homogeneous } if it is a nonlinear differential equation of the form $y^{\,\prime}=f(y/x)$ for some function $f$.  Exactly one of the following equations is NOT nonlinear homogeneous.  Which one?
+
+\begin{enumerate}[label=(\alph*)]
+\item $\displaystyle y^{\,\prime}=1+\dfrac{x}{y}$
+\item $\displaystyle y^{\,\prime}=\dfrac{2x}{x+3y}$ 
+\item $\displaystyle y^{\,\prime}=\dfrac{2x^2}{x^2+y^2}$
+\item $\displaystyle y^{\,\prime}=1+\dfrac{y}{x}$ % ***
+\item $\displaystyle y^{\,\prime}=e^{\dfrac{x+y}{x}}$ 
+\end{enumerate}
+
+% (d) with options through (e)
+    
+\item Suppose $y(x)$, for $x>0$, satisfies $y^{\,\prime}=\dfrac{y}{x-y}$, $y(1)=0$.  Find $y(2026)$ to the nearest hundredth.
+
+% 0
+
+\newpage
+
+\item Given the nonlinear homogeneous de $\displaystyle y^{\,\prime}=\dfrac{x^2+y^2}{xy}$ determine the transformed separable equation that is the result of applying the substitution $u=\frac{y}{x}$.\\
+
+% u' x + u=1/u+u
+
+ \begin{enumerate}[label=(\alph*)]
+\item $\displaystyle u u'=\frac{1}{x}$\\ % ***
+\item $\displaystyle \frac{1}{u} u'=\frac{1}{x}$\\
+\item $\displaystyle \frac{1}{u^2} u'=-\frac{1}{x}$\\
+\item $\displaystyle \frac{u}{1+u^2} u'=\frac{1}{x}$\\
+\item $\displaystyle \frac{u^2}{1-u^3} u'=-\frac{1}{x}$\\
+\end{enumerate}
+
+% (a) with options through (e)
+
+\item  Suppose $y(x)$ satisfies the nonlinear homogeneous IVP $\displaystyle y^{\,\prime}=\dfrac{x^2+y^2}{xy}$, $y(1)=1$.  Find $y(2026)$ to the nearest tenth.\\
+
+% 0.5u^2=ln(x)+C ---> u=sqrt(2ln(x)+C) so y=x sqrt(2ln(x)+C).  C=1.  y=x sqrt(2ln(x)+1)
+
+% 2026*sqrt(2*ln(2026)+1) \approx   8161.4
+
+% SANITY CHECK: If y=x sqrt(2ln(x)+1) then y^{\,\prime}==y/x+ 1/(sqrt(2ln(x)+1))=y/x +x/y.  Checks out!
+
+
+\item Suppose $y(x)$ satisfies the nonlinear homogeneous IVP $\displaystyle y^{\,\prime}=\dfrac{x^2+3xy+y^2}{x^2}$, $y(1)=a$, where $a$ is a constant.  Given that $y(e)=e$ find $a$ to the nearest hundredth. \\
+
+% u' x+u=1+3u+u^2 so u' x=1+2u+u^2 so -1/(u+1)=ln(x)+C so -1/(y/x+1)=ln(x)+C so -1/(a+1)=C so -1/(y/x+1)=ln(x)-1/(a+1).  So -1/2=1-1/(a+1) so 1/(a+1)=3/2 so a+1=2/3 so a=-1/3\approx -0.33
+
+% Solving for y gives y=x/[ln(1/x)+3/2]-x.  Sanity check: y(1)=-1/3 and y(e)=e.  YUP!
+
+
+\end{enumerate}
+
+
+\end{document}

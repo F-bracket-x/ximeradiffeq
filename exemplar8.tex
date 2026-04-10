@@ -64,35 +64,35 @@ A financial planner is modeling a client's portfolio of financial assets.  They 
 \begin{enumerate}
 \item Let $y(t)$ be the model's worst case value for the portfolio after $t\geq 0$ years.  What IVP must $y(t)$ satisfy?
 
-% y'=ry-N-\alpha t, y(0)=A_0
+% y'=(r/100)y-N-\alpha t, y(0)=A_0
 
 \vfill
 
 \item Let's determine the general solution.
 
-% y'-ry=-N-\alpha t
+% y'-(r/100)y=-N-\alpha t
 
-% IF:  e^(-rt)
-% e^(-rt)y'-re^(-rt)y=(-N-\alpha t)e^(-rt)
-% [e^(-rt)y]'=(-N-\alpha t)e^(-rt)
-% e^(-rt)y=(N+\alpha t)/r e^(-rt) +\alpha/r^2 e^(-rt)+C
-% y=(N+\alpha t)/r  +\alpha/r^2 +Ce^(rt)
+% IF:  e^(-(r/100)t)
+% e^(-(r/100)t)y'-(r/100)e^(-(r/100)t)y=(-N-\alpha t)e^(-(r/100)t)
+% [e^(-(r/100)t)y]'=(-N-\alpha t)e^(-(r/100)t)
+% e^(-(r/100)t)y=(N+\alpha t)/(r/100) e^(-(r/100)t) +\alpha/(r/100)^2 e^(-(r/100)t)+C
+% y=(N+\alpha t)/(r/100)  +\alpha/(r/100)^2 +Ce^((r/100)t)
 
-% A_0 = N/r  +\alpha/r^2 +C
-% C=A_0 - N/r  -\alpha/r^2 
+% A_0 = N/(r/100)  +\alpha/(r/100)^2 +C
+% C=A_0 - N/(r/100)  -\alpha/(r/100)^2 
 
-% y=(N+\alpha t)/r  +\alpha/r^2 +(A_0 - N/r  -\alpha/r^2)e^(rt)
+% y=(N+\alpha t)/(r/100)  +\alpha/(r/100)^2 +(A_0 - N/(r/100)  -\alpha/(r/100)^2)e^((r/100)t)
 
-% (-N-\alpha t) | e^(-rt)
-% -\alpha       | -1/r e^(-rt)
-% 0             | 1/r^2 e^(-rt)
+% (-N-\alpha t) | e^(-(r/100)t)
+% -\alpha       | -1/(r/100) e^(-(r/100)t)
+% 0             | 1/(r/100)^2 e^(-(r/100)t)
 
 \vfill
 \vfill
 
 \item What must $A_0$ satisfy to guarantee an exponential growth term in $y$?
 
-% A_0 > N/r  +\alpha/r^2 = (Nr+\alpha)/r^2
+% A_0 > N/(r/100)  +\alpha/(r/100)^2 = (N(r/100)+\alpha)/(r/100)^2
 
 \vfill
 
