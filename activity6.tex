@@ -1,0 +1,106 @@
+\documentclass{ximera}
+
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 6}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+
+
+\item Which equations, explicitly as written, are NOT in an exact form?  Select all that apply.
+
+\begin{enumerate}[label=(\alph*)]
+\item $(x+3y)\,\mathrm{d}x+(3x-y)\,\mathrm{d}y=0$.
+\item $(x-2xy)\,\mathrm{d}x+(y-x^2)\,\mathrm{d}y=0$.
+\item $(4x^3+3x^2y)\,\mathrm{d}x+(x^3+\cos{(y)})\,\mathrm{d}y=0$.
+\item $ye^{xy}\,\mathrm{d}x+\left(\ln{(y)}+xe^{xy}\right)\,\mathrm{d}y=0$.
+\item $ye^{xy}\,\mathrm{d}x+\left(\ln{(x)}+xe^{xy}\right)\,\mathrm{d}y=0$.
+\item $(x^2-2xy)\,\mathrm{d}x+(x^2+\sin{(y)})\,\mathrm{d}y=0$.  % ***
+  % ***
+\end{enumerate}
+
+% (e) and (f) with options through (f)
+
+
+    \item For what value of $a$, to the nearest tenth, is the following differential equation is in an exact form, explicitly as written?  $$ \left(2axy^3+y\right)\,\mathrm{d}x+\left(15x^2y^2+x-\frac{1}{y}\right)\,\mathrm{d}y=0.$$
+
+% F(x,y)=ax^2y^3+xy-\ln{(y)} and F_y=3a x^2y^2+x-1/y
+
+% a=5
+
+
+\item Suppose $y(x)$ satisfies the IVP $\displaystyle \frac{y}{x}\,\mathrm{d}x +\left(\ln{(x)}-\frac{1}{y-1}-2y\right)\, \mathrm{d}y=0$, $y(1)=2$.  Find the solution to $y(x)=3$, to the nearest hundredth.\\
+
+% yln(x)-ln(y-1)-y^2=-4.  3ln(x)-ln(2)-9=-4 ---> x=e^([5+ln(2)]/3)
+
+% \approx 6.67
+
+\newpage
+
+
+\item If $M\,\mathrm{d}x+N\,\mathrm{d}y=0$ is not exact, but $p=(M_{y}-N_{x})/N$ is independent of $y$ then $\displaystyle \mu (x)= e^{P(x)}$, where $P'(x)=p(x)$, is an integrating factor of $M\,\mathrm{d}x+N\,\mathrm{d}y=0$ (meaning that the equation becomes exact when both sides are multiplied by $\mu$).
+
+
+Find the integrating factor $\mu (x)$ for $(4xy+2y+5)\,\mathrm{d}x+ 2x^2\,\mathrm{d}y=0$ such that $\mu(-1)=1$.  Find $\mu(2)$ to the nearest hundredth.
+
+% M=4xy+2y+5 and N=2x^2.  p=(M_y-N_x)/N=(4x+2-4x)/(2x^2)=1/x^2 so e^(-1/x-1).  So e^{-1/2-1}=1/sqrt(e^3)\approx 0.22
+
+%  Check:  $(4xy+2y+5)e^(-1/x)\,\mathrm{d}x+ 2x^2e^(-1/x)\,\mathrm{d}y=0$.
+
+%  M=(4xy+2y+5)e^(-1/x-1) and N=2x^2e^(-1/x-1).  M_y=(4x+2)e^(-1/x-1) and N_x=(4x+2)e^(-1/x-1).  Checks out!
+
+
+
+\item A specialized piston-cylinder device contains a gas where the pressure  and volume are governed \[
+\left[ P+ \dfrac{P}{V}e^{\dfrac{P}{V}} \right] \mathrm{d}V + \left[ V\ln(V) - e^{\dfrac{P}{V}} \right] \mathrm{d}P = 0.
+\]
+
+Determine the partial derivative $P_V$.
+
+Hint: using implicit differentiation, if $F(P,V)=C$ then $P_V=-\dfrac{F_V}{F_P}$.
+
+% -(PV +Pe^(P/V))/(V^2ln(V)- Ve^(P/V))
+
+\begin{enumerate}[label=(\alph*)]
+\item $\dfrac{PV+Pe^{P/V}}{V^2\ln (V)-Ve^{P/V}}$
+\item $-\dfrac{PV+Pe^{P/V}}{V^2\ln (V)-Ve^{P/V}}$ % ***
+\item $\dfrac{V^2\ln (V)-Ve^{P/V}}{PV+Pe^{P/V}}$
+\item $-\dfrac{V^2\ln (V)-Ve^{P/V}}{PV+Pe^{P/V}}$
+\item $\dfrac{PV+Pe^{P/V}}{V^2\ln (V)+Ve^{P/V}}$
+\item $-\dfrac{PV+Pe^{P/V}}{V^2\ln (V)+Ve^{P/V}}$
+\item $\dfrac{V^2\ln (V)+Ve^{P/V}}{PV+Pe^{P/V}}$
+\item $-\dfrac{V^2\ln (V)+Ve^{P/V}}{PV+Pe^{P/V}}$
+\end{enumerate}
+
+% (b) with options through (h)
+
+
+\end{enumerate}
+
+
+\end{document}
