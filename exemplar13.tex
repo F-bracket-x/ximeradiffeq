@@ -1,0 +1,72 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 13}
+    
+    \maketitle
+
+Undetermined coefficients naturally applies to higher-order linear non-homogeneous differential equations.  Let's consider the third-order linear constant-coefficient non-homogeneous differential equation $y^{\,\prime\prime\prime}-2y^{\,\prime\prime}-4y^{\,\prime}+8y=\dfrac{27t}{e^t}$.
+
+\begin{enumerate}
+\item Let's determine the characteristic polynomial for the complementary equation $y^{\,\prime\prime\prime}-2y^{\,\prime\prime}-4y^{\,\prime}+8y=0$.
+
+\vfill
+
+
+
+% (r-2)(r-2)(r+2)=(r-2)(r^2-4)=r^3-2r^2-4r+8
+
+
+\item Let's find the general solution to the complementary equation \\$y^{\,\prime\prime\prime}-2y^{\,\prime\prime}-4y^{\,\prime}+8y=0$.
+
+% y=(c_1+c_2 t) e^(2t)+c_3e^(-2t)
+
+\vfill
+
+
+\newpage
+
+\item Let's find a particular solution to $y^{\,\prime\prime\prime}-2y^{\,\prime\prime}-4y^{\,\prime}+8y=\dfrac{27t}{e^t}$ by using that if $y$ is a linear polynomial multiple of $e^{-t}$ then it and its derivatives (of any order) are linear or constant polynomial multiples of $e^{-t}$.
+
+% y_p = (3t-1)e^{-t}
+
+\vfill
+
+\item Now let's write down the general solution to $y^{\,\prime\prime\prime}-2y^{\,\prime\prime}-4y^{\,\prime}+8y=\dfrac{27t}{e^t}$.
+
+% y = (3t-1)e^{-t}+(c_1+c_2 t) e^(2t)+c_3e^(-2t)
+
+\vspace{3cm}
+
+
+\item Let's solve the IVP $y^{\,\prime\prime\prime}-2y^{\,\prime\prime}-4y^{\,\prime}+8y=\dfrac{27t}{e^t}$, $y(0)=-1$, $y^{\,\prime}(0)=5$, $y^{\,\prime\prime}(0)=-3$.
+
+% y = (3t-1)e^{-t}+te^(2t)
+
+% y' = (-3t+4)e^{-t}+(2t+1)e^(2t)
+
+% y'' = -3e^{-t}-(-3t+4)e^{-t}+2e^(2t)+2(2t+1)e^(2t)
+
+% y'' = (3t-7)e^{-t}+(4t+4)e^(2t)
+
+
+\vfill
+
+
+\end{enumerate}
+
+\end{document}
