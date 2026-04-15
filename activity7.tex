@@ -1,0 +1,95 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 7}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item How many asymptotically unstable equilibrium solutions does $y^{\,\prime}=y^5-y^3$ have?
+
+% 2
+
+\item Consider the following statements about the constant function $\displaystyle y=e^2$ in regards to the first order autonomous differential equation $\displaystyle y^{\,\prime}=\frac{2-\ln{(y)}}{1+y^2}$.  Determine which of the following statements is true.
+
+    %  (0 ->->-> e^2 <-<-<- so stable
+
+
+\begin{enumerate}[label=(\alph*)]
+\item It is not an equilibrium solution of this equation.
+\item It is an asymptotically stable equilibrium solution of this equation. % ***
+\item It is an asymptotically unstable equilibrium solution of this equation.  
+\item It is an asymptotically semistable equilibrium solution of this equation.
+\item None of the above are true.
+\end{enumerate}
+
+% (b) with options through (e)
+
+
+\item Which could be the limit as $t$ goes to infinity of a non-constant solution to $y^{\,\prime}=y^4-3y^3+2y^2$?  Select all that apply.
+    
+\begin{enumerate}[label=(\alph*)]
+		\item $-\infty$   
+        \item $-2$
+        \item $-1$
+		\item $0$ % ***
+		\item $1$ % ***
+ 		\item $2$ 
+		\item $\infty$ % ***
+\end{enumerate}
+
+% (d), (e), and (g) with options through (g)
+
+\newpage
+
+
+\item Let $0<a<5$.  Suppose we are given that the solution $y(t)$ of the IVP $y^{\,\prime}=(e^y - 3)(y^2-ay)$, $y(0)=2$ satisfies $\displaystyle \lim_{t\rightarrow\infty}y(t)=\ln{(3)}$.  Find a possible value of $a$.  
+
+    % a must be positive or the limit is infinite. a cannot be 1 as then y^{\,\prime}>0 for t>ln(3).  a cannot be 2 or the IVP solution is constant.    <-<-<- 0  ->->->    ln(3) <-<-<-  a  ->->->
+    %  So accept anything between 2.0001 and 4.999
+
+
+\item  A \underline{second order autonomous equation} is a differential equation of the form $y^{\,\prime\prime}=f(y,y^{\,\prime})$. In the special case where $y^{\,\prime\prime}=f(y)$, we can multiply both sides by $y^{\,\prime}$ to get  $y^{\,\prime}y^{\,\prime\prime}=f(y)y^{\,\prime}$, which we can integrate with respect to the independent variable (using that $y^{\,\prime\prime} \mathrm{d}t=\mathrm{d}(y^{\,\prime})$ and $y^{\,\prime} \mathrm{d}t=\mathrm{d}y$)  to get a separable differential equation that can be solved.
+
+
+Let $y(t)$ be the solution to the second order IVP \\$y^{\,\prime\prime}=-\sin (y)$, $y(0)=0$, $y^{\,\prime}(0)=2$.  Determine $t$ such that $y(t)=1$.  Round to the nearest hundredth.
+
+Hint: you may find $\cos^2(\theta)=\dfrac{1}{2}\left(1+\cos (2\theta)\right)$ and\\ $\displaystyle \int \sec (\theta)\,\mathrm{d}\theta=\ln |\sec (\theta)+\tan (\theta)|+C$ useful.
+
+% ln[sec(1/2)+tan(1/2)]\approx 0.52
+
+% y^{\,\prime} y^{\,\prime\prime} =  -sin (y) y^{\,\prime}
+% (y^{\,\prime})^2 =  2cos(y)+2
+% (y^{\,\prime})^2 =  2cos(y)+2
+% (y^{\,\prime})^2 =  2(1+cos(y))
+% (y^{\,\prime})^2 =  4cos^2(y/2))
+% as 2cos^2(y/2)=1+cos(y)
+% y^{\,\prime} =  2cos(y/2)
+% sec(y/2) y^{\,\prime} /2 = 1
+% sec(u) u' =  1
+% ln[sec(y/2)+tan(y/2)] = t
+% sec(y/2)+tan(y/2) =  e^t
+
+\end{enumerate}
+
+
+\end{document}
