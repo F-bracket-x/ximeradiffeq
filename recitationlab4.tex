@@ -1,0 +1,130 @@
+\documentclass{ximera}
+
+\newcommand{\inbetween}{\fontsize{7pt}{9pt}\selectfont}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Lab 4 - Undetermined Coefficients }
+    
+    \maketitle
+
+This activity is graded for completion so long as a relevant and genuine \underline{handwritten} attempt is made on each exercise.  This activity is due in Gradescope by 11:59PM.
+
+
+\begin{enumerate}
+\item  For each of the following second order linear nonhomogeneous differential equations construct your best guess at the form of a particular solution, using the method of Undetermined Coefficients.  You are NOT being asked to solve the equation.
+\begin{enumerate}
+\item $y^{\,\prime\prime}+y=4t^3+3t^2+2t$.
+\vfill
+
+\item $y^{\,\prime\prime}+y=\sin (t)+\cos (t)$.
+\vfill
+
+
+\item $y^{\,\prime\prime}+y=e^{-t}(\sin (t)+\cos (t))$.
+\vfill
+
+\item $y^{\,\prime\prime}-y^{\,\prime}-2y=e^{2t}$.
+\vfill
+
+\item $y^{\,\prime\prime}-y^{\,\prime}-2y=e^{-2t}$.
+\vfill
+
+\item $y^{\,\prime\prime}+6y^{\,\prime}+9y=(t-1)e^{3t}$.
+\vfill
+
+\item $y^{\,\prime\prime}+6y^{\,\prime}+9y=(t-1)e^{-3t}$.
+\vfill
+
+\item  $y^{\,\prime\prime}+2y^{\,\prime}+10y=-4e^{t}\sin{(3t)}$.\\
+\vfill
+
+\item  $y^{\,\prime\prime}+2y^{\,\prime}+10y=-4e^{-t}\sin{(3t)}$.\\
+\vfill
+
+\item $y^{\,\prime\prime}+2y^{\,\prime}+10y=\sin{(3t)}$.\\
+\vfill
+
+\item $y^{\,\prime\prime\prime}-3y^{\,\prime\prime}+3y^{\,\prime}-y=(1+t^2)e^t$.\\
+\vfill
+
+\end{enumerate}
+
+\newpage
+
+\item Solve the IVP $y^{\,\prime\prime}+100y=20\sin{(10t)}$, $y(0)=0$, $y^{\,\prime}(0)=0$. Put the answer in the box provided.
+    
+    % y=t(Acos +B sin).  y'=(Acos +B sin)+t(-10A sin +10B cos).  y''=2(-10A sin +10B cos)-100y so y''+100y=-20A sin + 20B cos=20 sin
+    
+    % A=-1 and B=0.  So y=-t cos(10t)+c_1 cos(10t)+c_2 sin(10t)
+
+   % c_1=0.  y=-t cos(10t)+c sin(10t).  y'=-cos(10t)+100tsin(10t)+10c cos(10t).  So c=1/10.  So y = -t cos(10t)+0.1 sin(10t).
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} \hfill\vspace{0.25in} \end{minipage} }
+
+\newpage
+
+
+\item Consider the second order linear nonhomogeneous differential equation $x^2y^{\,\prime\prime}-3xy^{\,\prime}-5y=f(x)$ on the interval $(0,\infty)$ for the following instances of $f(x)$ (called a ``forcing function").
+
+\begin{enumerate}
+\item  Suppose $f(x)=x^3$.  It turns out there is a particular solution of the form $y_P=Ax^3$.   Find it and put the answer in the box provided.
+
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} \hfill\vspace{0.25in} \end{minipage} }
+
+\vfill
+
+
+
+\item  Now suppose $f(x)=\displaystyle \frac{1}{x}$.
+
+\begin{enumerate}
+
+\item Explain why attempting to find a particular solution of the form $y_P=\dfrac{A}{x}$ is futile.  How does it relate to the complementary equation?
+
+\vfill
+
+\item Suppose $y=uy_1$ is a solution to $x^2y^{\,\prime\prime}-3xy^{\,\prime}-5y=\displaystyle \frac{1}{x}$, where $u$ is some function and $y_1$ is a non-trivial solution to the complementary equation $x^2y^{\,\prime\prime}-3xy^{\,\prime}-5y=0$.  Determine a first order linear nonhomogeneous differential equation that that $z=u^{\,\prime}$ must satisfy.  Put the answer in the box provided.
+
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} \hfill\vspace{0.25in} \end{minipage} }
+
+\vfill
+
+\newpage
+
+\item Solve that equation for the general solutions for $z$, then $u$, and finally $y$.  Put the general solution for $y$ in the box provided.
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} \hfill\vspace{0.25in} \end{minipage} }
+
+\vfill
+
+\end{enumerate}
+
+\end{enumerate}
+
+\item Consider the second order linear nonhomogeneous constant coefficient differential equation $y^{\,\prime\prime}+y=\sec{(t)}$.  The function $y_1=\cos{(t)}$ is a nontrivial solution to the complementary equation.  Suppose $y=uy_1=u\cos (t)$ is a solution to $y^{\,\prime\prime}+y=\sec{(t)}$.  Determine a differential equation that $z=u^{\,\prime}$ must satisfy, solve it for the general solution for $z$, then $u$, and finally $y$.  Put the general solution for $y$ in the box provided.
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} \hfill\vspace{0.25in} \end{minipage} }
+
+\vfill
+
+
+
+\end{enumerate}
+
+\end{document}
