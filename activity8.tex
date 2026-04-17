@@ -1,0 +1,107 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 8}
+    
+    \maketitle
+
+\section*{Exercises}
+
+For exercises 1 and 2 use the following information:
+
+A tank initially contains $2$ lbs per gallon of sugar dissolved in $50$ gallons of water, when a process begins where a solution containing $0.2$ lbs per gallon of sugar is added to the tank at $10$ gallons per minute, while the tank is kept thoroughly mixed and drained at the same rate of $10$ gallons per minute.  Let $y(t)$ be the amount of sugar in lbs in the tank at $t\geq 0$ minutes into this process.
+
+
+% 2-y/5
+
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item  Which IVP below does $y(t)$ satisfy?
+
+\begin{enumerate}[label=(\alph*)]
+\item $y^{\,\prime}=2-0.2y$, $y(0)=2$  
+\item $y^{\,\prime}=2-0.2y$, $y(0)=100$ % ***
+\item $y^{\,\prime}=0.2-2y$, $y(0)=2$
+\item $y^{\,\prime}=0.2-2y$, $y(0)=100$
+\item $\displaystyle y^{\,\prime}=2-\frac{10}{50+t}y$, $y(0)=2$
+\item None of these
+\end{enumerate}
+
+% (b) with options through (f)
+
+\item Find $\displaystyle \lim_{t\rightarrow \infty} y(t)$. 
+
+% 10
+
+
+
+\newpage
+
+\item A reservoir at the top of a large fountain is designed to have water pumped into it at a constant rate of 16 gal/min, while the fountain is designed to spray water out at a rate (in gallons per minute) equal to a quarter of the square of the number of gallons in the reservoir.  What is the smallest capacity (in gallons) that the reservoir can have if this process is to continue forever without ever overflowing the reservoir?
+
+
+% y'=16 - y^2 /4, y(0)=0.  y'=0 when y=8 gallons
+
+
+\item Deshawn is about to retire, and has $1.2$ million dollars in their investment accounts.  With a conservative assumption that, in the worst case scenario, these investments (on average) will grow at a rate equivalent to $4$ \% compounding continuously, How much (in thousands of dollars) can be withdrawn annually such that the funds in these accounts last for at least $20$ years?    Round to the nearest thousand dollars.  Assume the withdrawals are the same each year and are are uniform and frequent enough to be well-approximated as occurring continuously. 
+
+Hint: let $N$ be the yearly withdrawal amount in thousands of dollars.  Let $y(t)$ be the account balance in thousands of dollars at $t$ years into retirement (in the worst case scenario).  Solve an IVP and find $N$ by setting $y(20)=0$.
+
+% 87
+ 
+% y'=0.04y-N
+
+% y' /(0.04y-N) = 1
+
+% 0.04y-N = Ce^(0.04t)
+
+% 0.04y=N+ Ce^(0.04t)
+
+% y=25N + Ce^(0.04t)
+
+% 1200=25N + C ----> C=1200-25N
+
+% y=25N + (1200-25N)e^(0.04t)
+
+% 0=y(20)=25N + (1200-25N)e^(0.8)
+
+% 0=25N+1200e^(0.8)-25e^(0.8)N
+
+% (e^(0.8)-1)N = 48e^(0.8)
+
+% N=48e^(0.8)/(e^(0.8)-1)\approx 87.1664
+
+
+\item When a course ends, students start to forget the material they have learned.  One model (called the Ebbinghaus model) assumes that the rate at which a student forgets material is proportional to the difference between the proportion of material currently remembered and some positive constant, $a$.  That is, $y^{\,\prime}=-k(y-a)$, where $0\leq y(t)\leq 1$ is the proportion of the course material remembered $t$ weeks after the end of the course and $a,k$ are positive constants.
+
+    Suppose that one week after a course ends, a student remembers $90$\% of the material learned, but in the long run the amount the student remembers approaches $15$\% of the material learned.  What percent of course material is remembered by this student half a year after the course ends, according to this model?  Round the answer to the nearest whole percent.  (Assume that they remember all the material learned at the moment when the course ends.)
+
+    % 18
+
+% y'=-k(y-0.15) with y(0)=1 and y(1)=0.9.  So y=0.15+Ce^(-kt) is the "easy" part.  C=0.85 for y(0)=1.  y=0.15+0.85e^(-kt).
+
+% y(1)=0.9 so 0.9=0.15+0.85[e^(-k)]^t or equivalently 15/17=[e^(-k)].  Thus y(t)=0.15+0.85[15/17]^t.  y(26)\approx 0.18
+
+
+
+\end{enumerate}
+
+
+\end{document}
