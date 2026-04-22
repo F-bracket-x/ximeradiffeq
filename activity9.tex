@@ -1,0 +1,84 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 9}
+    
+    \maketitle
+
+\section*{Exercises}
+
+For exercises 1 and 2 use the following information:
+
+A $1$-kg rock is dropped from the top of a large vertical cliff and during free-fall the air resists the motion of the rock proportional to its speed, at a rate of $4$ N of force per m/s of speed.
+
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item  Determine the IVP that models the vertical velocity $v(t)$ of the rock at $t\geq 0$ seconds after it is dropped.  Use $g=9.8$ m/s$^2$ for the magnitude of the acceleration due to gravity.
+
+\begin{enumerate}[label=(\alph*)]
+    \item $v^{\,\prime}=9.8-4v$, $v(0)=0$
+    \item $v^{\,\prime}=9.8+4v$, $v(0)=0$
+    \item $v^{\,\prime}=-9.8+4v$, $v(0)=0$
+    \item $v^{\,\prime}=-9.8-4v$, $v(0)=0$ % ***
+    \item $v^{\,\prime}=9.8v+4$, $v(0)=-1$
+    \item $v^{\,\prime}=-9.8v-4$, $v(0)=-1$
+
+\end{enumerate}
+
+% (d) ... (f)
+
+\item Given the rock hits the ground at a speed of $2.42$ meters per second determine the height of the cliff.  Round to the nearest meter.
+
+% 2
+
+% -2.42 = -2.45+2.45e^(-4t) ... t_h = -ln(1-2.42/2.45)/4
+
+% Integrate to get 2.45/4*(ln(1-2.42/2.45)+2.42/2.45)\approx -2
+
+\item A $95$ kg skydiver falls through air that resists motion at a rate of $18$ N of force per m/s of speed.  Find the terminal velocity in meters per second.  Use $g=9.8$ m/s$^2$ for the magnitude of the acceleration due to gravity.  Round to the nearest tenth of a meter per second.
+
+% v_infty = -mg/k approx -95*9.8/18 = -51.7 m/s.
+
+\newpage
+
+
+\item  A $10$ kg object falls attached to vertical rails with a friction-breaking device that is designed to exert a resistive force \emph{proportional to the fourth power of the speed} of the object.  The resistance is $96$ N if the speed is $2$ meter per second.  Find the terminal velocity in meters per second to the nearest hundredth of a meter per second.  Use $g=9.8$ m/s$^2$ for the magnitude of the acceleration due to gravity.
+
+    % -2.01
+
+    % F_d=kv^4 where 96=k2^4 so k=6.
+
+    % 10v'=-98+6v^4=0 so -(98/6)^(1/4)\approx  -2.01 m/s
+
+
+\item A $1$ kg stone is sling-shot straight up into the air at $40$ meter per second \emph{from an initial height of $1$ meter}.  Assuming the air resists the stone's motion at a rate of $1/25$ N of force per m/s of speed, determine the height in meters reached by the object.  Use $g=9.8$ m/s$^2$ for the magnitude of the acceleration due to gravity.  Round to the nearest tenth of a meter.
+
+% 9.8/(1/25)=245
+
+% v(t)=-245+(40+245)e^{-t/25}.  Set to zero.  b=-25ln(245/285)\approx 3.78
+
+% integral of v(t) from 0 to b is approx. 73.7.  ADD 1 METER!!
+
+% 74.7 is the final answer
+
+\end{enumerate}
+
+
+\end{document}
