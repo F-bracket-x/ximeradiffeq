@@ -1,0 +1,86 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 10}
+    
+    \maketitle
+
+\section*{Exercises}
+
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item Let $p(x),q(x)$ be continuous functions on $(0,\infty)$.  Suppose $y_1$ and $y_2$ form a fundamental set of solutions satisfying $\displaystyle y\,^{\prime\prime}+p(x)y\,^{\prime}+q(x)y=0$ on $(0,\infty)$.  Which of the following CANNOT be the Wronskian $W(x)$ of $y_1$ and $y_2$?  Select all that apply.
+
+
+\begin{enumerate}[label=(\alph*)]
+\item  $W(x)=x$
+\item  $W(x)=x-1$ % ***
+\item  $W(x)=x+1$
+\item  $W(x)=\dfrac{1}{x}$ 
+\item  $W(x)=4x^2-1$ % ***
+\item  $W(x)=1$
+\item  $W(x)=e^x-1$
+\item  $W(x)=e^x-2$ % ***
+\end{enumerate}
+
+% (b), (e), and (h) with options through (h)
+
+\item Let $W(x)$ be the Wronskian of $y_1=\ln{\left(\sqrt{x^3}\right)}$ and $\displaystyle y_2=2\ln{\left(\frac{1}{x^2}\right)}$.  Determine $W(2026)$.
+
+% 0
+
+
+
+\item Suppose $y_1$ and $y_2$ are two solutions to $\displaystyle (2x+1) y''+2 y'-y=0$ on the interval $(-1/2,\infty)$ and their Wronskian $W(x)$ satisfies $W(0)=1$.  Determine $W(2026)$.  Round to the nearest ten-thousandth.
+
+% 1/(2x+1) ... so 1/(2(2026)+1)=1/4053\approx 0.0002
+
+\newpage
+
+\item Which is the Wronskian of some pair of linearly independent solutions to $x^2y^{\,\prime\prime}-x(x+2)y^{\,\prime}+(x+2)y=0$ for $x>0$?
+
+\begin{enumerate}[label=(\alph*)]
+\item $0$
+\item $x+\ln (x^2)$
+\item $x\ln (x^2)$
+\item $x+e^x$
+\item $xe^x$
+\item $x^2+e^x$
+\item $x^2e^x$ % ***
+\item None of these
+\end{enumerate}
+
+% (g) ...(h)
+
+
+\item Given two linearly independent solutions $y_1,y_2$ to a second order linear homogeneous differential equation, for any solution $y$ to that same equation, the functions $y_1,y_2,y$ must form a linearly dependent set, which implies (via linear algebra) that 
+$$\displaystyle
+\mathrm{det}\left(\begin{array}{ccc} y_1 & y_2 & y\\ y_1' & y_2'  & y'\\ y_1'' & y_2'' & y''\end{array}\right) = y_1\,\mathrm{det}\left(\begin{array}{cc} y_2' & y'\\ y_2'' & y'' \end{array}\right)-y_2\,\mathrm{det}\left(\begin{array}{cc} y_1' & y'\\ y_1'' & y'' \end{array}\right) + y\,\mathrm{det}\left(\begin{array}{cc} y_1' & y_2'\\ y_1'' & y_2'' \end{array}\right)=0.$$  Use this to construct a second order linear homogeneous differential equation for which $y_1=x$ and $y_2=e^x$ are linearly independent solutions.  Let $p(x)$ be the function in front of $y^{\,\prime}$ when the equation is put into standard form.  Determine $p(-1)$.
+
+% -x/(x-1) which is -0.5
+.
+
+
+
+
+\end{enumerate}
+
+
+\end{document}
