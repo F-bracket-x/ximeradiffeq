@@ -1,0 +1,56 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 18}
+    
+    \maketitle
+
+
+Suppose a mass is hung on a large vertical spring and is brought to rest at equilibrium, causing the spring to stretch from its natural length (with no mass attached) by 2.45 centimeters.
+
+\begin{enumerate}
+
+\item Let's determine the natural angular frequency of this spring mass system.  What is the frequency it in hertz?  We will use $g=9.8$ m$/s^2$ for the magnitude of the acceleration due to gravity.
+
+\vfill
+
+
+% w=sqrt(g/l)=sqrt(980/2.45)=20 rad/s ----> f=w/(2pi)=10/pi hz (cycles/s)
+
+
+\item Suppose the mass is pulled down by 5 centimeters and released.  Assuming it is free and undamped, let's find the displacement $y(t)$ of the mass above equilibrium (in centimeters) at $t\geq 0$ seconds after being released.  Let's use this to determine the velocity of the mass at $t=\dfrac{\pi}{40}$ seconds (as the mass passes through the equilibrium position for the first time).
+
+\vfill
+\vfill
+
+% y=-5\cos(20t).  y'=100 sin(20t)  ... 100 cm/s [OR 1 m/s]
+
+
+\newpage
+
+\item Now let's assume the mass is $1$ kg and that there is a mechanical damper attached to the spring which damps the motion at a rate of $40$ N per m/s of speed.  Using the same conditions (the mass is pulled down by 5 centimeters and released) let's determine the displacement $y(t)$ of the mass above equilibrium (in centimeters) at $t\geq 0$ seconds after being released.  Is this system over-damped, under-damped, or critically damped.  Let's determine the number of times the mass passes through equilibrium.
+
+\vfill
+
+\item Now let's assume that in addition to the mechanical damper, we are forcing the mass with a constant $20$ Newtons of upward force.  Using the same conditions (the mass is pulled down by 5 centimeters and released) let's determine the displacement $y(t)$ of the mass above equilibrium (in centimeters) at $t\geq 0$ seconds after being released.
+
+\vfill
+
+
+\end{enumerate}
+
+\end{document}
