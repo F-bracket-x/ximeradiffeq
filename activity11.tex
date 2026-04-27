@@ -1,0 +1,79 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 11}
+    
+    \maketitle
+
+\section*{Exercises}
+
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item Which is NOT a solution to the second order linear homogeneous constant-coefficient differential equation $\displaystyle y\,^{\prime\prime}-y\,^{\prime}-12y=0$? 
+
+
+\begin{enumerate}[label=(\alph*)]
+\item $y_1=\dfrac{1}{e^{-1-4t}}$
+\item $y_2=\dfrac{2}{e^{3t}}$
+\item $y_3=e^{1-3t}-2e^{1+4t}$  
+\item $y_4=e^{1-3t}-3e^{1-4t}$ %***
+\item $y_5=-4e^{1+4t}$
+\item $y_6=0$
+\end{enumerate}
+
+% (d) with options through (f)
+
+
+\item  Suppose $y(t)$ satisfies $y^{\,\prime\prime}+2y^{\,\prime}+10y=0$, $y(0)=-1$ and $y^{\,\prime}(0)=1$.  Determine $y(\pi)$.  Round to the nearest hundredth.
+
+%  r^2+2r+10=0.  (r+1)^2+9 so r=-1 +/- 3i.  y(t)=-e^(-t)cos(3t) so y'(t)=-y(t)+3e^(-t)sin(3t).  Then y(\pi)=e^(-\pi)\approx  0.04
+
+\item Suppose $y(t)$ satisfies $9y^{\,\prime\prime}+6y^{\,\prime}+y=0$, $y(0)=3$, $y^{\,\prime}(0)=0$.  Find $\displaystyle \lim_{t\rightarrow \infty} y(t)$.  Round to the nearest hundredth.
+
+%  0.  Hard way:  (3r+1)^2 so say we want y=(3+t)e^(-t/3).  Then y(0)=3.  y'=e^(-t/3)-(1/3)y(t)
+
+\newpage
+
+\item For a third order linear homogeneous differential equation, we need three linearly independent solutions to form a fundamental set of solutions. In order to check the linear independence of a given set of solutions, we compute the Wronskian:  the \textbf{Wronskian} of $\{f,g,h\}$ is\\ $\displaystyle
+W(x)=\left|\begin{array}{ccc} f & g & h\\ f' & g'  & h'\\ f'' & g'' & h''\end{array}\right| = f\left|\begin{array}{cc} g' & h'\\ g'' & h'' \end{array}\right|-g\left|\begin{array}{cc} f' & h'\\ f'' & h'' \end{array}\right| + h\left|\begin{array}{cc} f' & g'\\ f'' & g'' \end{array}\right|$.\\ Suppose the functions $y_1,y_2,y_3$ are solutions to $y\,^{\prime\prime\prime}+py\,^{\prime\prime}+qy\,^{\prime}+ry=0$ on an open interval $I$ on which $p,q,r$ are continuous functions.  $\{y_1,y_2,y_3\}$ is a fundamental set of solutions (meaning the general solution is\\ $c_1 y_1+c_2 y_2+c_3 y_3$) if and only if their Wronskian is not $0$.  Find all solutions of the form $e^{rt}$ and $te^{rt}$ for $y\,^{\prime\prime\prime}+y\,^{\prime\prime}-y\,^{\prime}-y=0$, and compute their Wronskian, justifying that they form a fundamental set of solutions to this third-order linear homogeneous differential equation.  Determine $|W(2)|$.  Round to the nearest hundredth.
+
+% W = +/- 4e^(-t)
+
+% |W(2)| = 4/e^2 \approx 0.54
+
+
+\item Suppose $y(t)$ satisfies $y\,^{\prime\prime\prime}+y\,^{\prime\prime}-2y=0$, $y(0)=0$, $y'(0)=2$, $y^{\,\prime\prime}(0)=1$.  Determine $y(3)$.  Round to the nearest thousandth.  
+
+
+Hint: $r^3+r^2-2=(r-1)(r^2+2r+2)$.
+
+% e^3-cos(3)/e^3 \approx 20.135
+
+% Say: y = e^t-e^(-t)cos(t).  y(0)=0
+% y' = e^t+e^(-t)cos(t)+e^(-t)sin(t).  y'(0)=2
+% y'' = e^t-2e^(-t)sin(t).  y''(0)=1
+
+
+
+
+\end{enumerate}
+
+
+\end{document}

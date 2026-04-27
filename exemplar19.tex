@@ -1,0 +1,65 @@
+\documentclass{ximera}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 19}
+    
+    \maketitle
+
+Suppose an RLC circuit, with a resistor of resistance $R=100$ ohms, an inductor of inductance $L=0.5$ henries, and a capacitor with a capacitance of $C=2\times 10^{-4}$ farads, has (at time $t=0$) an initial current of $25$ amps that is initially decreasing at $1$ amp per second, and is attached to a 9-volt battery.
+
+\begin{enumerate}
+
+\item Let's derive an IVP satisfied by the current $I(t)$ at $t\geq 0$ seconds.
+
+\vfill
+
+
+% Note: V(t)=9 so V'(t)=0 and
+
+% 0.5 I''+00I'+5000I=0, I(0)=25, I'(0)=-1.
+
+% I''+200I'+10,000I=0, I(0)=25, I'(0)=-1.
+
+
+\item Let's solve this IVP.
+
+\vfill
+\vfill
+
+
+% r^2+200r+10000 =(r+100)^2 ---> I=(c_1+c_2 t)e^{-100t}
+
+
+% I=(25+c_2 t)e^{-100t}
+
+% I'=(c_2-100(25+c_2 t))e^{-100t} ---> -1=c_2-2500 ---> c_2=2499
+
+% I=(25+2499t)e^(-100t)
+
+
+\newpage
+
+\item What happens to the current in the long run?  And what happens to the (positive) charge on one of plates of the capacitor in the long run?
+
+
+% It dissipates towards 0.  It pushes charge on to the capacitor:  9 Volts = Q/C  so Q = 9*2\times 10^{-4} = 1.8\times 10^{-3} coulombs
+
+
+
+\end{enumerate}
+
+\end{document}
