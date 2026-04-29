@@ -1,0 +1,197 @@
+\documentclass{ximera}
+
+\newcommand{\inbetween}{\fontsize{7pt}{9pt}\selectfont}
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Lab 5 - Variation of Parameters }
+    
+    \maketitle
+
+
+Suppose $p,q,f$ are continuous functions on an open interval $I$.  If $y_1$ and $y_2$ are linearly independent solutions to $y^{\,\prime\prime}+py^{\,\prime}+qy=0$ then there is a particular solution to $y^{\,\prime\prime}+py^{\,\prime}+qy=f$ of the form $y=uy_1+vy_2$ where $\displaystyle u^{\,\prime}=-\frac{fy_2}{W}$ and $\displaystyle v^{\,\prime}=\frac{fy_1}{W}$ where $W=y_1y_2^{\,\prime}-y_1^{\,\prime}y_2$ is the Wronskian of $y_1$ and $y_2$.
+    
+
+\begin{enumerate}
+
+\item  For each differential equation, use Variation of Parameters to find a particular solution.  Then find the solution \emph{involving the least number of terms}.
+
+
+\begin{enumerate}
+
+\bigskip
+
+\item $y^{\,\prime\prime}+y=\dfrac{\sin{(t)}}{\cos^2{(t)}}$
+
+% y_1=cos and y_2=sin
+% W=1
+
+% u'=-tan^2 = - (sec^2 -1) =(1-sec^2) ---> u=t-tan(t)
+
+% v'=  sin/cos ---> v=-ln|cos(t)|
+
+% y_p=(t-tan(t)) cos(t) - sin(t) ln|cos(t)|=tcos(t)-sin(t) - sin(t) ln|cos(t)|
+
+% y_p=tcos(t)- sin(t) ln|cos(t)|
+
+
+
+% y_p ' = cos(t)-tsin(t)- cos(t) ln|cos(t)|+sin^2(t) / cos(t)
+
+% y_p '' = sin(t)-tcos(t)+ sin(t) ln|cos(t)| +sin^3(t) / cos^2(t)
+
+
+% y_p '' +y_p= sin(t) +sin^3(t) / cos^2(t) =sin [cos^2 + sin^2 ]/cos^2 = sin /cos^2
+
+\vfill
+
+
+
+\item $x^2 y^{\,\prime\prime}-3xy^{\,\prime}+3y=2x^4 \sin{(x)}$
+
+% Euler, y_1=x and y_2=x^3
+
+% W=2x^3
+
+% u'=- 2x^2 sin(x) x^3/(2x^2) = -x^2 sin(x) ---> u=x^2cos(x) -2xsin(x)-2cos(x)
+
+% u    | dv
+% -x^2 | sin(x)
+% -2x  | -cos(x)
+% -2   | -sin(x)
+% 0    | cos(x)
+
+
+% v'=2x^2 sin(x) x/(2x^3)=sin(x) ---> v=-cos(x).
+
+% y_p=x^3cos(x) -2x^2sin(x)-2xcos(x)-x^3cos(x)=-2x^2sin(x)-2xcos(x)
+
+% If y=-2x^2sin(x)-2xcos(x) then y'=-2xsin(x)-2x^2cos(x)-2cos(x) and y''=-6xcos(x)+2x^2sin(x)
+
+% So x^2[-6xcos(x)+2x^2sin(x)] -3x[-2xsin(x)-2x^2cos(x)-2cos(x)]+3[-2x^2sin(x)-2xcos(x)]=
+
+%=-6x^3cos(x)+2x^4sin(x) +6x^2sin(x)+6x^3cos(x)+6xcos(x)-6x^2sin(x)-6xcos(x)=
+
+%=2x^4sin(x) :)
+
+
+\vfill
+
+
+\newpage
+
+
+\item $(x-1)y^{\,\prime\prime}-xy^{\,\prime}+y=2(x-1)^2e^x$ given that $y_1=x$ and $y_2=e^x$ are complementary solutions.
+
+% W=(x-1)e^x
+
+% u'=-2(x-1)e^x e^x/[(x-1)e^x]=-2e^x ---> u=-2e^x
+
+% v'=2(x-1)e^x x/[(x-1)e^x]=2x ---> v=x^2
+
+% y_p=-2xe^x +x^2 e^x
+
+
+% y=(x^2-2x)e^x
+
+% y'=(2x-2)e^x+(x^2-2x)e^x=[x^2-2]e^x
+
+% y''=2e^x+2(2x-2)e^x+(x^2-2x)e^x=[x^2+2x-2]e^x
+
+
+
+
+% (x-1)y''-xy'={(x-1)[x^2+2x-2]-x[x^2-2]+[x^2-2x]}e^x
+
+
+% ={x^3+2x^2-2x-x^2-2x+2-x^3+2x+x^2-2x}e^x=
+
+% ={2x^2-4x+2}e^x=2(x-1)^2e^x :)
+
+
+
+\vfill
+
+\end{enumerate}
+
+
+\newpage
+
+\item Find the solution to the IVP $x^2 y^{\,\prime\prime}+2xy^{\,\prime}-2y=9x$, $y(1)=0$, $y^{\,\prime}(1)=6$ on the interval $(0,\infty)$. Put the answer in the box provided.
+
+
+% y_1=x and y_2=x^(-2)
+
+% W=-3x^(-2)
+
+% u'=-9x^(-1) x^(-2) /(-3x^(-2)) ---> u=3ln(x)
+
+% v'=9x^(-1) x/(-3x^(-2))=-3x^2 ---> v=-x^3
+
+% 3xln(x)-x
+
+% y=3xln(x) + x - x^(-2)
+
+% y'=3ln(x)+3 + 1 +2 x^(-3)
+
+
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+\newpage
+
+\item Find the solution to the IVP \\$4x y^{\,\prime\prime}+2y^{\,\prime}+y=\sin{(\sqrt{x})}$, $y(\pi^2)=\frac{\pi}{2}$, $y^{\,\prime}(\pi^2)=0$ on the interval $(0,\infty)$, given that $y_1=\cos{(\sqrt{x})}$ and $y_2=\sin{(\sqrt{x})}$ are complementary solutions. Put the answer in the box provided.\\
+
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.25in} $y=$\hfill\vspace{0.25in} \end{minipage} }
+
+
+
+% W=1/(2sqrt(x)) 
+
+
+% u'= -sin^2(sqrt(x))*2sqrt(x)/4x= -sin^2(sqrt(x))/[2sqrt(x)].  So -sin^2(w) dw ---> -0.5(1-cos(2w))dw integrates to -0.5w+0.25 sin(2w)
+
+% u=-0.5 sqrt(x)+0.25 sin(2sqrt(x))
+
+% v'= sin(sqrt(x)) cos(sqrt(x)) /[2sqrt(x)] ----> 0.5 sin^2 (sqrt(x)) 
+
+% y=(-0.5sqrt(x)+0.5 sin(sqrt(x))cos(sqrt(x)))cos(sqrt(x))+0.5sin^2 (sqrt(x)) sin (sqrt(x))=
+
+% y=-0.5sqrt(x)cos(sqrt(x))+0.5sin(sqrt(x))
+
+% y=-0.5sqrt(x)cos(sqrt(x))
+
+% y=[c_1 -0.5sqrt(x)]cos(sqrt(x)) +c_2 sin(sqrt(x))
+
+% 0.5 pi=c_1 +0.5 pi --->  c_1=0
+
+% y=-0.5sqrt(x)cos(sqrt(x)) +c_2 sin(sqrt(x))
+
+% y=-0.25/sqrt(x) cos(sqrt(x)) + Irrelevant term + 0.5c_2/sqrt(x) cos(sqrt(x))
+
+% 0 =0.25 - 0.5c_2 ---> c_2=0.5
+
+
+
+
+
+
+
+\end{enumerate}
+
+
+\end{document}
