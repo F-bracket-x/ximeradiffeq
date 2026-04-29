@@ -1,0 +1,95 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 12}
+    
+    \maketitle
+
+\section*{Exercises}
+
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item Let $y(t)$ be the particular solution to $y^{\,\prime\prime}+9ty=t^2$ that involves the least number of non-zero terms.   Determine $y(2026)$.  Round to the nearest tenth. 
+
+% t/9.  So 2026/9\approx 225.1 
+
+\item Let $I$ be an open interval and assume $p,q,f$ are continuous functions on $I$ where $f\neq 0$.  Suppose $y_{p_1}$ and $y_{p_2}$ are distinct particular solutions to $y^{\,\prime\prime}+py^{\,\prime}+qy=f$ on $I$.  Which of the following would be a solution to the complementary equation $y^{\,\prime\prime}+py^{\,\prime}+qy=0$? 
+
+\begin{enumerate}[label=(\alph*)]
+\item $y_{p_1}+y_{p_2}$  
+\item $y_{p_1}-y_{p_2}$ % ***
+\item $2y_{p_1}+y_{p_2}$
+\item $y_{p_1}-2y_{p_2}$
+\item $2y_{p_1}-y_{p_2}$ 
+\end{enumerate}
+
+% (b)
+
+
+
+
+\item Let $p$ be a continuous function on an open interval $I$.  Furthermore, suppose $y_1,y_2$ form a fundamental set of solutions to $y^{\,\prime\prime}+py^{\,\prime}-y=0$ on $I$.  Determine which below are solutions to $y^{\,\prime\prime}+py^{\,\prime}-y=-1$  on $I$.  Select all that apply.
+
+
+\begin{enumerate}[label=(\alph*)]
+\item $-1$  
+\item $0$
+\item $1$  % ***
+\item $1-y_2$ % ***
+\item $y_2-1$ 
+\item $y_1+y_2-1$  
+\item $1-y_1-y_2$ % ***
+\item $1-\displaystyle \frac{1}{2}y_1$ % ***
+\end{enumerate}
+
+% (c), (d), (g), (h) with options through (h)
+
+
+
+\newpage
+
+
+\item Suppose $y(t)$ satisfies the IVP $y^{\,\prime\prime\prime}+y^{\,\prime}=2t$, $y(0)=-2$, $y^{\,\prime}(0)=1$, $y^{\,\prime\prime}(0)=3$  on $(-\infty,\infty)$.  Find $y(1)$.  Round to the nearest tenth. 
+
+% sin(1)-cos(1)\approx 0.3
+
+% WANT:  y=t^2-1+sin(t)-cos(t), y'=2t+cos(t)+sin(t), y''=2-sin(t)+cos(t)
+
+
+\item Let $p,q,f$ be continuous functions on an open interval $(0,\infty)$. Suppose that three solutions to $y^{\,\prime\prime}+p(x)y^{\,\prime}+q(x)y=f(x)$ on $(0,\infty)$ are \\$y_1(x)=\dfrac{\ln{(x)}}{x}+\ln{(x)}$, $y_2(x)=\dfrac{\ln{(x)}}{2x}+\ln{(x)}$, and \\$y_3(x)=\dfrac{1-\ln{(x)}}{x}+\ln{(x)}$.  Suppose $y(x)$ is the solution to the IVP $y^{\,\prime\prime}+p(x)y^{\,\prime}+q(x)y=f(x)$, $y(1)=0$, $y^{\,\prime}(1)=0$ on $(0,\infty)$.  Determine $y(2026)$.  Round to the nearest hundredth.
+
+    % ln(2026) - ln(2026)/2026\approx 7.61
+
+% y=(c_1+c_2 ln(x))/x+\ln{(x)}.
+
+% c_1=0
+
+% y=c ln(x)/x+\ln{(x)}
+
+% y'=c[-ln(x)/x^2 +1/x^2]+1/x ... c=-1
+
+% y=ln(x) - ln(x)/x
+
+
+
+\end{enumerate}
+
+
+\end{document}
