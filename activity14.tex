@@ -1,0 +1,117 @@
+\documentclass{ximera}
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 14}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item Given that $y(t)$ satisfies $y^{\,\prime\prime}+y=2\sin (t)$, $y(0)=0$, $y'(0)=0$, determine $y(2026)$.  Round to the nearest tenth.
+
+% sin(2026)-2026*cos(2026) \approx 1918.8
+
+ % y = sin(t) -t cos(t)
+
+
+ % Particular:  y = t(A sin t+B cos t)
+ % y' = (A sin t+B cos t)+t(A cos t-B sin t)
+ % y'' = 2(A cos t-B sin t)-y ... A=0 and B=-1
+  
+ % y = -t cos(t)
+ 
+ % y = -t cos(t)+c_1 cos (t) +c_2 sin (t)
+
+ % 0 = c_1 
+ 
+ % y = -t cos(t)+c_2 sin (t)
+
+  % y' = - cos(t) +t sin(t)+c_2 cos (t)
+  % 0 = - 1 +c_2 ... c_2 = 1
+
+
+
+\item Determine the ``best guess" for a particular solution to the second order linear nonhomogeneous constant-coefficient differential equation \\$y^{\,\prime\prime}+10y^{\,\prime}+25y=(t+1)e^{-5t}$.  The phrase ``best guess" here means that there is a particular solution of the form given but no particular solution involving fewer terms.
+
+\begin{enumerate}[label=(\alph*)]
+\item $y_p=Ae^{-5t}$
+\item $y_p=(At+B)e^{-5t}$  
+\item $y_p=(At^2+Bt+C)e^{-5t}$
+\item $y_p=Ate^{-5t}$
+\item $y_p=(At^2+Bt)e^{-5t}$ 
+\item $y_p=(At^3+Bt^2)e^{-5t}$ 
+\end{enumerate}
+
+ % (f) with options through (f)
+
+
+\item Suppose $y(t)$ satisfies $y^{\,\prime\prime}+2y^{\,\prime}+y=2e^{-t}$, $y(0)=0$, $y^{\,\prime}(0)=0$.  Determine $y(2)$.  Round to the nearest hundredth.
+
+% 0.54
+
+% y=At^2 e^(-t).  y'=2Ate^(-t)-At^2e^(-t) and y''=2Ae^(-t)-4Ate^(-t)+At^2e^(-t) ----> (y''-2y'+y)/e^(-t)=(2A-4At+At^2)+2(2At-At^2)+(At^2)=2A=2.
+
+% So A=1.  General solution: y=(c_1+c_2 t+t^2)e^(-t).  y(0)=0=c_1.
+
+% So y=(c_2 t+t^2)e^(-t) and hence y'=(c_2 +2t)e^(-t)-(c_2 t+t^2)e^(-t). Then y'(0)=0=c_2.  So y=t^2 e^(-t)\approx 0.54 at t=2
+
+% SANITY CHECK:  (t^2e^(-t))''+2(t^2e^(-t))'+t^2e^(-t)=((t^2-2t-2t+2)e^(-t))'+2((-t^2+2t)e^(-t))+t^2e^(-t)=2e^(-t).  Hooray!
+
+
+\item  Suppose $y(t)$ is the solution to $y\,^{\prime\prime\prime\prime}-16y=48e^{2t}$ involving the least number of terms.  Determine $y(1)$.  Round to the nearest hundredth.
+
+% 1.5e^2\approx 11.08
+
+% y_p = y =Ate^(2t)
+
+% y=1.5te^(2t)
+
+% SANITY CHECK: y'=1.5e^(2t)+3te^(2t)
+
+% y''=6e^(2t)+6te^(2t)
+
+% y'''=18e^(2t)+12te^(2t)
+
+% y''''=48e^(2t)+24te^(2t)  CHECKS OUT!!
+
+\end{enumerate}
+
+
+\newpage
+
+Let $n,r$ be real numbers, $r\neq  0$ and $f(t)$ be a function.  Consider the second order linear constant coefficient nonhomogeneous differential equation\\ $y\,^{\prime\prime}-2r y\,^{\prime}+r^2 y=f(t) e^{rt}$ on an open interval $I$ on which the function $f$ is continuous.  Observe that if $y(t)=u(t)e^{rt}$ for some unknown function $u(t)$ that is twice differentiable on $I$ then
+
+\begin{eqnarray*}
+% \nonumber % Remove numbering (before each equation)
+  y\,^{\prime\prime}-2r y\,^{\prime}+r^2 y &=& (u(t)e^{rt})\,^{\prime\prime}-2r (u(t)e^{rt})\,^{\prime}+r^2 u(t)e^{rt} \\
+   &=& (u\,^{\prime}(t)e^{rt}+ru(t)e^{rt})\,^{\prime}-2r (u\,^{\prime}(t)e^{rt}+ru(t)e^{rt})+r^2 u(t)e^{rt} \\
+   &=& (u\,^{\prime\prime}(t)e^{rt}+2ru\,^{\prime}(t)e^{rt}+r^2u(t)e^{rt})-2r u\,^{\prime}(t)e^{rt}-2r^2u(t)e^{rt}+r^2 u(t)e^{rt} \\
+   &=& u\,^{\prime\prime}(t)e^{rt}.
+\end{eqnarray*}
+
+\begin{enumerate}
+
+\item[(5)] Use the above to find the particular solution $y_p$ to $y\,^{\prime\prime}-4 y\,^{\prime}+4 y=  \sqrt{t}\,e^{2t}$ on $(0,\infty)$ that has the least number of terms.   Determine $y_p(1)$.  Round to the nearest hundredth.
+
+    % 4e^2/15\approx 1.97
+
+\end{enumerate}
+
+\end{document}

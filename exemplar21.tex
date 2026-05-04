@@ -1,0 +1,79 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 21}
+    
+    \maketitle
+
+
+\begin{enumerate}
+
+\item Let's determine the inverse Laplace Transform of $\displaystyle F(s)=\frac{3s^3-2s^2+7s}{(s^2-2s+1)(s^2+2s+5)}$.
+
+
+\begin{enumerate}
+\item First let's fully-factor the denominator.
+
+\vfill
+
+
+
+\item  Let's find a PFD for $F(s)$, using the Heaviside Cover-Up Method wherever possible.
+
+
+\vfill
+
+
+\newpage
+
+\item  Let's  find the inverse Laplace Transform of $F(s)$.
+
+\vfill
+
+
+
+\end{enumerate}
+
+% Laplace of e^t+te^t +e^(-t) (2 cos(2t) - sin(2t)
+
+
+\item Let's determine the inverse Laplace transform of $\displaystyle F(s)=\frac{s^2+4s+12}{s^4+8s^2+16}$.
+
+% (s^2+4s+12)/(s^2+4)^2 = (As+B)/(s^2+4) + (C(s^2-4)+Ds)/(s^2+4)^2
+
+% s^2+4s+12 = (As+B)(s^2+4) + C(s^2-4)+D = As^3 + Bs^2 + 4As + 4B + Cs^2 - 4C + Ds
+
+% A = 0, B+C = 1, D = 4, 4B-4C = 12
+
+% A = 0, B+C = 1, D = 4, B-C = 3 ... B = 2, C = -1
+
+% (s^2+4s+12)/(s^2+4)^2 = 2/(s^2+4) + (-(s^2-4)+4s)/(s^2+4)^2 = 2/(s^2+4) - (s^2-4)/(s^2+4)^2 + 4s/(s^2+4)^2
+
+% Laplace of sin(2t)-tcos(2t)+tsin(2t)
+
+
+\vfill
+
+
+    
+\end{enumerate}
+
+
+
+\end{document}

@@ -1,0 +1,81 @@
+\documentclass{ximera}
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 22}
+    
+    \maketitle
+
+\begin{enumerate}
+
+\item Let's use linearity and $\mathcal{L}[y\,^{\prime\prime}]=s^2\mathcal{L}[y]-sy(0)-y\,^{\prime}(0)$ to derive a formula for $\mathcal{L}[\sin{(\omega t)}]$. 
+
+
+\vfill
+
+
+ \item Now let's use above and $\mathcal{L}[y\,^{\prime}]=s\mathcal{L}[y]-y(0)$ to derive a formula for $\mathcal{L}[\cos{(\omega t)}]$.
+
+
+\vfill
+
+\newpage
+
+
+\item Let's use $\displaystyle \mathcal{L}(tf(t))=-\frac{dF}{ds}$ to derive formulas for $\mathcal{L}[t\cos{(\omega t)}]$ and $\mathcal{L}[t\sin{(\omega t)}]$.
+
+
+
+\newpage
+
+\item Let's solve the IVP $y\,^{\prime\prime}+y=4\cos{(t)}$, $y(0)=1$, $y\,^{\prime}(0)=0$ using Laplace transforms.
+
+\begin{enumerate}
+\item First let's find the Laplace transform $Y(s)$ of the solution $y(t)$.
+
+\vfill
+
+\item  Now let's  find the inverse Laplace transform of $Y(s)$, which is the solution $y(t)$.
+
+
+\vfill
+\vfill
+
+% y= cos(t) + 2t sin(t).
+
+% -------------------------------------------------------------------
+
+% Laplace:
+
+% s^2 Y - s +Y= 4s/(s^2+1)
+
+% (s^2+1) Y =s +  4s/(s^2+1)
+
+%  Y =s/(s^2+1) +  2 (2s)/(s^2+1)^2
+
+%  y= cos(t) + 2 t sin(t) and DONE!!
+
+
+
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\end{document}
