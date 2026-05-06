@@ -1,0 +1,115 @@
+\documentclass{ximera}
+
+\newcommand{\inbetween}{\fontsize{7pt}{9pt}\selectfont}
+
+
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%------------------------------------------------------------
+
+
+
+\newcommand{\Laplace}[1]{\ensuremath{\mathcal{L}{\left[#1\right]}}}
+\newcommand{\InvLap}[1]{\ensuremath{\mathcal{L}^{-1}{\left[#1\right]}}}
+
+
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Lab 6 -  Laplace Transforms }
+    
+    \maketitle
+
+Let $f(t)$ be a piecewise continuous function on $[0,\infty)$.  The \textbf{Laplace transform} of $f$ is the function $F(s)=\displaystyle \int_0^{\infty} f(t)e^{-st}\,dt$, on the set of $s$ values for which the integral converges.
+
+\begin{enumerate}
+
+\item By direct calculation, determine the Laplace transform of the function graphed below (assume the function continues to be equal to zero to the right of $x=4$) for $s>0$.  Put the answer in the box provided.
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.5in} \hfill\vspace{0.5in} \end{minipage} }
+
+% 1-U(t-2) has a Laplace transform of 1/s-(1/s)e^(-2s) for s>0
+
+\begin{figure}[h]
+\centering
+\alttext{The graph of a piecewise continuous function.}
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle, xtick={-2,-1,...,4}, ytick={-2,-1,...,4},
+xmin=-2, xmax=4, ymin=-2, ymax=4]
+
+\addplot[blue,ultra thick,domain=0:2] {1};
+\addplot[blue,ultra thick,domain=2:4] {0};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph of a piecewise continuous function}
+\end{figure}
+
+
+
+\newpage
+
+
+\item  Fill-in the missing details (after each of the ellipses) to show by direct calculation that the Laplace transform of $f(t)=\cos{(\omega t)}$ where $\omega>0$, is $\displaystyle \frac{s}{s^2+\omega^2}$ for $s>0$.
+
+If $s=0$ then $\displaystyle \int_0^{\infty} \cos{(\omega t)}e^{-st}\,dt=\int_0^{\infty} \cos{(\omega t)}\,dt$, which ... \hfill .  If\\ 
+
+ $s<0$ then $\displaystyle \int_0^{\infty} \cos{(\omega t)}e^{-st}\,dt$ also ...\hfill.  For $s> 0$, let \\ 
+
+$\displaystyle A=\int_0^{\infty} \cos{(\omega t)}e^{-st}\,dt$.  By ... \hfill  with $u=\cos{(\omega t)}$ \\ 
+
+and ... \hfill we get that\\ 
+
+
+ $A=$ ...  \hspace{5cm} $\displaystyle \left.\:^{\;}\right|_0^{\infty} - \frac{\omega}{s} \int_0^{\infty}$ ...\hspace{5cm} $dt$.\\ 
+
+For $s>0$, $\displaystyle \lim_{t\rightarrow \infty} -\frac{\cos{(\omega t)}}{s}e^{-st}=$ ... \hspace{5cm}  \\ 
+
+so $\displaystyle A=\frac{1}{s} \; -$ ...\hspace{9cm} . \\ 
+
+ By ...\hfill , with $\displaystyle u=\sin{(\omega t)}$ and ...\hfill we get \\ 
+
+$\displaystyle A=\frac{1}{s} \; - \; \frac{\omega}{s} [$ ...\hspace{10cm} $]$. \\ 
+
+For $s>0$, $\displaystyle \lim_{t\rightarrow \infty} -\frac{\sin{(\omega t)}}{s}e^{-st}=$ ...\hspace{5cm}  .\\ 
+
+Then $A=\frac{1}{s} \; - [$ ...\hspace{3cm} $]A$.  Solving this for $A$ \\
+
+we get $A=$ \hfill,  Hence the ...\hfill of $\cos (\omega t)$ is \\ \\
+
+ $A=$ ... \hfill for $s>0$. 
+ 
+\newpage
+
+\item  One can also show that $\displaystyle \Laplace{\sin (\omega t))}=\frac{\omega}{s^2+\omega^2}$ for $s>0$.    Use the First Shifting Property to derive expressions for the Laplace transforms $\Laplace{e^{at}\cos{(\omega t)}}$ and $\Laplace{e^{at}\sin{(\omega t)}}$ for $s>a$, where $a,\omega>0$ are constants.  Put the answers in the box provided.
+
+\hfill{}\fbox{ \begin{minipage}{5in}\vspace{0.75in} \hfill\vspace{0.75in} \end{minipage} }
+
+\newpage
+
+
+\item Using $\Laplace{y^{\,\prime}}=s\Laplace{y}-y(0)$, find the Laplace transform of the solution to the IVP $y^{\,\prime}+y=e^{-t}\sin{(2t)}$, $y(0)=1$ by taking the Laplace transform of both sides of the differential equation and then solving for $\Laplace{y}$ algebraically.  Put the answer in the box provided.
+
+\hfill{}\fbox{ \begin{minipage}{3in}\vspace{0.25in} \hfill\vspace{0.25in} \end{minipage} }
+
+
+
+
+
+\end{enumerate}
+
+\end{document}
