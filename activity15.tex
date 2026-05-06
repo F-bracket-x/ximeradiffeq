@@ -1,0 +1,131 @@
+\documentclass{ximera}
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 15}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item In attempting to use the Reduction of Order formula\\ $y_1 z\,^{\prime}  +(2y_1\,^{\prime}+py_1)z=f$ to solve $x^2 y\,^{\prime\prime} +axy\,^{\prime}-ay=2x$, where $a$ is a nonzero constant, given that $y_1=x$ satisfies $x^2 y\,^{\prime\prime} +a xy\,^{\prime}-ay=0$, what should $p,f$ be?
+
+
+
+\begin{enumerate}[label=(\alph*)]
+\item $p=x$, $f=2x$.
+\item $p=ax$, $f=2x$.
+\item $p=-ax^{-1}$, $f=2x$.
+\item $p=ax^{-1}$, $f=2x^{-1}$.  
+\item $p=ax^{-2}$, $f=2x^{-1}$
+\item $p=x^2$, $f=2x^{-1}$
+\end{enumerate}
+
+ % (d) with options through (f)
+ 
+
+
+\item Suppose Reduction of Order is used to attempt to solve \\ $xy^{\,\prime\prime}-(2x+1)y^{\,\prime}+(x+1)y=-e^x$, given that $y_1=e^x$ is a solution to \\$xy^{\,\prime\prime}-(2x+1)y^{\,\prime}+(x+1)y=0$.  What first order equation (in standard form) would $z=u^{\,\prime}$ satisfy, where $u=\dfrac{y}{e^x}$?\\
+    
+    
+% y_1=e^x, p = -2- 1/x, f = -x^(-1) e^x.  So e^x z^{\,\prime} +(2e^x -(2+1/x)e^x)z=-e^x /x
+    
+\begin{enumerate}[label=(\alph*)]
+\item  $z^{\,\prime}+\dfrac{z}{x} = -1$
+\item  $z^{\,\prime}-\dfrac{z}{x} = -\dfrac{1}{x}$  % ***   
+\item  $z^{\,\prime} +(2-2xe^{-x}-e^{-x})z=-1$ 
+\item  $z^{\,\prime} -2e^x z =-\dfrac{1}{x}$ 
+\item  $z^{\,\prime} +2e^x z =-\dfrac{1}{x}$ 
+\item  $z^{\,\prime} - 2xe^x z =-e^x$ \\
+\end{enumerate}
+
+% (b) with options through (f)
+    
+    % SANITY CHECK:  y=ue^x.  y'=u' e^x+ue^x and y''=u'' e^x+2u'e^x+ue^x.   
+    
+    % xy''-(2x+1)y'+(x+1)y=x(u'' e^x+2u'e^x+ue^x)-(2x+1)(u' e^x+ue^x)+(x+1)ue^x
+    
+    % =e^x [ x(u'' +2u'+u)-(2x+1)(u' +u)+(x+1)u ]= e^x [ xu'' +2xu'+xu-2xu'-2xu-u' -u + xu+u ]
+    
+    % e^x [ x u'' - u' ] =-e^x ---> x z' - z = -1 ... CHECKS OUT!!!
+
+
+\newpage
+
+\item Suppose $y(x)$ is the solution to $xy^{\,\prime\prime}-(2x+1)y^{\,\prime}+(x+1)y=-e^x$ involving the least number of terms.  Determine $y(1)$.  Round to the nearest hundredth.  
+
+% e \approx 2.72
+
+% z'- 1/x z = -1/x.   mu = 1/x
+
+% (1/x z)'= -1/x^2
+
+%  u'= 1+c_1x
+%  u = x+c_1x^2+c_2
+%  y = uy_1 = xe^x+c_1x^2e^x+c_2e^x
+
+
+\item Consider the second order linear homogeneous differential equation \\$xy\,^{\prime\prime}-(4x+1)y\,^{\prime}+(4x+2)y=0$ on $(0,\infty)$.  Find a solution to this equation of the form $y_1=e^{kx}$ for some constant $k$. Then use Reduction of Order to determine the solution $y_2$ with the fewest terms satisfying $y_2\neq cy_1$ for any constant $c$ and $y_2(1)=e^2$. Determine $y_2(2)$.  Round to the nearest hundredth.
+
+% 4e^4 \approx 218.39
+
+ % p=-4-1/x, y_1=e^(2x) and f=0
+
+%    e^(2x) z' +(4e^(2x)+(-4-1/x)e^(2x))z=0
+
+%    e^(2x) z' -1/x e^(2x) z=0
+
+%    z' -1/x z=0 ... z=u'=cx ... u=c_1x^2+c_2 ... y=c_1x^2e^(2x)+c_2e^(2x)
+
+
+
+
+\item  Suppose $y(t)$ is the solution to $y^{\,\prime\prime}-3y^{\,\prime}+2y=-\dfrac{1}{1+e^{-t}}$ involving the least number of terms.  Find $y(1)$.  Round to the nearest hundredth.
+
+Hints:  use $y_1=e^{2t}$ (rather than $e^t$); you may find \\$\displaystyle \int \ln (x)\,\mathrm{d}x=x\ln (x)-x+C$ useful.
+
+% y_1=e^(2t), p=-3, f=-(1+e^(-t))^(-1)
+
+% e^(2t) z' + (4e^(2t)-3e^(2t)) z = -(1+e^(-t))^(-1)
+
+% e^(2t) z' + e^(2t) z = -(1+e^(-t))^(-1)
+
+%  z' + z = -e^(-2t) (1+e^(-t))^(-1)
+
+%  IF=e^t:  (e^t z)' = -e^(-t) (1+e^(-t))^(-1) ---> e^t z = ln(1+e^(-t)) +c_1
+
+% z=u'= e^(-t)ln(1+e^(-t)) +c_1 e^(-t)
+
+% So u=Integral of e^(-t)ln(1+e^(-t)) +c_1 e^(-t) dt
+
+% Let v=1+e^(-t).  Then dv=-e^(-t)dt
+
+% So u= Integral  -ln(v) dv +c_1 e^(-t) = - vln(v) + v +c_1 e^(-t)
+
+% So u= -(1+e^(-t))ln(1+e^(-t))+c_1 e^(-t)+c_2
+
+% So y= -(e^(2t)+e^t)ln(1+e^(-t))+c_1 e^(t)+c_2 e^(2t)
+
+% So y = -(e^(2t)+e^(t))ln(1+e^(-t)) where we get rid of terms of the form a constant multiple of e^t or e^(2t)
+
+% So y(1)=-(e^2+e)ln(1+e^(-1))\approx -3.17
+
+\end{enumerate}
+
+\end{document}
