@@ -1,0 +1,92 @@
+\documentclass{ximera}
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 16}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item  Which of the following cannot be a solution to a homogeneous Euler equation (for $x>0$)?  Select all that apply.
+
+\begin{enumerate}[label=(\alph*)]
+\item $\displaystyle y=\frac{x^2-1}{x}$ 
+\item $\displaystyle y=\frac{1}{x}+\frac{\ln(x)}{x^2}$  % ***
+\item $y=(1+\ln(x^{-2}))\sqrt{x^3}$
+\item $y=x\cos{\left(7\ln{(x)}\right)}$
+\item $y=x^2\sin{\left(\ln{(x)}\right)}-x^2\cos{\left(\ln{(x)}\right)}$
+\item $y=\sin{\left(\ln{(x)}\right)}+x\cos{\left(\ln{(x)}\right)}$ % ***
+\end{enumerate}
+
+% (b) and (f) with options through (f)
+
+
+
+\item Suppose $y(x)$ on $(0,\infty)$ satisfies $x^2 y^{\,\prime\prime} +3xy^{\,\prime}+5y=-2$, $y(1)=0$, $y'(1)=0$. Find $\displaystyle \lim_{x\rightarrow \infty}y(x)$. If the limit is finite, enter the value of the limit to the nearest tenth. If the limit is $-\infty$ enter $-\pi$ to the nearest thousandth. If the limit is $\infty$ enter $\pi$ to the nearest thousandth.
+
+% -0.4
+
+% m(m-1)+3m+5 = m^2+2m+5 = (m+1)^2+2^2
+% -1 +/- 2i
+
+% -2/5+x^(-1)(c_1 cos(2ln(x))+c_2 sin(2ln(x))) has a limit of -2/5=-0.4.
+
+\item Suppose $y(x)$ on $(0,\infty)$ satisfies $4x^2 y''+8xy'+y=0$, $y(1)=0$, $y'(1)=1$. Determine $y(2026)$.  Round to the nearest ten-thousandth.
+
+% y=ln(x)/sqrt(x) is the ticket!  4m^2+4m+1=(2m+1)^2 --> m=-1/2.  y'=(c_1/(x sqrt(x))-0.5c_1 ln(x)/sqrt(x^3)-->c_1=1.  ln(2026)/sqrt(2026) \approx 0.1692
+
+\item Suppose $y(x)$ satisfies $y\,^{\prime\prime}=\dfrac{20(y+1)}{x^2}$ on $(0,\infty)$ and the graph of $y(x)$ touches, but does not cross the $x$-axis at $(1,0)$.  Determine $y(2)$.  Round the nearest thousandth.
+
+    % x^2 y''=20+20y-> x^2 y''-20y=20.  y_p=-1.  m^2-m+20=(m-5)(m+4)=0.  Fund. set of complementary solutions: {x^5,x^(-4)}.
+
+    % y=-1+c_1x^5+c_2x^(-4).  0=-1+c_1+c_2.
+
+  % y'=5c_1x^4-4c_2x^(-5).  0=5c_1-4c_2 --> c_1=0.8c_2 -->  1=1.8c_2 -> c_2=5/9 and c_1=4/9
+
+  % y=-1+(4/9)x^5+(5/9)x^(-4).
+
+% At 2, y\approx 13.257
+
+
+\newpage
+
+\item Let $k$ be a real number.  Suppose that any solution to \\$\displaystyle y^{\,\prime\prime} =-\frac{ky}{x^2}$ on $(0,\infty)$ has infinitely many zeros.  Which of the following real numbers could be $k$?  Select all that apply.
+
+
+\begin{enumerate}[label=(\alph*)]
+\item $-2$
+\item $-1$
+\item $-0.5$
+\item $-0.25$
+\item $0$
+\item $0.25$
+\item $0.5$ %***
+\item $1$ %***
+\item $2$ %***
+\end{enumerate}
+
+ % g,h,i with options through i
+ 
+
+
+
+\end{enumerate}
+
+\end{document}
