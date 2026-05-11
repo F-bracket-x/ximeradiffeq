@@ -1,0 +1,66 @@
+\documentclass{ximera}
+
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 24}
+    
+    \maketitle
+
+Let $k\neq 0$ be constant.  Let's solve the IVP $y^{\,\prime\prime}+25y=50+k\delta \left(t-\frac{\pi}{5}\right)$, $y(0)=0$, $y^{\,\prime}(0)=1$ in terms of $k$, and express the solution as a piecewise defined function.
+
+\begin{enumerate}
+\item First let's take the Laplace transform of both sides, using $Y(s)$ to denote $\mathcal{L}{[y(t)]}$.
+
+\vfill
+
+
+\item  Let's solve for $Y(s)$.
+
+\vfill
+
+\item Let's re-express $Y(s)$ in a form conducive for taking the inverse Laplace transform.
+
+
+\vfill
+
+\newpage
+
+\item  Let's find $y(t)$ by taking the inverse Laplace transform of $Y(s)$, and express the solution as a piecewise defined function.
+
+\vfill
+\vfill
+\vfill
+
+\item 
+
+\vfill
+
+
+
+\end{enumerate}
+
+% Should get 2-2cos(5t)+0.2sin(5t)+0.2k U(t-pi/5)* sin[5(t-pi/5)]
+
+% Should get 2-2cos(5t)+0.2sin(5t) - 0.2k U(t-pi/5)* sin[5t]
+
+\end{document}

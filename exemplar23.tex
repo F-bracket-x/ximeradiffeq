@@ -1,0 +1,113 @@
+\documentclass{ximera}
+
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Exemplar Examples 23}
+    
+    \maketitle
+
+A $10$-kg mass is hung on a very large undamped vertical spring and brought to rest at equilibrium, stretching the spring by $39.2$ centimeters.  Then an external upward force of $F(t)=10t$ N is applied at time $0\leq t\leq 10$ seconds, followed by no external force (free motion).
+
+
+\begin{enumerate}
+\item Using $g=9.8$ m/s$^2$ for the magnitude of the acceleration due to gravity, let's determine the spring stiffness $k$ in N/m.
+
+% k=mg/l=98/0.392=250 N/m
+
+\vfill
+
+\item Let's derive an IVP satisfied by $y(t)$, the displacement of the mass above equilibrium (in meters) at time $t\geq 0$ seconds.
+
+\vfill
+
+%   $10 y'' + 250y= 10t - U(t-10) [10t] , y(0)=0, y'(0)=0
+
+\newpage
+
+ \item Let's solve this IVP and give the solution as a piecewise defined function.
+
+
+% Re-write as y''+25y=t -  U(t-10) [t]
+
+% (s^2+25) Y = 1/s^2 - e^(-10s) [1/s^2 +10/s]
+
+% Y = 1/[s^2(s^2+25)] - e^(-10s) [1/[s^2(s^2+25) ] +10/[s(s^2+25)]]
+
+
+% PFD:  1/[s^2(s^2+25)] = (1/25) /s^2  - [1/25]/[s^2+25] and 10/[s(s^2+25)]=(2/5)/s - (2/5)s/(s^2+25)
+
+
+% Y = (1/25) /s^2  - [1/25]/[s^2+25] - e^(-10s) [(1/25) /s^2  - [1/25]/[s^2+25] + (2/5)/s - (2/5)s/(s^2+25) ]
+
+% y= t/25 -1/125 sin(5t) - U(t-10) [ (t-10)/25 -1/125 sin(5(t-10)) + 2/5 -2/5 cos(5(t-10))]
+
+% y= t/25 -1/125 sin(5t) - U(t-10) [ t/25 -1/125 sin(5(t-10)) -2/5 cos(5(t-10))]
+
+\vfill
+
+\begin{figure}[h]
+\alttext{The displacement of a mass from equilibrium in a Spring-mass system with piecewise continuous forcing.}
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = {$t$},
+    ylabel = {$y$},
+    domain = 0:20,
+    samples = 200,
+    grid = both,
+    grid style = {dashed, gray!30},
+    xmin = 0, xmax = 20,
+    ymin = -0.6, ymax = 1.2,
+    title = {Graph of Piecewise Function $y(t)$},
+    legend pos = north west
+]
+
+% Define the first part of the function (for t < 10)
+\addplot [
+    blue, 
+    thick, 
+    domain=0:10
+] {x/25 - (1/125)*sin(deg(5*x))};
+
+% Define the second part of the function (for t >= 10)
+% We subtract the U(t-10) terms from the original function
+\addplot [
+    black, 
+    thick, 
+    domain=10:20
+] {
+    (x/25 - (1/125)*sin(deg(5*x))) - 
+    (x/25 - (1/125)*sin(deg(5*(x-10))) - (2/5)*cos(deg(5*(x-10))))
+};
+
+\legend{$t < 10$, $t \ge 10$}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Spring-mass system with piecewise continuous forcing}
+\end{figure}
+
+\end{enumerate}
+    
+\end{document}
