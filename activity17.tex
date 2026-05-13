@@ -1,0 +1,116 @@
+\documentclass{ximera}
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 17}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item Suppose the following incorrect work is a student's attempt to use Variation of Parameters to find a solution to $(x-1)y^{\,\prime\prime}-xy^{\,\prime}+y=2(x-1)^2\,e^{x}$ given that $y_1=x$ and $y_2=e^x$ form a fundamental set of solutions to the complementary equation.  What error is this student making?
+
+\emph{The Wronskian of $y_1=x$ and $y_2=e^x$ is $W=y_1y_2^{\,\prime}-y_1^{\prime}y_2=(x-1)e^x$.  Then there is a particular solution to $(x-1)y^{\,\prime\prime}-xy^{\,\prime}+y=2(x-1)^2\,e^{x}$ of the form $y_p=uy_1+vy_2$ where $\displaystyle u^{\,\prime}=-\frac{2(x-1)^2e^{x}e^x}{(x-1)e^x}=-2(x-1)e^{x}$ and \\ $\displaystyle v^{\,\prime}=\frac{2(x-1)^2e^{x}x}{(x-1)e^x}=2x^2-2x$.  By integrating, we get $u=-2(x-2)e^x$ and $\displaystyle v=\frac{2}{3}x^3-x^2$.  So a solution is \\$y_p=ux+ve^x=(-2(x-2)e^x)x+\left(\frac{2}{3}x^3-x^2\right)e^x=\left(\frac{2}{3}x^3-3x^2+4x\right)e^x$. }
+
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Variation of Parameters cannot be used to find a solution to this differential equation.
+
+\item The Wronskian of $y_1=x$ and $y_2=e^x$ is not $W=(x-1)e^x$.
+
+\item An incorrect ``forcing" function $f(x)$ is being used in the formulas for $u^{\,\prime}$ and $v^{\,\prime}$.  % ***
+
+\item The function $-2(x-2)e^x$ is not an antiderivative of $-2(x-1)e^{x}$.
+
+\item The function $\frac{2}{3}x^3-x^2$ is not an antiderivative of $2x^2-2x$.
+
+\item $(-2(x-2)e^x)x+\left(\frac{2}{3}x^3-x^2\right)e^x \neq \left(\frac{2}{3}x^3-3x^2+4x\right)e^x$.
+
+\end{enumerate}
+
+% (c) with options through (f)
+
+\item Correct the error above and determine the correct particular solution $y_p$ that should have been determined.  Determine $y_p(3)$.  Round to the nearest hundredth.
+
+% 3e^3 \approx 60.26
+
+\newpage
+
+
+\item Suppose $y(t)$ is the solution to $t^2 y\,^{\prime\prime}-2y=t^2$ on $(0,\infty)$ which \emph{involves the least number of terms}.   Determine $y(2)$.   Round to the nearest hundredth.
+
+% 4*ln(2)/3\approx 0.92
+
+% CP of CE:  (m+1)(m-2) ... y_1=t^2, y_2=1/t ...  W=-3 ... f=1.
+
+% y_p=uy_1+vy_2 ... u'=1/(3t) and v'=-t^2/3 ... u=(1/3)ln(t) and v=-t^3/9
+
+% y_p=(1/3)t^2ln(t)-t^2/9
+
+% With least number of terms:  y=(1/3)t^2ln(t)
+
+
+
+
+
+
+\item Using that $y_1=e^{t}$ and $\displaystyle y_2=\frac{e^t}{t}$ are a fundamental set of solutions to \\$ty^{\,\prime\prime}-2(t-1)y^{\,\prime}+(t-2)y=0$ on $(0,\infty)$ determine a possible choice for the function $v$ when using Variation of Parameters to find a particular solution of the form $y_p=uy_1+vy_2$ for $ty^{\,\prime\prime}-2(t-1)y^{\,\prime}+(t-2)y=e^{2t}$ on $(0,\infty)$.
+
+    % f=e^(2t) /t.  W=e^t(e^t /t -e^t /t^2)-e^(2t) /t =e^(2t) /t -e^(2t) /t^2-e^(2t) /t= -e^(2t) /t^2
+
+    % So u'=-fy_2/W=- (e^(2t) /t)(e^t /t) /(-e^(2t) /t^2) =e^t ---> u=e^t
+
+    % v'=fy_1/W=(e^(2t) /t)(e^t)/(-e^(2t) /t^2)=-te^t ---> v=(1-t)e^t
+
+    % y_p=(1/t)e^{2t}.  Sanity: y'=[(2/t)-(1/t^2)]e^{2t} and y''=[(4/t)-(4/t^2)+(2/t^3)] e^{2t}
+
+    % t[(4/t)-(4/t^2)+(2/t^3)]-2(t-1)[(2/t)-(1/t^2)]+(t-2)(1/t) ]e^{2t}=
+
+      % [4-(4/t)+(2/t^2)-4+(6/t)-(2/t^2)+1-2/t ]e^{2t}=
+
+      % e^{2t}=YES
+
+
+\begin{enumerate}[label=(\alph*)]
+\item $v=t$
+\item $v=-0.5e^{2t}$
+\item $v=-e^{-t}$
+\item $v=(t-1)e^t$
+\item $v=-(t-1)e^t$ %***
+\item $v=-e^t$
+\end{enumerate}
+
+%  (e) with options through (f)
+
+
+
+\item Suppose $y(x)$ is the particular solution to $y^{\,\prime\prime}+4y=4\sec^2(2x)$ which \emph{involves the least number of terms}.  Determine $\displaystyle y\left(\frac{\pi}{6}\right)$.  Round to the nearest hundredth.
+
+% y(pi/6) \approx 0.14
+
+% y = -1+sin(2x) ln|sec(2x)+tan(2x)|
+
+Hint: you may find $\displaystyle \int \sec (\theta)\, \mathrm{d}\theta=\ln \left|\sec (\theta)+\tan (\theta)\right|+C$ helpful.
+
+
+
+\end{enumerate}
+
+\end{document}
