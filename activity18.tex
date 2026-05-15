@@ -1,0 +1,127 @@
+\documentclass{ximera}
+
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 18}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+
+\item A large undamped (vertical) spring-mass system begins (at time $t=0$) at rest at equilibrium.  Then the mass is constantly forced upward by a force of magnitude $12$ Newtons.  Suppose the mass is $2$ kg and the spring stiffness is $8$ Newtons per meter.  Find the vertical displacement of the mass (in meters) at time $t=10$ seconds.  Round to the nearest hundredth of a meter.
+
+    % 2y''+8y=12 so y''+4y=6.  y=1.5-1.5cos(2t).  So y(10)=1.5(1-cos(20))\approx 0.89
+
+
+\item Which CANNOT be displacement of the mass above equilibrium for a free damped spring-mass system?
+
+\begin{enumerate}[label=(\alph*)]
+
+\item $y=(1+t)e^{-t/2}$ 
+\item $y=2e^{-t}-e^{-10t}$
+\item $y=e^{-0.2t}\cos{(\pi t)}$
+\item $y=e^{-t/10}-10e^{-t/100}$ 
+\item $y=\dfrac{\cos{(2\pi t)}-\sin{(2\pi t)}}{e^{t}}$ 
+\item $y=\dfrac{1+t}{e^{1-t/5}}$
+
+\end{enumerate}
+
+% (f) with options through (f)
+
+\newpage
+
+
+\item Each curve below is the graph of the displacement above equilibrium of a mass in a spring-mass system.  Match each curve to the types of spring-mass systems below.
+
+\begin{figure}[h]
+    \centering
+\alttext{Some solution curves to spring-mass systems.}
+\begin{tikzpicture}[scale=1.5]
+    \begin{axis}[axis equal,axis lines = middle,xlabel = \(t\),grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    ylabel = {\(y(t)\)}]
+    \addplot[domain=0:4,
+    samples=120,color=blue,ultra thick]{x*sin(5*deg(x))};
+    \addlegendentry{\((i)\)}        
+    \addplot[domain=0:4,
+    samples=120,color=blue]{2*sin(8*deg(x))};
+    \addlegendentry{\((ii)\)}
+    \addplot[domain=0:4,
+    samples=60,color=black,dotted,thick]{3+exp(-x)*cos(8*deg(x))};
+    \addlegendentry{\((iii)\)}
+    \addplot[domain=0:4,
+    samples=60,color=black,dashed,ultra thick]{1.5(x-0.4)*exp(-x)};
+    \addlegendentry{\((iv)\)}
+    \addplot[domain=0:4,
+    samples=60,color=black,thick]{1.5*exp(-x)*sin(10*deg(x))};
+    \addlegendentry{\((v)\)}
+        \end{axis}
+\end{tikzpicture}
+    \caption{Some solution curves to spring-mass systems}
+\end{figure}
+
+\begin{enumerate}[label=(\alph*)]
+\item A simple harmonic oscillator
+\item A free underdamped spring-mass system 
+\item A free critically damped spring-mass system 
+\item A forced undamped spring-mass system in resonance 
+\item A forced and underdamped spring-mass system 
+\end{enumerate}
+
+
+% Matching:  (a)-(ii), (b)-(v), (c) - (iv), (d)-(i) and (e)-(iii)
+
+\newpage
+
+
+\item A small object of mass 1 kg is attached to an elastic spring of stiffness $1$ N/m and is immersed in a viscous medium that resists the motion of the mass with 2 Newtons of force per m/s of speed.  Suppose that at a certain instant the spring is $0.25$ meters below equilibrium and moving upward at $1$ meter per second.  How many times does the mass cross through equilibrium thereafter?
+
+\begin{enumerate}[label=(\alph*)]
+    \item Zero times
+    \item One time % ***
+    \item Two times
+    \item Three times
+    \item Infinitely-many times
+\end{enumerate}
+
+% (b) with options through (e)
+
+\item The gun of a U.S. M60 tank is attached to spring-mass system with a $100$ kg mass and a dashpot damper.  The spring stiffness is engineered to equal $\dfrac{c^2}{400}$ where $c$ is the damping constant of the dashpot damper.  Assume that when the gun is fired, the mass is at equilibrium with a velocity of $100$ m/s.  It is desired that one second later, the quantity $y^2+(y\,^{\prime})^2$ be no greater than $0.01$.  What is the minimum possible value of $c$ in $N\,s/m$?  Report the answer with 2 significant figures (e.g. $890$ for $893$).
+
+Hint: use a numerical inequality solver (e.g. Wolfram Alpha)
+    
+    % 1800
+    
+    % y=100te^(-ct/200) ...   y(1)=100e^(-c/200) and y'(1)=[100-c/2]e^(-c/200)
+    
+    % (100e^(-c/200))^2+([100-c/2]e^(-c/200))^2 is at least 0.01 as c goes from 1798 to 1799 ... so 1800.
+
+
+\end{enumerate}
+
+\end{document}
