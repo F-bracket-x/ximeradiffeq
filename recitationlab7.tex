@@ -1,0 +1,229 @@
+\documentclass{ximera}
+
+\newcommand{\inbetween}{\fontsize{7pt}{9pt}\selectfont}
+
+
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%------------------------------------------------------------
+
+
+
+\newcommand{\Laplace}[1]{\ensuremath{\mathcal{L}{\left[#1\right]}}}
+\newcommand{\InvLap}[1]{\ensuremath{\mathcal{L}^{-1}{\left[#1\right]}}}
+
+
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Lab 7 - Convolution}
+    
+    \maketitle
+
+
+\begin{enumerate}
+    
+%\item Determine the displacement above equilibrium $y(t)$ (at $t\geq 0$ seconds) of a $0.1$ kg mass in an undamped spring-mass system with a natural frequency of $\displaystyle \frac{5}{\pi}$ hz, if the mass begins at rest at equilibrium and is forced (in Newtons) by $\displaystyle F(t)=\left\{\begin{array}{lr}
+%       t & \mbox{ if }0\leq t<1\\
+%       \\
+%       1 & \mbox{ if }1\leq t<2\\
+%       \\
+%       2-\dfrac{t}{2} &  \mbox{ if }2\leq t<4
+%       \\
+%       0  & \mbox{ if }t\geq 4\\
+%     \end{array}\right.$  
+
+
+%\begin{figure}[h]
+%\alttext{The graph of a piecewise continuous function.}
+% \centering
+% \begin{tikzpicture}[scale=0.75]
+%\begin{axis}[axis x line=middle, axis y line=
+%middle, xtick={-1,1,2,3,4,5,6}, ytick={-1,...,2,3},
+%xmin=-2, xmax=7, ymin=-0.5, ymax=1.5]
+
+%\addplot[blue,thick,domain=0:1] {x};
+%\addplot[blue,thick,domain=1:2] {1};
+%\addplot[blue,smooth,thick,domain=2:4] {2-0.5*x};
+%\addplot[blue,smooth,thick,domain=4:7] {0};
+%\end{axis}
+%\end{tikzpicture}
+%\caption{Graph of a piecewise continuous function}
+%\end{figure}
+
+
+%\vfill
+
+%\item Solve the IVP $y^{\,\prime\prime}+2y^{\,\prime}+y=e^{-t}+\delta((t-1)$.
+
+%\vfill
+
+%\newpage
+
+\item Let $f(t),g(t)$ be functions.  The \textbf{convolution} of $f$ and $g$ is the function $$\displaystyle (f\ast g)(t)=\int_{0}^{t}f(x)g(t-x)\,\mathrm{d}x.$$
+
+\begin{enumerate}
+
+\item  Compute the convolution of $f(t)=t^2$ and $g(t)=e^{-t}$ directly from the definition above.  Put the answer in the box provided.
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.3in} \hfill\vspace{0.3in} \end{minipage} }
+
+\vfill
+
+\item Show that the convolution of $f(t)$ and $g(t)$ does not depend on order, that is, $f\ast g=g\ast f$.  
+
+Hint:  use the $u$-substitution $u=t-x$.
+
+\vfill
+
+
+\end{enumerate}
+
+
+\newpage
+
+
+Recall: the \textbf{Laplace transform} of a function $f(t)$ is $\displaystyle \mathcal{L}[f]=\int_{0}^{\infty}f(t)e^{-st}\,\mathrm{d}t$.
+
+\item  Let $f(t)$ and $g(t)$ be continuous functions for $t\geq 0$.  Fill-in the missing details below, after each of the ellipses, which will demonstrate that\\ $\mathcal{L}[f\ast g]=\mathcal{L}[f]\mathcal{L}[g]$:
+
+
+First note that $\displaystyle \mathcal{L}[f]\mathcal{L}[g]=\int_0^{\infty}f(t)e^{-st}\,\mathrm{d}t\int_0^{\infty}g(t)e^{-st}\,\mathrm{d}t$.  By replacing all instances of $``$t" with $``$x" in the first integral and $``$y" in the second integral, we get that
+
+
+\vfill
+
+$\displaystyle \mathcal{L}[f]\mathcal{L}[g]=$ ... \hfill.
+
+\vfill
+
+Bringing the second integral into the integrand of the first integral, 
+
+\vfill
+
+$\displaystyle \mathcal{L}[f]\mathcal{L}[g]=$ ...\hfill.  
+
+\vfill
+
+
+Then by bringing the integrand of the first integral into the second integral, we get the iterated double integral 
+
+\vfill
+
+$\displaystyle \mathcal{L}[f]\mathcal{L}[g]=\int_0^{\infty}\int_0^{\infty}$ ...\hfill $\mathrm{d}y\,\mathrm{d}x$.  
+
+\vfill
+
+
+Using the substitution $t=x+y$ in the $``$inner" integral, ($x$ can be regarded as a constant).  
+
+
+\vfill
+
+Then $\mathrm{d}t=\mathrm{d}y$, and $t=$ ... \hfill when $y=0$, and $t\rightarrow ...$\hfill when $y\rightarrow\infty$, 
+
+\vfill
+
+so we get $\displaystyle \mathcal{L}[f]\mathcal{L}[g]=\int_0^{\infty}\int_x^{\infty}$ ...\hfill $\mathrm{d}t\,\mathrm{d}x$.  
+
+\vfill
+
+
+The region of the $xt$-plane for this improper iterated double integral is ... \\(\emph{Shade the region!})
+
+\begin{figure}[h]
+\alttext{The identity function through the first quadrant of a plane.}
+ \centering
+ \begin{tikzpicture}[scale=0.55]
+\begin{axis}[
+axis x line=middle,
+axis y line=middle,
+ylabel=$x$,
+xlabel=$t$,
+xtick={0},
+ytick={0},
+xmax=10,
+ymax=10,
+xmin=-1,
+ymin=-1
+]
+% Plots
+\addplot[blue,ultra thick,domain=0:9] {x};
+\end{axis}
+\end{tikzpicture}
+\caption{A line in a a plane}
+\end{figure}
+
+\newpage
+
+Let's reverse the order of the integration, from $\mathrm{d}t\,\mathrm{d}x$ to $\mathrm{d}x\,\mathrm{d}t$.  The region shaded can be described as 
+
+\vfill
+
+
+$\{(t,x)|0\leq t\leq \infty,$ ...\hfill$\leq x\leq$ ...\hfill $\}$ so we get that
+
+
+\vfill
+
+ $\displaystyle \mathcal{L}[f]\mathcal{L}[g]=$ ...  \hfill 
+ 
+\vfill
+
+ 
+ and the inner integral is not improper!  Pulling $e^{-st}$ out of the inner integral and using $\displaystyle (f\ast g)(t)=\int_{0}^{t}f(x)g(t-x)\,\mathrm{d}x$ we get 
+ 
+\vfill
+
+ $\displaystyle \mathcal{L}[f]\mathcal{L}[g]=$ ...  \hfill  $=\mathcal{L}[...$\hspace{3cm} $]$.
+
+
+\vfill
+
+
+\item Now compute the convolution of $f(t)=t^2$ and $g(t)=e^{-t}$ as follows:
+
+\begin{itemize}
+\item Determine the product $\mathcal{L}(f)\mathcal{L}(g)$.
+
+\item Perform a partial fraction decomposition on the above function.
+
+\item Take the inverse Laplace transform of the result.
+
+\end{itemize}
+
+\vfill
+\vfill
+
+\item Solve the ``integral equation" $y(t)=2+\displaystyle \int_0^t (t-x)y(x)\,\mathrm{d}x$.  Put the answer in the box provided.
+
+\hfill{}\fbox{ \begin{minipage}{4in}\vspace{0.3in} \hfill\vspace{0.3in} \end{minipage} }
+
+
+Hint: the integral is the convolution of two functions.
+
+\vfill
+\vfill
+
+
+\end{enumerate}
+
+
+
+
+\end{document}

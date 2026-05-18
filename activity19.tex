@@ -1,0 +1,83 @@
+\documentclass{ximera}
+
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 19}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+
+\item Which CANNOT be the current $I(t)$ in an RLC circuit with a constant voltage source?
+
+
+\begin{enumerate}[label=(\alph*)]
+\item $I(t)=(5-t)e^{-2t}$
+\item $I(t)=e^{-t}\left(\cos{(800t)}-\sin{(800t)}\right)$
+\item $I(t)=e^{-50t}-e^{-100t}$
+\item $I(t)=1+(5-t)e^{-2t}$ %***
+\item $I(t)=e^{-15t}+5e^{-2t}$
+\item $I(t)=e^{-20t}\cos{(100t)}$
+\end{enumerate}
+
+% (d) with options through (f)
+
+\item  Suppose an RLC circuit with a resistor of resistance $10$ ohms, an inductor of inductance $1$ henry and a capacitor of capacitance $0.04$ farads is hooked-up to a $9$-volt battery.  Suppose the current in the circuit, $I(t)$ (in amps) at $t\geq 0$ seconds, satisfies $I(0)=5$, $I'(0)=0$. Find $I(0.1)$.   Round to the nearest hundredth.
+
+%  I''+10I'+25I=0.  r=-5. I=(5+c_2 t)e^(-5t).  I'=c_2 e^(-5t)-5(5+c_2 t)e^(-5t).  0=c_2-25 so c_2=25.  I=(5+25t)e^(-5t)\approx 4.55
+
+
+\item  Suppose an RLC circuit plugged into the wall, consists of an inductor of inductance $L$ henries, a resistor of resistance $R=80$ ohms, a capacitor of capacitance is $C=4\times 10^{-5}$ farads, and suppose a transient solution for the current in the circuit is $I(t)=0.75 \cos{(120\pi t)}+12te^{-625t}$.  Find $L$ to the nearest hundredth.
+
+
+    %  Critically damped.  R= 2\sqrt{L/C} and a=-R/(2L).   What if L=0.064 henries?  Then a=-80/(2*0.064)=-640.  (R/2)^2=L/C so C=L/[(R/2)^2]=0.0625/1600
+
+    % 0.06.  Check:   I''+80/L I'+25000/L I=V/L.  Want 16/L^2=250/L ---> L=16/250\approx 0.06
+
+    % Easier:  -625=-R/(2L)=-40/L so L=40/625\approx 0.06
+
+\newpage
+
+
+\item An ideal LC circuit (without a voltage source) assumes the resistance of the conducting wire is $0$, and has just two components, an inductor (of inductance $L$ henries in SI units) and a capacitor (of capacitance $C$ farads in SI units).  In any practical application, the resistance of the conducting wire can't be $0$, but it can be small enough that it takes a very LONG time for current to dissipate.  An ideal LC circuit is modeled by $LI''(t)+I(t)/C=0$ where $I(t)$ is the current at time $t$ seconds, and is a simple harmonic oscillator (where the ``oscillation" is the alternating current).  Suppose an ideal LC circuit has a natural frequency of $12$ hz.  Find the product $LC$ (in SI units) to one significant figure.
+
+%  w=24pi=sqrt(1/[LC]).  So LC=1/(24 pi)^2\approx 0.0002
+
+
+
+\item Let $\omega>0$ be a constant. Suppose a voltage source of $V(t)=120 \sin(\omega t)$ volts at time $t\geq 0$ seconds is applied to an RLC circuit, where the inductor has inductance $0.1$ henries, the resistor has resistance $2$ ohms and the capacitor has capacitance $0.01$ farads.  Find $\omega$ such that the steady state solution has the largest possible amplitude.  Round to the nearest hundredth.
+
+ % 31.62
+
+
+
+
+\end{enumerate}
+
+
+
+\end{document}
