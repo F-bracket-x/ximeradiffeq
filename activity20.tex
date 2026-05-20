@@ -1,0 +1,93 @@
+\documentclass{ximera}
+
+
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 20}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+
+\item $\displaystyle \mathcal{L}(t^3e^{-2t})=\ldots$
+
+\begin{enumerate}[label=(\alph*)]
+\item $\dfrac{6}{s^4}+2$
+\item $\dfrac{6}{(s+2)^4}$  % ***
+\item $\dfrac{6}{(s-2)^4}$
+\item $-\dfrac{2}{s^4+1}$
+\item $\dfrac{6}{s^3(s+2)}$ 
+\item None of these
+\end{enumerate}
+
+% (b) with options through (f)
+
+\item Find the value of $\mathcal{L}((t-1)^2e^{-t})$ at $s=1$.  
+
+
+% 2/(s+1)^3 -2 * 1/(s+1)^2 +1/(s+1) at s=1 is 1/4-1/2+1/2 = 0.25
+
+
+
+\item Let $F(s)=\mathcal{L}(f)$ where $f(t)=\left\{
+     \begin{array}{lr}
+       4-t^2 & \mbox{ if }0\leq t<2\\
+       \\
+       0 &  \mbox{ if }t\geq 2
+     \end{array}\right.$  Determine $F(3)$ to the nearest thousandth.
+
+     % 1.261
+
+     % 4-t^2 +U(t-2)[t^2-4] ----> 4/s - 2/s^3 +e^(-2s)(L(t^2+4t)) ----> 4/s - 2/s^3 +e^(-2s)(2/s^3+4/s^2)
+
+    % F(3)=4/3-2/27+e^(-6)*(2/27+4/9)\approx 1.261 ... CHECKS OUT WITH DIRECT INTEGRAL CALCULATION
+
+
+\newpage
+
+\item Suppose $f(t)$ is piecewise continuous on $[0,\infty)$ and is of exponential order $s_0\geq 0$.  For $s>s_0$, let $\displaystyle F(s)=\mathcal{L}(f(t))=\int_0^{\infty} f(t)e^{-st}\,\mathrm{d}t$.   Which of the following is $\displaystyle \frac{dF}{ds}$ for $s>s_0$? 
+
+
+    Hint:  If there exists $G(s,t)$ with continuous 2nd order partial derivatives for $s>s_0$ and $t\geq 0$ satisfying $G_t=f(t)e^{-st}$ for $t\geq 0$ then for $T>0$, $\displaystyle \int_0^{T} f(t)e^{-st}\,\mathrm{d}t=G(s,T)-G(s,0)$ and thus \\$\displaystyle \dfrac{d}{ds}\displaystyle \int_0^{T} f(t)e^{-st}\,\mathrm{d}t=G_s(s,T)-G_s(s,0)=\int_0^T G_{st}\,\mathrm{d}t=\int_0^T G_{ts}\,\mathrm{d}t$.
+
+
+\begin{enumerate}[label=(\alph*)]
+\item $\displaystyle s\mathcal{L}(tf(t))$
+\item $\displaystyle -s\mathcal{L}(tf(t))$
+\item $\displaystyle \mathcal{L}(tf(t))$
+\item $\displaystyle -\mathcal{L}(tf(t))$ % ***
+\item $\displaystyle -\mathcal{L}(f(t))$
+\item None of these
+\end{enumerate}
+
+% (d) with options through (f)
+
+
+\item  Use the result of the previous exercise, and that $\displaystyle \mathcal{L}\left(\sin{(\omega t)}\right)=\frac{\omega}{s^2+\omega^2}$, to determine the value of the Laplace transform of $t\sin{(2t)}$ at $s=1$.  
+
+
+    % - d/(ds) (2/(s^2+4))= 4s/(s^2+4)^2.  At s=1, that's 4/25=0.16
+
+\end{enumerate}
+
+
+
+\end{document}
