@@ -1,0 +1,113 @@
+\documentclass{ximera}
+
+
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 24}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+
+\item Determine $y(2026)$ given that $y(t)$ satisfies $y^{\,\prime}+y=t+e^{2026}\delta (t-1)$, $y(0)=0$.  Round to the nearest tenth.
+
+% (s+1)Y=1/s^2 +e^{2026} e^(-s) ---> Y=1/[s^2(s+1)] +e^{2026} e^(-s) [1/(s+1)]
+
+% Y=[1/s^2 + A/s+ 1/(s+1)] + e^{2026} e^(-s) [1/(s+1)]
+
+% 1=s+1+As^2+As+s^2 -> A=-1
+
+% Y=[1/s^2 - 1/s + 1/(s+1)] + e^{2026} e^(-s) [1/(s+1)]
+
+
+% y=t-1 + e^{-t} + e^{2026} U(t-1)* [e^{-(t-1)}]
+
+% y(2026)\approx 2025+e\approx 2027.7
+
+
+\item Suppose $y(t)$ satisfies the IVP $4y\,^{\prime\prime}+4y\,^{\prime}+y=5\delta (t-2)$, $y(0)=0$, $y\,^{\prime}(0)=1$.  Determine $y(4)$.  Round to the nearest hundredth.
+
+% [4s^2+4s+1]Y=4+5e^(-2s)
+
+
+% Y=1/(s+1/2)^2+(5/4)/(s+1/2)^2 e^(-2s)
+
+% y=te^(-t/2)+(5e/4)U(t-2)[(t-2)e^(-t/2)]
+
+% y(4)=4/e^2+(5e/4)[2/e^2]
+
+% y(4)=4/e^2+5/(2e)\approx 1.46
+
+
+\item Determine $y(2026)$ given that $y(t)$ satisfies $y^{\,\prime\prime}=\delta (t-\pi)$, $y(0)=0$, $y'(0)=1$.  Round to the nearest tenth.
+
+% s^2 Y -1=e^(-pi s) -> s^2 Y=1+e^(-pi s) -> Y=1/s^2+(1/s^2)e^(-pi s)
+
+% y=t+U(t-pi)(t-pi) so y(2022)=2026+(2026-pi)\approx 4048.9
+
+
+
+\item Suppose $y(t)$ satifies the IVP $\displaystyle y^{\,\prime\prime}=\sum_{n=0}^{\infty}\delta (t-n)$, $y(0)=0$, $y^{\,\prime}(0)=0$.  Use Laplace transforms to determine $y(\pi)$.  Round to the nearest thousandth.
+
+
+% pi+pi-1+pi-2+pi-3 = 4pi-6 \approx 6.566
+
+% y''=  sum_i=0^infty delta(t-i).
+
+% s^2Y= sum_i=0^infty (e^{-is})
+
+% Y= sum_i=0^infty (e^(-is)) (1/s^2)
+
+% y= sum_i=0^infty U(t-i) (t-i)
+
+% y= t+U(t-1) (t-1)+ U(t-2) (t-2)+ ...
+
+
+\item There exist positive constants $a,k$ so the solution to the IVP\\ $y^{\,\prime\prime}+2y^{\,\prime}+2y=k\delta \left(t-a\right)$, $y(0)=0$, $y^{\,\prime}(0)=1$ satisfies $y=0$ for all $t\geq a$.  Determine $k$ such that $a$ is minimal. Round to the nearest hundredth.
+
+
+% e^(-pi) \approx 0.04
+
+% s^2 Y-1+2(sY)+2Y=ke^(-as) ---> 
+
+% Y=1/((s+1)^2+1) +ke^(-a s) 1/((s+1)^2+1)
+
+% y=e^(-t)sin(t) + k U(t-a) * e^{-(t-a)}sin(t-a)
+
+% THIS IS WHERE ONE CAN DETERMINE a=pi
+
+% y=e^(-t)sin(t) +k U(t-\pi) * e^{-(t-\pi)}sin(t-\pi)
+
+% y=e^(-t)sin(t) - k U(t-\pi) * e^{-(t-\pi)}sin(t)
+
+% For t/geq pi, y= e^(-t) sin(t) *[1  - k e^(\pi)]=0 implies k=1/e^(\pi).
+
+
+
+
+\end{enumerate}
+
+\end{document}
