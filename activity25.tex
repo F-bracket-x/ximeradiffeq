@@ -1,0 +1,105 @@
+\documentclass{ximera}
+
+
+\ifdefined\HCode
+  \newcommand{\alttext}[1]{\HCode{<span class="sr-only">#1</span>}}
+\else
+  \newcommand{\alttext}[1]{} % Fallback for PDF view
+\fi
+
+
+% MATH -----------------------------------------------------------
+\newcommand{\nats}{\mathbb N}
+\newcommand{\ints}{\mathbb Z}
+\newcommand{\rats}{\mathbb Q}
+\newcommand{\reals}{\mathbb R}
+\newcommand{\complex}{\mathbb C}
+\newcommand{\powerset}{\mathscr P}
+
+%-------------------------------------------------------------
+
+\pgfplotsset{compat=1.18}
+\begin{document}
+\begin{abstract}
+ \end{abstract}
+
+    \title{Class Discussion Activity 25}
+    
+    \maketitle
+
+\section*{Exercises}
+
+\begin{enumerate}[label=(\arabic*)]
+
+\item Evaluate $\delta(t-1)\ast t^2$ at $t=2$.  
+
+% 1
+
+% Laplace=2e^(-s)/s^3.  Inverse Laplace of that is U(t-1)[(t-1)^2]
+
+
+\item Suppose $y(t)$ satisfies the integral equation $\displaystyle y(t)+\int_0^t y(x)(x-t)\,\mathrm{d}x=1$.  Determine $y(1)$.  Round to the nearest thousandth.
+
+% 1.543
+
+% Y-Y/s^2=1/s
+
+% s^2Y-Y=s
+
+% (s^2-1)Y=s
+
+% Y=s/(s^2-1)=0.5[1/(s-1)+1/(s+1)]
+
+% y=0.5[e^t+e^{-t}]=cosh(t)
+
+% y=cosh(1)\appprox 1.543
+
+
+
+
+\item Suppose $y(t)$ satisfies the integral equation \\$\displaystyle y(t)+\int_0^t  (t-x)\,y(x)\,dx=\delta{(t-\pi)}$.  Find $y(4)$ to the nearest tenth.
+
+
+% Y+Y/s^2=e^(- pi s) --> (s^2+1)/s^2 Y=e^(- pi s) ---> Y=e^(- pi s)[(s^2+1)-1]/(s^2+1)=e^(- pi s)[1-1/(s^2+1)] ---> y=U(t-pi){delta(t-pi)+sin(t)}
+
+% sin(4)\approx -0.8
+
+
+
+
+\item Suppose $y(t)$ satisfies the integral equation $\displaystyle y(t)+4\int_0^t  x^2y(t-x)\,\mathrm{d}x=1$.  Determine $y(1)$.  Round to the nearest thousandth.
+
+
+  Hint:  $s^3+a^3=(s+a)(s^2-as+a^2)$.
+
+    % y(1)=(1/3)[e^(-2)+2e*cos(sqrt(3))]\approx -0.246
+
+
+    % Y+8Y/s^3=1/s ... Y=s^2/(s^3+8)
+
+    % Y=s^2/(s^3+8)=s^2/[(s+2)(s^2-2s+4)]=(1/3)/(s+2)+((2/3)s-(2/3))/(s^2-2s+4)
+
+    % Y=(1/3)[1/(s+2)+2(s-1)/[(s-1)^2+3]]
+
+    % y=(1/3)[e^(-2t)+2e^t*cos(sqrt(3)t)]
+
+
+
+\item Use Euler's method to estimate $y(0.6)$, where $y$ is the unique solution to the IVP $y\,^{\prime}=1- x^y$, $y(0)=1$, using a step size of $\Delta x=0.15$.  Round your estimate to the nearest thousandth. 
+
+% 1.502
+
+    % y(0.15)\approx 1+[1-0^1](0.15)=1.15
+
+    % y(0.3)\approx 1.15+[1-(0.15)^1.15](0.15)\approx 1.28307236808
+
+    % y(0.45)\approx 1.28307236808+[1-(0.3)^(1.28307236808)](0.15)\approx 1.40106868294
+
+    % y(0.6)\approx 1.40106868294+[1-(0.45)^(1.40106868294)](0.15)=1.50206619026
+
+
+
+
+\end{enumerate}
+
+\end{document}
